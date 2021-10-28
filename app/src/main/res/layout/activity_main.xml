@@ -29,10 +29,11 @@
         app:layout_constraintVertical_bias="0.448" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Start_Button"
         android:layout_width="109dp"
         android:layout_height="75dp"
-        android:background="@drawable/copperbarbutton"
+        android:background="@drawable/copper_bar"
+        android:onClick="StartOnClick"
         android:text="Start!"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
