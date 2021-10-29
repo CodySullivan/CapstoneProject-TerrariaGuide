@@ -5,17 +5,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 
 import java.util.List;
-import java.util.Locale;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -56,6 +55,7 @@ public class Navigation extends AppCompatActivity {
 
         GetMaterials();
         GetEnemies();
+        GetBosses();
     }
 
     public void BackOnClick(View v){
@@ -68,11 +68,13 @@ public class Navigation extends AppCompatActivity {
 
         RealmQuery<Materials> materialQuery = realm.where(Materials.class);
         List<Materials> materialsList = (materialQuery.findAll());
-
-        //Monsters
+        //Enemies
 
         RealmQuery<Enemies> enemyQuery = realm.where(Enemies.class);
         List<Enemies> enemiesList = (enemyQuery.findAll());
+        //Bosses
+        RealmQuery<Bosses> bossQuery = realm.where(Bosses.class);
+        List<Bosses> bossesList = (bossQuery.findAll());
 
         for(Materials m : materialsList) {
             if (m.getName().toLowerCase().contains(object.toLowerCase())) {
@@ -81,6 +83,12 @@ public class Navigation extends AppCompatActivity {
                 for(Enemies e : enemiesList) {
                     if(e.getName().toLowerCase().contains(object.toLowerCase())) {
                         openActivity3(e.getName());
+                    } else {
+                        for(Bosses b : bossesList) {
+                            if (b.getName().toLowerCase().contains(object.toLowerCase())) {
+                                openActivity3(b.getName());
+                            }
+                        }
                     }
                 }
             }
@@ -112,7 +120,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<String>(Navigation.this, android.R.layout.simple_list_item_1 ,MaterialList);
+        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,MaterialList);
         MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         MaterialSpinner.setAdapter(MaterialAdapter);
 
@@ -146,7 +154,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<String>(Navigation.this, android.R.layout.simple_list_item_1 ,EnemiesList);
+        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,EnemiesList);
         MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         EnemySpinner.setAdapter(MaterialAdapter);
 
@@ -156,6 +164,40 @@ public class Navigation extends AppCompatActivity {
 
                 if (a != 0) {
                     openActivity3(EnemiesList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetBosses() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Bosses> tasksQuery = realm.where(Bosses.class);
+        Spinner BossSpinner = (Spinner) findViewById(R.id.Boss_Spinner);
+        List<Bosses> bossesList = (tasksQuery.findAll());
+        final String[] BossesList = new String[bossesList.size() + 1];
+
+        int i = 1;
+        BossesList[0] = "(Bosses)";
+
+        for(Bosses b: bossesList) {
+            BossesList[i] = b.getName();
+            i++;
+        }
+
+        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,BossesList);
+        MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        BossSpinner.setAdapter(MaterialAdapter);
+
+        BossSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(BossesList[a]);
                 }
             }
 

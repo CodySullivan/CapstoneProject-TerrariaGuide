@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Bosses;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Enemies;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Materials;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         Realm.setDefaultConfiguration(config);
         addMaterialsToDatabase();
         addEnemiesToDatabase();
+        addBossesToDatabase();
 
     }
 
@@ -319,6 +321,37 @@ public class MainActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(ge.World_Feeder);
                 realm.copyToRealmOrUpdate(ge.Wraith);
                 realm.copyToRealmOrUpdate(ge.Wyvern);
+            }
+        });
+    }
+    public void addBossesToDatabase() {
+        //Get Bosses
+        final Generate_Bosses gb = new Generate_Bosses();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransaction(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode Bosses
+                realm.copyToRealmOrUpdate(gb.King_Slime);
+                realm.copyToRealmOrUpdate(gb.Eye_Of_Cthulhu);
+                realm.copyToRealmOrUpdate(gb.Eater_Of_Worlds);
+                realm.copyToRealmOrUpdate(gb.Brain_Of_Cthulhu);
+                realm.copyToRealmOrUpdate(gb.Queen_Bee);
+                realm.copyToRealmOrUpdate(gb.Skeletron);
+                realm.copyToRealmOrUpdate(gb.Wall_Of_Flesh);
+
+                //Add Hardmode Bosses
+                realm.copyToRealmOrUpdate(gb.Queen_Slime);
+                realm.copyToRealmOrUpdate(gb.The_Twins);
+                realm.copyToRealmOrUpdate(gb.The_Destroyer);
+                realm.copyToRealmOrUpdate(gb.Skeletron_Prime);
+                realm.copyToRealmOrUpdate(gb.Plantera);
+                realm.copyToRealmOrUpdate(gb.Golem);
+                realm.copyToRealmOrUpdate(gb.Empress_Of_Light);
+                realm.copyToRealmOrUpdate(gb.Duke_Fishron);
+                realm.copyToRealmOrUpdate(gb.Lunatic_Cultist);
+                realm.copyToRealmOrUpdate(gb.Moon_Lord);
             }
         });
     }

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 
@@ -85,6 +86,17 @@ public class Info_Viewer extends AppCompatActivity {
                         newString = e.getName().replace(" ", "_").toLowerCase();
                         int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                         iv.setImageResource(resId);
+                    } else {
+                        RealmQuery<Bosses> bossesQuery = realm.where(Bosses.class);
+                        List<Bosses> bossesList = (bossesQuery.findAll());
+                        for(Bosses b : bossesList) {
+                            if (b.getName().contains(maybe)) {
+                                tv2.setText(b.toString());
+                                newString = b.getName().replace(" ", "_").toLowerCase();
+                                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                                iv.setImageResource(resId);
+                            }
+                        }
                     }
                 }
             }
