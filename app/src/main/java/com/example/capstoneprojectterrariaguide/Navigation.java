@@ -79,18 +79,16 @@ public class Navigation extends AppCompatActivity {
         for(Materials m : materialsList) {
             if (m.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(m.getName());
-            } else {
-                for(Enemies e : enemiesList) {
-                    if(e.getName().toLowerCase().contains(object.toLowerCase())) {
-                        openActivity3(e.getName());
-                    } else {
-                        for(Bosses b : bossesList) {
-                            if (b.getName().toLowerCase().contains(object.toLowerCase())) {
-                                openActivity3(b.getName());
-                            }
-                        }
-                    }
-                }
+            }
+        }
+        for(Enemies e : enemiesList) {
+            if (e.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(e.getName());
+            }
+        }
+        for(Bosses b : bossesList) {
+            if (b.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(b.getName());
             }
         }
     }
