@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
+import com.example.capstoneprojectterrariaguide.Models.Swords;
 
 import java.util.List;
 import java.util.Locale;
@@ -77,28 +78,36 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = m.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
-            } else {
-                RealmQuery<Enemies> enemiesQuery = realm.where(Enemies.class);
-                List<Enemies> enemiesList = (enemiesQuery.findAll());
-                for(Enemies e : enemiesList) {
-                    if (e.getName().contains(maybe)) {
-                        tv2.setText(e.toString());
-                        newString = e.getName().replace(" ", "_").toLowerCase();
-                        int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                        iv.setImageResource(resId);
-                    } else {
-                        RealmQuery<Bosses> bossesQuery = realm.where(Bosses.class);
-                        List<Bosses> bossesList = (bossesQuery.findAll());
-                        for(Bosses b : bossesList) {
-                            if (b.getName().contains(maybe)) {
-                                tv2.setText(b.toString());
-                                newString = b.getName().replace(" ", "_").toLowerCase();
-                                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                                iv.setImageResource(resId);
-                            }
-                        }
-                    }
-                }
+            }
+        }
+        RealmQuery<Enemies> enemiesQuery = realm.where(Enemies.class);
+        List<Enemies> enemiesList = (enemiesQuery.findAll());
+        for(Enemies e : enemiesList) {
+            if (e.getName().contains(maybe)) {
+                tv2.setText(e.toString());
+                newString = e.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<Bosses> bossesQuery = realm.where(Bosses.class);
+        List<Bosses> bossesList = (bossesQuery.findAll());
+        for(Bosses b : bossesList) {
+            if (b.getName().contains(maybe)) {
+                tv2.setText(b.toString());
+                newString = b.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<Swords> swordsQuery = realm.where(Swords.class);
+        List<Swords> swordsList = (swordsQuery.findAll());
+        for(Swords s : swordsList) {
+            if (s.getName().contains(maybe)) {
+                tv2.setText(s.toString());
+                newString = s.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
             }
         }
     }

@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Materials gm = new Generate_Materials();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
+        realm.executeTransactionAsync(new Realm.Transaction() {
             public void execute(Realm realm) {
                 //Add Bar Materials
                 realm.copyToRealmOrUpdate(gm.Adamantite_Bar);
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Enemies ge = new Generate_Enemies();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
+        realm.executeTransactionAsync(new Realm.Transaction() {
             public void execute(Realm realm) {
 
                 //Add Pre-Hardmode Enemies
@@ -329,7 +329,7 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Bosses gb = new Generate_Bosses();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
+        realm.executeTransactionAsync(new Realm.Transaction() {
             public void execute(Realm realm) {
 
                 //Add Pre-Hardmode Bosses

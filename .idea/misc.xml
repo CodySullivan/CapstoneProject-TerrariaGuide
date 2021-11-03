@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Black5corpion12/Downloads/MoistApplication/CapstoneProjectTerrariaGuide/app/src/main/res/drawable/borderline.xml" value="0.1859375" />
         <entry key="..\:/Users/Black5corpion12/Downloads/MoistApplication/CapstoneProjectTerrariaGuide/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/Black5corpion12/Downloads/MoistApplication/CapstoneProjectTerrariaGuide/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Black5corpion12/Downloads/MoistApplication/CapstoneProjectTerrariaGuide/app/src/main/res/layout/info_viewer.xml" value="0.16979166666666667" />
         <entry key="..\:/Users/Black5corpion12/Downloads/MoistApplication/CapstoneProjectTerrariaGuide/app/src/main/res/layout/materials_page.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Black5corpion12/Downloads/MoistApplication/CapstoneProjectTerrariaGuide/app/src/main/res/layout/navigation_page.xml" value="0.25416666666666665" />
       </map>

@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
+import com.example.capstoneprojectterrariaguide.Models.Swords;
 
 import java.util.List;
 
@@ -56,6 +57,7 @@ public class Navigation extends AppCompatActivity {
         GetMaterials();
         GetEnemies();
         GetBosses();
+        GetSwords();
     }
 
     public void BackOnClick(View v){
@@ -64,17 +66,22 @@ public class Navigation extends AppCompatActivity {
     public void SearchOnClick(View v) {
         String object = search.getText().toString();
         Realm realm = Realm.getDefaultInstance();
-        //Materials
 
+        //Materials
         RealmQuery<Materials> materialQuery = realm.where(Materials.class);
         List<Materials> materialsList = (materialQuery.findAll());
-        //Enemies
 
+        //Enemies
         RealmQuery<Enemies> enemyQuery = realm.where(Enemies.class);
         List<Enemies> enemiesList = (enemyQuery.findAll());
+
         //Bosses
         RealmQuery<Bosses> bossQuery = realm.where(Bosses.class);
         List<Bosses> bossesList = (bossQuery.findAll());
+
+        //Swords
+        RealmQuery<Swords> swordQuery = realm.where(Swords.class);
+        List<Swords> swordsList = (swordQuery.findAll());
 
         for(Materials m : materialsList) {
             if (m.getName().toLowerCase().contains(object.toLowerCase())) {
@@ -89,6 +96,11 @@ public class Navigation extends AppCompatActivity {
         for(Bosses b : bossesList) {
             if (b.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(b.getName());
+            }
+        }
+        for(Swords s : swordsList) {
+            if (s.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(s.getName());
             }
         }
     }
@@ -196,6 +208,40 @@ public class Navigation extends AppCompatActivity {
 
                 if (a != 0) {
                     openActivity3(BossesList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetSwords() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Swords> tasksQuery = realm.where(Swords.class);
+        Spinner SwordSpinner = (Spinner) findViewById(R.id.Sword_Spinner);
+        List<Swords> swordsList = (tasksQuery.findAll());
+        final String[] SwordsList = new String[swordsList.size() + 1];
+
+        int i = 1;
+        SwordsList[0] = "(Swords)";
+
+        for(Swords s: swordsList) {
+            SwordsList[i] = s.getName();
+            i++;
+        }
+
+        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SwordsList);
+        MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        SwordSpinner.setAdapter(MaterialAdapter);
+
+        SwordSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(SwordsList[a]);
                 }
             }
 
