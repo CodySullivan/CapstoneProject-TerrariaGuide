@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Bosses;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Enemies;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Materials;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         addMaterialsToDatabase();
         addEnemiesToDatabase();
         addBossesToDatabase();
+        addSwordsToDatabase();
 
     }
 
@@ -352,6 +354,106 @@ public class MainActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(gb.Duke_Fishron);
                 realm.copyToRealmOrUpdate(gb.Lunatic_Cultist);
                 realm.copyToRealmOrUpdate(gb.Moon_Lord);
+            }
+        });
+    }
+    public void addSwordsToDatabase() {
+        //Get Bosses
+        final Generate_Swords gs = new Generate_Swords();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode Swords
+                realm.copyToRealmOrUpdate(gs.Copper_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Tin_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Wooden_Sword);
+                realm.copyToRealmOrUpdate(gs.Boreal_Wood_Sword);
+                realm.copyToRealmOrUpdate(gs.Copper_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Iron_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Palm_Wood_Sword);
+                realm.copyToRealmOrUpdate(gs.Rich_Mahogany_Sword);
+                realm.copyToRealmOrUpdate(gs.Cactus_Sword);
+                realm.copyToRealmOrUpdate(gs.Lead_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Silver_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Tin_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Ebonwood_Sword);
+                realm.copyToRealmOrUpdate(gs.Iron_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Shadewood_Sword);
+                realm.copyToRealmOrUpdate(gs.Tungsten_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Gold_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Lead_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Silver_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Bladed_Glove);
+                realm.copyToRealmOrUpdate(gs.Tungsten_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Zombie_Arm);
+                realm.copyToRealmOrUpdate(gs.Gold_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Platinum_Shortsword);
+                realm.copyToRealmOrUpdate(gs.Mandible_Blade);
+                realm.copyToRealmOrUpdate(gs.Stylish_Scissors);
+                realm.copyToRealmOrUpdate(gs.Ruler);
+                realm.copyToRealmOrUpdate(gs.Platinum_Broadsword);
+                realm.copyToRealmOrUpdate(gs.Umbrella);
+                realm.copyToRealmOrUpdate(gs.Breathing_Reed);
+                realm.copyToRealmOrUpdate(gs.Gladius);
+                realm.copyToRealmOrUpdate(gs.Bone_Sword);
+                realm.copyToRealmOrUpdate(gs.Candy_Cane_Sword);
+                realm.copyToRealmOrUpdate(gs.Katana);
+                realm.copyToRealmOrUpdate(gs.Ice_Blade);
+                realm.copyToRealmOrUpdate(gs.Lights_Bane);
+                realm.copyToRealmOrUpdate(gs.Tragic_Umbrella);
+                realm.copyToRealmOrUpdate(gs.Muramasa);
+                realm.copyToRealmOrUpdate(gs.Exotic_Scimitar);
+                realm.copyToRealmOrUpdate(gs.Phaseblade);
+                realm.copyToRealmOrUpdate(gs.Blood_Butcherer);
+                realm.copyToRealmOrUpdate(gs.Starfury);
+                realm.copyToRealmOrUpdate(gs.Enchanted_Sword);
+                realm.copyToRealmOrUpdate(gs.Purple_Clubberfish);
+                realm.copyToRealmOrUpdate(gs.Bee_Keeper);
+                realm.copyToRealmOrUpdate(gs.Falcon_Blade);
+                realm.copyToRealmOrUpdate(gs.Blade_Of_Grass);
+                realm.copyToRealmOrUpdate(gs.Fiery_Greatsword);
+                realm.copyToRealmOrUpdate(gs.Nights_Edge);
+
+                //Add Hardmode Swords
+                realm.copyToRealmOrUpdate(gs.Pearlwood_Sword);
+                realm.copyToRealmOrUpdate(gs.Classy_Cane);
+                realm.copyToRealmOrUpdate(gs.Slap_Hand);
+                realm.copyToRealmOrUpdate(gs.Cobalt_Sword);
+                realm.copyToRealmOrUpdate(gs.Palladium_Sword);
+                realm.copyToRealmOrUpdate(gs.Phasesaber);
+                realm.copyToRealmOrUpdate(gs.Ice_Sickle);
+                realm.copyToRealmOrUpdate(gs.Brand_Of_The_Inferno);
+                realm.copyToRealmOrUpdate(gs.Mythril_Sword);
+                realm.copyToRealmOrUpdate(gs.Orichalcum_Sword);
+                realm.copyToRealmOrUpdate(gs.Breaker_Blade);
+                realm.copyToRealmOrUpdate(gs.Cutlass);
+                realm.copyToRealmOrUpdate(gs.Frostbrand);
+                realm.copyToRealmOrUpdate(gs.Adamantite_Sword);
+                realm.copyToRealmOrUpdate(gs.Beam_Sword);
+                realm.copyToRealmOrUpdate(gs.Titanium_Sword);
+                realm.copyToRealmOrUpdate(gs.Fetid_Baghnakhs);
+                realm.copyToRealmOrUpdate(gs.Bladetongue);
+                realm.copyToRealmOrUpdate(gs.Tizona);
+                realm.copyToRealmOrUpdate(gs.Excaliber);
+                realm.copyToRealmOrUpdate(gs.True_Excaliber);
+                realm.copyToRealmOrUpdate(gs.Chlorophyte_Saber);
+                realm.copyToRealmOrUpdate(gs.Death_Sickle);
+                realm.copyToRealmOrUpdate(gs.Psycho_Knife);
+                realm.copyToRealmOrUpdate(gs.Keybrand);
+                realm.copyToRealmOrUpdate(gs.Chlorophyte_Claymore);
+                realm.copyToRealmOrUpdate(gs.The_Horsemans_Blade);
+                realm.copyToRealmOrUpdate(gs.Christmas_Tree_Sword);
+                realm.copyToRealmOrUpdate(gs.True_Nights_Edge);
+                realm.copyToRealmOrUpdate(gs.Seedler);
+                realm.copyToRealmOrUpdate(gs.Flying_Dragon);
+                realm.copyToRealmOrUpdate(gs.Starlight);
+                realm.copyToRealmOrUpdate(gs.Terra_Blade);
+                realm.copyToRealmOrUpdate(gs.Influx_Waver);
+                realm.copyToRealmOrUpdate(gs.Star_Wrath);
+                realm.copyToRealmOrUpdate(gs.Meowmere);
+
             }
         });
     }

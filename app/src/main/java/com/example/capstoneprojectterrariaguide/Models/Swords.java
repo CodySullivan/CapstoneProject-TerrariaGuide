@@ -75,11 +75,10 @@ public class Swords extends RealmObject {
 
     @Override
     public String toString() {
-        return
-                "\nName:  " + name +
-                "\n Damage: " + damage +
-                "\n Price: " + price +
-                "\n Type: " + type +
-                "\n How to Obtain: " + howToObtain;
+        return  "\nName:  " + name +
+                "\nDamage: " + damage +
+                "\nPrice: " + price +
+                "\nType: " + type +
+                "\nHow to Obtain: " + howToObtain;
     }
 }
