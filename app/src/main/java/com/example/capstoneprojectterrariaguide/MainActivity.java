@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Axes;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Bosses;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Enemies;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Hammers;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Materials;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Pickaxes;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
 
 import io.realm.Realm;
@@ -44,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         addEnemiesToDatabase();
         addBossesToDatabase();
         addSwordsToDatabase();
+        addPickaxesToDatabase();
+        addAxesToDatabase();
+        addHammersToDatabase();
 
     }
 
@@ -275,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(ge.Hallowed_Mimic);
                 realm.copyToRealmOrUpdate(ge.Hell_Armored_Bones);
                 realm.copyToRealmOrUpdate(ge.Herpling);
-                realm.copyToRealmOrUpdate(ge.Hopping_Jack);
+                realm.copyToRealmOrUpdate(ge.Hoppin_Jack);
                 realm.copyToRealmOrUpdate(ge.Ice_Elemental);
                 realm.copyToRealmOrUpdate(ge.Ice_Mimic);
                 realm.copyToRealmOrUpdate(ge.Ice_Tortoise);
@@ -358,7 +364,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void addSwordsToDatabase() {
-        //Get Bosses
+        //Get Swords
         final Generate_Swords gs = new Generate_Swords();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
@@ -453,6 +459,47 @@ public class MainActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(gs.Influx_Waver);
                 realm.copyToRealmOrUpdate(gs.Star_Wrath);
                 realm.copyToRealmOrUpdate(gs.Meowmere);
+
+            }
+        });
+    }
+    public void addPickaxesToDatabase() {
+        //Get Pickaxes
+        final Generate_Pickaxes gp = new Generate_Pickaxes();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pickaxes
+                //Add Drills
+
+            }
+        });
+    }
+    public void addAxesToDatabase() {
+        //Get Axes
+        final Generate_Axes ga = new Generate_Axes();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Axes
+                //Add Chainsaws
+
+            }
+        });
+    }
+    public void addHammersToDatabase() {
+        //Get Hammers
+        final Generate_Hammers gh = new Generate_Hammers();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Hammers
 
             }
         });

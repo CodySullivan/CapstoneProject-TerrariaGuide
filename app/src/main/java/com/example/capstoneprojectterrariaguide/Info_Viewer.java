@@ -8,9 +8,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.capstoneprojectterrariaguide.Models.Axes;
 import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
+import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
+import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
 import com.example.capstoneprojectterrariaguide.Models.Swords;
 
 import java.util.List;
@@ -106,6 +109,36 @@ public class Info_Viewer extends AppCompatActivity {
             if (s.getName().contains(maybe)) {
                 tv2.setText(s.toString());
                 newString = s.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<Pickaxes> pickaxesQuery = realm.where(Pickaxes.class);
+        List<Pickaxes> pickaxesList = (pickaxesQuery.findAll());
+        for(Pickaxes p : pickaxesList) {
+            if (p.getName().contains(maybe)) {
+                tv2.setText(p.toString());
+                newString = p.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<Axes> axesQuery = realm.where(Axes.class);
+        List<Axes> axesList = (axesQuery.findAll());
+        for(Axes a : axesList) {
+            if (a.getName().contains(maybe)) {
+                tv2.setText(a.toString());
+                newString = a.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<Hammers> hammersQuery = realm.where(Hammers.class);
+        List<Hammers> hammersList = (hammersQuery.findAll());
+        for(Hammers h : hammersList) {
+            if (h.getName().contains(maybe)) {
+                tv2.setText(h.toString());
+                newString = h.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
             }

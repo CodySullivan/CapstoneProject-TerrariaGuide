@@ -10,9 +10,12 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.capstoneprojectterrariaguide.Models.Axes;
 import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
+import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
+import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
 import com.example.capstoneprojectterrariaguide.Models.Swords;
 
 import java.util.List;
@@ -58,6 +61,9 @@ public class Navigation extends AppCompatActivity {
         GetEnemies();
         GetBosses();
         GetSwords();
+        GetPickaxes();
+        GetAxes();
+        GetHammers();
     }
 
     public void BackOnClick(View v){
@@ -83,6 +89,18 @@ public class Navigation extends AppCompatActivity {
         RealmQuery<Swords> swordQuery = realm.where(Swords.class);
         List<Swords> swordsList = (swordQuery.findAll());
 
+        //Pickaxes
+        RealmQuery<Pickaxes> pickaxeQuery = realm.where(Pickaxes.class);
+        List<Pickaxes> pickaxesList = (pickaxeQuery.findAll());
+
+        //Axes
+        RealmQuery<Axes> axeQuery = realm.where(Axes.class);
+        List<Axes> axesList = (axeQuery.findAll());
+
+        //Hammers
+        RealmQuery<Hammers> hammerQuery = realm.where(Hammers.class);
+        List<Hammers> hammersList = (hammerQuery.findAll());
+
         for(Materials m : materialsList) {
             if (m.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(m.getName());
@@ -101,6 +119,21 @@ public class Navigation extends AppCompatActivity {
         for(Swords s : swordsList) {
             if (s.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(s.getName());
+            }
+        }
+        for(Pickaxes p : pickaxesList) {
+            if (p.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(p.getName());
+            }
+        }
+        for(Axes a : axesList) {
+            if (a.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(a.getName());
+            }
+        }
+        for(Hammers h : hammersList) {
+            if (h.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(h.getName());
             }
         }
     }
@@ -164,9 +197,9 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,EnemiesList);
-        MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
-        EnemySpinner.setAdapter(MaterialAdapter);
+        ArrayAdapter<String> EnemyAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,EnemiesList);
+        EnemyAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        EnemySpinner.setAdapter(EnemyAdapter);
 
         EnemySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -198,9 +231,9 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,BossesList);
-        MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
-        BossSpinner.setAdapter(MaterialAdapter);
+        ArrayAdapter<String> BossAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,BossesList);
+        BossAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        BossSpinner.setAdapter(BossAdapter);
 
         BossSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -232,9 +265,9 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SwordsList);
-        MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
-        SwordSpinner.setAdapter(MaterialAdapter);
+        ArrayAdapter<String> SwordAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SwordsList);
+        SwordAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        SwordSpinner.setAdapter(SwordAdapter);
 
         SwordSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -242,6 +275,108 @@ public class Navigation extends AppCompatActivity {
 
                 if (a != 0) {
                     openActivity3(SwordsList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetPickaxes() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Pickaxes> tasksQuery = realm.where(Pickaxes.class);
+        Spinner PickaxeSpinner = (Spinner) findViewById(R.id.Pickaxe_Spinner);
+        List<Pickaxes> pickaxesList = (tasksQuery.findAll());
+        final String[] PickaxesList = new String[pickaxesList.size() + 1];
+
+        int i = 1;
+        PickaxesList[0] = "(Pickaxes)";
+
+        for(Pickaxes p: pickaxesList) {
+            PickaxesList[i] = p.getName();
+            i++;
+        }
+
+        ArrayAdapter<String> PickaxeAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,PickaxesList);
+        PickaxeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        PickaxeSpinner.setAdapter(PickaxeAdapter);
+
+        PickaxeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(PickaxesList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetAxes() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Axes> tasksQuery = realm.where(Axes.class);
+        Spinner AxeSpinner = (Spinner) findViewById(R.id.Axe_Spinner);
+        List<Axes> axesList = (tasksQuery.findAll());
+        final String[] AxesList = new String[axesList.size() + 1];
+
+        int i = 1;
+        AxesList[0] = "(Axes)";
+
+        for(Axes a: axesList) {
+            AxesList[i] = a.getName();
+            i++;
+        }
+
+        ArrayAdapter<String> AxeAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,AxesList);
+        AxeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        AxeSpinner.setAdapter(AxeAdapter);
+
+        AxeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(AxesList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetHammers() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Hammers> tasksQuery = realm.where(Hammers.class);
+        Spinner HammerSpinner = (Spinner) findViewById(R.id.Hammer_Spinner);
+        List<Hammers> hammersList = (tasksQuery.findAll());
+        final String[] HammersList = new String[hammersList.size() + 1];
+
+        int i = 1;
+        HammersList[0] = "(Hammers)";
+
+        for(Hammers h: hammersList) {
+            HammersList[i] = h.getName();
+            i++;
+        }
+
+        ArrayAdapter<String> HammerAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,HammersList);
+        HammerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        HammerSpinner.setAdapter(HammerAdapter);
+
+        HammerSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(HammersList[a]);
                 }
             }
 

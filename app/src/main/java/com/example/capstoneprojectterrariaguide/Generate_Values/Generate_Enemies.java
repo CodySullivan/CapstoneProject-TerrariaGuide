@@ -142,7 +142,7 @@ public class Generate_Enemies {
     public Enemies Hallowed_Mimic = new Enemies(131, "Hallowed Mimic", 3500, 90, "Mimic", "Hallow", "3 Gold Coins, Daedalus Stormbow, Illuminant Hook, Flying Knife, Crystal Vile Shard, Greater Healing Potion, Greater Mana Potion, Blessed Apple");
     public Enemies Hell_Armored_Bones = new Enemies(132, "Hell Armored Bones", 400, 70, "Fighter", "Hell", "10 Silver Coins, Wisp in a Bottle, Magnet Sphere, Keybrand, Morning Star, Bone Feather");
     public Enemies Herpling = new Enemies(133, "Herpling", 220, 65, "Fighter", "The Crimson", "Meat Grinder");
-    public Enemies Hopping_Jack = new Enemies(134, "Hopping Jack", 175, 80, "Fighter", "Graveyard", "5 Silver Coins");
+    public Enemies Hoppin_Jack = new Enemies(134, "Hoppin Jack", 175, 80, "Fighter", "Graveyard", "5 Silver Coins");
     public Enemies Ice_Elemental = new Enemies(135, "Ice Elemental", 200, 70, "Flying", "Ice Biome", "15 Silver Coins, Frost Staff, Ice Sickle");
     public Enemies Ice_Mimic = new Enemies(136, "Ice Mimic", 500, 80, "Mimic", "Ice Biome", "10 Gold Coins, Frostbrand, Ice Bow, Flower of Frost, Toy Sled");
     public Enemies Ice_Tortoise = new Enemies(137, "Ice Tortoise", 400, 80, "Fighter", "Ice Biome", "4 Silver and 50 Copper Coins, Frozen Turtle Shell, Ice Sickle, Milkshake");
