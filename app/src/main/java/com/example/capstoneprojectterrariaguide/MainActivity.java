@@ -471,8 +471,51 @@ public class MainActivity extends AppCompatActivity {
         realm.executeTransactionAsync(new Realm.Transaction() {
             public void execute(Realm realm) {
 
-                //Add Pickaxes
-                //Add Drills
+                //Add Pickaxes & Drills
+                realm.copyToRealmOrUpdate(gp.Cactus_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Copper_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Tin_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Iron_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Lead_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Silver_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Tungsten_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Gold_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Candy_Cane_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Fossil_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Bone_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Platinum_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Reaver_Shark);
+                realm.copyToRealmOrUpdate(gp.Nightmare_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Deathbringer_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Molten_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Cobalt_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Cobalt_Drill);
+                realm.copyToRealmOrUpdate(gp.Palladium_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Palladium_Drill);
+                realm.copyToRealmOrUpdate(gp.Mythril_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Mythril_Drill);
+                realm.copyToRealmOrUpdate(gp.Orichalcum_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Orichalcum_Drill);
+                realm.copyToRealmOrUpdate(gp.Adamantite_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Adamantite_Drill);
+                realm.copyToRealmOrUpdate(gp.Titanium_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Titanium_Drill);
+                realm.copyToRealmOrUpdate(gp.Spectre_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Chlorophyte_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Chlorophyte_Drill);
+                realm.copyToRealmOrUpdate(gp.Pickaxe_Axe_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Drax_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Shroomite_Digging_Claw_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Picksaw_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Solar_Flare_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Solar_Flare_Drill);
+                realm.copyToRealmOrUpdate(gp.Vortex_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Vortex_Drill);
+                realm.copyToRealmOrUpdate(gp.Nebula_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Nebula_Drill);
+                realm.copyToRealmOrUpdate(gp.Stardust_Pickaxe);
+                realm.copyToRealmOrUpdate(gp.Stardust_Drill);
+                realm.copyToRealmOrUpdate(gp.Laser_Drill);
 
             }
         });

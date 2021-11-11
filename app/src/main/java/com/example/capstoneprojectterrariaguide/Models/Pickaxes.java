@@ -76,7 +76,7 @@ public class Pickaxes extends RealmObject {
     @Override
     public String toString() {
         return
-                "\nName:" + name +
+                "\nName: " + name +
                 "\nDamage: " + damage +
                 "\nPower: " + power +
                 "\nPrice: " + price +
