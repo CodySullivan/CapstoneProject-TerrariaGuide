@@ -528,8 +528,48 @@ public class MainActivity extends AppCompatActivity {
         realm.executeTransactionAsync(new Realm.Transaction() {
             public void execute(Realm realm) {
 
-                //Add Axes
-                //Add Chainsaws
+                //Add Axes and Chainsaws
+                realm.copyToRealmOrUpdate(ga.Copper_Axe);
+                realm.copyToRealmOrUpdate(ga.Tin_Axe);
+                realm.copyToRealmOrUpdate(ga.Iron_Axe);
+                realm.copyToRealmOrUpdate(ga.Lead_Axe);
+                realm.copyToRealmOrUpdate(ga.Silver_Axe);
+                realm.copyToRealmOrUpdate(ga.Tungsten_Axe);
+                realm.copyToRealmOrUpdate(ga.Gold_Axe);
+                realm.copyToRealmOrUpdate(ga.Platinum_Axe);
+                realm.copyToRealmOrUpdate(ga.Cobalt_Waraxe);
+                realm.copyToRealmOrUpdate(ga.Cobalt_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Sawtooth_Shark);
+                realm.copyToRealmOrUpdate(ga.War_Axe_Of_The_Night);
+                realm.copyToRealmOrUpdate(ga.Blood_Lust_Cluster);
+                realm.copyToRealmOrUpdate(ga.Palladium_Waraxe);
+                realm.copyToRealmOrUpdate(ga.Palladium_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Mythril_Waraxe);
+                realm.copyToRealmOrUpdate(ga.Mythril_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Orichalcum_Waraxe);
+                realm.copyToRealmOrUpdate(ga.Orichalcum_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Adamantite_Waraxe);
+                realm.copyToRealmOrUpdate(ga.Adamantite_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Meteor_Hamaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.Titanium_Waraxe);
+                realm.copyToRealmOrUpdate(ga.Titanium_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Pickaxe_Axe_Axe);
+                realm.copyToRealmOrUpdate(ga.Drax_Axe);
+                realm.copyToRealmOrUpdate(ga.Chlorophyte_Greataxe);
+                realm.copyToRealmOrUpdate(ga.Chlorophyte_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Lucy_The_Axe);
+                realm.copyToRealmOrUpdate(ga.Picksaw_Axe);
+                realm.copyToRealmOrUpdate(ga.Shroomite_Digging_Claw_Axe);
+                realm.copyToRealmOrUpdate(ga.Butchers_Chainsaw);
+                realm.copyToRealmOrUpdate(ga.Molten_Hamaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.Haemorrhaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.Spectre_Hamaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.Solar_Flare_Hamaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.Vortex_Hamaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.Nebula_Hamaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.Stardust_Hamaxe_Axe);
+                realm.copyToRealmOrUpdate(ga.The_Axe_Axe);
+
 
             }
         });
@@ -542,7 +582,39 @@ public class MainActivity extends AppCompatActivity {
         realm.executeTransactionAsync(new Realm.Transaction() {
             public void execute(Realm realm) {
 
-                //Add Hammers
+                //Add Hammers and Jackhammers
+                realm.copyToRealmOrUpdate(gh.Wooden_Hammer);
+                realm.copyToRealmOrUpdate(gh.Rich_Mahogany_Hammer);
+                realm.copyToRealmOrUpdate(gh.Palm_Wood_Hammer);
+                realm.copyToRealmOrUpdate(gh.Boreal_Wood_Hammer);
+                realm.copyToRealmOrUpdate(gh.Copper_Hammer);
+                realm.copyToRealmOrUpdate(gh.Tin_Hammer);
+                realm.copyToRealmOrUpdate(gh.Iron_Hammer);
+                realm.copyToRealmOrUpdate(gh.Ebonwood_Hammer);
+                realm.copyToRealmOrUpdate(gh.Shadewood_Hammer);
+                realm.copyToRealmOrUpdate(gh.Lead_Hammer);
+                realm.copyToRealmOrUpdate(gh.Pearlwood_Hammer);
+                realm.copyToRealmOrUpdate(gh.Silver_Hammer);
+                realm.copyToRealmOrUpdate(gh.Tungsten_Hammer);
+                realm.copyToRealmOrUpdate(gh.Gold_Hammer);
+                realm.copyToRealmOrUpdate(gh.The_Breaker);
+                realm.copyToRealmOrUpdate(gh.Flesh_Grinder);
+                realm.copyToRealmOrUpdate(gh.Platinum_Hammer);
+                realm.copyToRealmOrUpdate(gh.Meteor_Hamaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.Rockfish);
+                realm.copyToRealmOrUpdate(gh.Molten_Hamaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.Pwnhammer);
+                realm.copyToRealmOrUpdate(gh.Haemorrhaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.Hammush);
+                realm.copyToRealmOrUpdate(gh.Chlorophyte_Warhammer);
+                realm.copyToRealmOrUpdate(gh.Chlorophyte_Jackhammer);
+                realm.copyToRealmOrUpdate(gh.Spectre_Hamaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.Solar_Flare_Hamaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.Vortex_Hamaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.Nebula_Hamaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.Stardust_Hamaxe_Hammer);
+                realm.copyToRealmOrUpdate(gh.The_Axe_Hammer);
+
 
             }
         });
