@@ -6,38 +6,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/navigation_image">
 
-    <Spinner
-        android:id="@+id/Material_Spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="195dp"
-        android:layout_height="42dp"
-        android:background="#7C03A9F4"
-        android:text="Navigation Page"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/Material_Spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
-
     <Button
         android:id="@+id/Back_Button1"
         android:layout_width="61dp"
         android:layout_height="34dp"
-        android:background="@drawable/new_back"
+        android:background="@drawable/button2"
         android:onClick="BackOnClick"
         android:text="Back"
         android:textColor="#FFFFFF"
@@ -45,19 +18,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="195dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="64dp"
+        android:background="#7C03A9F4"
+        android:text="Navigation Page"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/Search_Bar"
         android:layout_width="221dp"
         android:layout_height="59dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Enter Object Name Here!"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/Material_Spinner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/Search_Button"
@@ -65,7 +52,7 @@
         android:layout_height="58dp"
         android:layout_marginTop="136dp"
         android:layout_marginEnd="24dp"
-        android:background="@drawable/copper_bar"
+        android:background="@drawable/button1"
         android:onClick="SearchOnClick"
         android:text="Search"
         android:textColor="#FFFFFF"
@@ -73,78 +60,108 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/Enemy_Spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Material_Spinner"
-        app:layout_constraintVertical_bias="0.031"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Spinner
-        android:id="@+id/Boss_Spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
+    <ScrollView
+        android:layout_width="413dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Enemy_Spinner"
-        app:layout_constraintVertical_bias="0.037"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.955">
 
-    <Spinner
-        android:id="@+id/Sword_Spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Boss_Spinner"
-        app:layout_constraintVertical_bias="0.047"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/Pickaxe_Spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Sword_Spinner"
-        app:layout_constraintVertical_bias="0.06999999"
-        tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/Material_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="220dp"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-    <Spinner
-        android:id="@+id/Axe_Spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pickaxe_Spinner"
-        app:layout_constraintVertical_bias="0.100000024" />
+            <Spinner
+                android:id="@+id/Enemy_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Material_Spinner"
+                app:layout_constraintVertical_bias="0.031"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-    <Spinner
-        android:id="@+id/Hammer_Spinner"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
-        app:layout_constraintVertical_bias="0.156" />
+            <Spinner
+                android:id="@+id/Boss_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Enemy_Spinner"
+                app:layout_constraintVertical_bias="0.037"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/Sword_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Boss_Spinner"
+                app:layout_constraintVertical_bias="0.047"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/Pickaxe_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Sword_Spinner"
+                app:layout_constraintVertical_bias="0.06999999"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/Axe_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Pickaxe_Spinner"
+                app:layout_constraintVertical_bias="0.100000024"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/Hammer_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
