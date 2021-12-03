@@ -12,7 +12,9 @@ import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Enemies
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Hammers;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Materials;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Pickaxes;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_SpellTomes;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Wands;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         addPickaxesToDatabase();
         addAxesToDatabase();
         addHammersToDatabase();
+        addSpellTomesToDatabase();
+        addWandsToDatabase();
 
     }
 
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         Realm realm = Realm.getDefaultInstance();
         realm.executeTransactionAsync(new Realm.Transaction() {
             public void execute(Realm realm) {
+
                 //Add Bar Materials
                 realm.copyToRealmOrUpdate(gm.Adamantite_Bar);
                 realm.copyToRealmOrUpdate(gm.Chlorophyte_Bar);
@@ -614,6 +619,83 @@ public class MainActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(gh.Nebula_Hamaxe_Hammer);
                 realm.copyToRealmOrUpdate(gh.Stardust_Hamaxe_Hammer);
                 realm.copyToRealmOrUpdate(gh.The_Axe_Hammer);
+
+
+            }
+        });
+    }
+    public void addSpellTomesToDatabase() {
+        //Get SpellTomes
+        final Generate_SpellTomes gst = new Generate_SpellTomes();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode SpellTomes
+                realm.copyToRealmOrUpdate(gst.Water_Bolt);
+                realm.copyToRealmOrUpdate(gst.Book_Of_Skulls);
+                realm.copyToRealmOrUpdate(gst.Demon_Scythe);
+
+                //Add Hardmode SpellTomes
+                realm.copyToRealmOrUpdate(gst.Cursed_Flames);
+                realm.copyToRealmOrUpdate(gst.Golden_Shower);
+                realm.copyToRealmOrUpdate(gst.Crystal_Storm);
+                realm.copyToRealmOrUpdate(gst.Magnet_Sphere);
+                realm.copyToRealmOrUpdate(gst.Razorblade_Typhoon);
+                realm.copyToRealmOrUpdate(gst.Lunar_Flare);
+
+            }
+        });
+    }
+    public void addWandsToDatabase() {
+        //Get Wands
+        final Generate_Wands gw = new Generate_Wands();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode Wands
+                realm.copyToRealmOrUpdate(gw.Wand_Of_Sparking);
+                realm.copyToRealmOrUpdate(gw.Thunder_Zapper);
+                realm.copyToRealmOrUpdate(gw.Amethyst_Staff);
+                realm.copyToRealmOrUpdate(gw.Topaz_Staff);
+                realm.copyToRealmOrUpdate(gw.Sapphire_Staff);
+                realm.copyToRealmOrUpdate(gw.Emerald_Staff);
+                realm.copyToRealmOrUpdate(gw.Ruby_Staff);
+                realm.copyToRealmOrUpdate(gw.Diamond_Staff);
+                realm.copyToRealmOrUpdate(gw.Amber_Staff);
+                realm.copyToRealmOrUpdate(gw.Vilethorn);
+                realm.copyToRealmOrUpdate(gw.Weather_Pain);
+                realm.copyToRealmOrUpdate(gw.Magic_Missile);
+                realm.copyToRealmOrUpdate(gw.Aqua_Scepter);
+                realm.copyToRealmOrUpdate(gw.Flower_Of_Fire);
+                realm.copyToRealmOrUpdate(gw.Flamelash);
+
+                //Add Hardmode Wands
+                realm.copyToRealmOrUpdate(gw.Sky_Fracture);
+                realm.copyToRealmOrUpdate(gw.Crystal_Serpent);
+                realm.copyToRealmOrUpdate(gw.Flower_Of_Frost);
+                realm.copyToRealmOrUpdate(gw.Frost_Staff);
+                realm.copyToRealmOrUpdate(gw.Crystal_Vile_Shard);
+                realm.copyToRealmOrUpdate(gw.Life_Drain);
+                realm.copyToRealmOrUpdate(gw.Meteor_Staff);
+                realm.copyToRealmOrUpdate(gw.Poison_Staff);
+                realm.copyToRealmOrUpdate(gw.Rainbow_Rod);
+                realm.copyToRealmOrUpdate(gw.Unholy_Trident);
+                realm.copyToRealmOrUpdate(gw.Tome_Of_Infinite_Wisdom);
+                realm.copyToRealmOrUpdate(gw.Venom_Staff);
+                realm.copyToRealmOrUpdate(gw.Nettle_Burst);
+                realm.copyToRealmOrUpdate(gw.Bat_Scepter);
+                realm.copyToRealmOrUpdate(gw.Blizzard_Staff);
+                realm.copyToRealmOrUpdate(gw.Inferno_Fork);
+                realm.copyToRealmOrUpdate(gw.Shadowbeam_Staff);
+                realm.copyToRealmOrUpdate(gw.Spectre_Staff);
+                realm.copyToRealmOrUpdate(gw.Resonance_Scepter);
+                realm.copyToRealmOrUpdate(gw.Razorpine);
+                realm.copyToRealmOrUpdate(gw.Staff_Of_Earth);
+                realm.copyToRealmOrUpdate(gw.Betsys_Wrath);
 
 
             }

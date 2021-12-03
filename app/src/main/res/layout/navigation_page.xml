@@ -62,7 +62,7 @@
 
     <ScrollView
         android:layout_width="413dp"
-        android:layout_height="500dp"
+        android:layout_height="492dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -151,6 +151,32 @@
 
             <Spinner
                 android:id="@+id/Hammer_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/SpellTome_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Spinner
+                android:id="@+id/Wand_Spinner"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"

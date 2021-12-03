@@ -16,7 +16,9 @@ import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
+import com.example.capstoneprojectterrariaguide.Models.SpellTomes;
 import com.example.capstoneprojectterrariaguide.Models.Swords;
+import com.example.capstoneprojectterrariaguide.Models.Wands;
 
 import java.util.List;
 
@@ -64,6 +66,8 @@ public class Navigation extends AppCompatActivity {
         GetPickaxes();
         GetAxes();
         GetHammers();
+        GetSpellTomes();
+        GetWands();
     }
 
     public void BackOnClick(View v){
@@ -101,6 +105,14 @@ public class Navigation extends AppCompatActivity {
         RealmQuery<Hammers> hammerQuery = realm.where(Hammers.class);
         List<Hammers> hammersList = (hammerQuery.findAll());
 
+        //SpellTomes
+        RealmQuery<SpellTomes> spellTomesQuery = realm.where(SpellTomes.class);
+        List<SpellTomes> spellTomesList = (spellTomesQuery.findAll());
+
+        //Wands
+        RealmQuery<Wands> wandsQuery = realm.where(Wands.class);
+        List<Wands> wandsList = (wandsQuery.findAll());
+
         for(Materials m : materialsList) {
             if (m.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(m.getName());
@@ -134,6 +146,16 @@ public class Navigation extends AppCompatActivity {
         for(Hammers h : hammersList) {
             if (h.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(h.getName());
+            }
+        }
+        for(SpellTomes st : spellTomesList) {
+            if (st.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(st.getName());
+            }
+        }
+        for(Wands w : wandsList) {
+            if (w.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(w.getName());
             }
         }
     }
@@ -377,6 +399,74 @@ public class Navigation extends AppCompatActivity {
 
                 if (a != 0) {
                     openActivity3(HammersList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetSpellTomes() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<SpellTomes> tasksQuery = realm.where(SpellTomes.class);
+        Spinner SpellTomeSpinner = (Spinner) findViewById(R.id.SpellTome_Spinner);
+        List<SpellTomes> spellTomesList = (tasksQuery.findAll());
+        final String[] SpellTomesList = new String[spellTomesList.size() + 1];
+
+        int i = 1;
+        SpellTomesList[0] = "(Spell Tomes)";
+
+        for(SpellTomes st: spellTomesList) {
+            SpellTomesList[i] = st.getName();
+            i++;
+        }
+
+        ArrayAdapter<String> SpellTomeAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SpellTomesList);
+        SpellTomeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        SpellTomeSpinner.setAdapter(SpellTomeAdapter);
+
+        SpellTomeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(SpellTomesList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetWands() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Wands> tasksQuery = realm.where(Wands.class);
+        Spinner WandSpinner = (Spinner) findViewById(R.id.Wand_Spinner);
+        List<Wands> wandsList = (tasksQuery.findAll());
+        final String[] WandsList = new String[wandsList.size() + 1];
+
+        int i = 1;
+        WandsList[0] = "(Wands)";
+
+        for(Wands w: wandsList) {
+            WandsList[i] = w.getName();
+            i++;
+        }
+
+        final ArrayAdapter<String> WandAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,WandsList);
+        WandAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        WandSpinner.setAdapter(WandAdapter);
+
+        WandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(WandsList[a]);
                 }
             }
 

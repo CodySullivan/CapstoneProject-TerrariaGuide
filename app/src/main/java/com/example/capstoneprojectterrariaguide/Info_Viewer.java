@@ -14,10 +14,11 @@ import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
+import com.example.capstoneprojectterrariaguide.Models.SpellTomes;
 import com.example.capstoneprojectterrariaguide.Models.Swords;
+import com.example.capstoneprojectterrariaguide.Models.Wands;
 
 import java.util.List;
-import java.util.Locale;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -55,7 +56,6 @@ public class Info_Viewer extends AppCompatActivity {
         maybe = intent.getStringExtra(Navigation.Choice);
         tv.setText(maybe);
         SetContent();
-
     }
 
     public void BackOnClick(View v){
@@ -139,6 +139,26 @@ public class Info_Viewer extends AppCompatActivity {
             if (h.getName().contains(maybe)) {
                 tv2.setText(h.toString());
                 newString = h.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<SpellTomes> spellTomesQuery = realm.where(SpellTomes.class);
+        List<SpellTomes> spellTomesList = (spellTomesQuery.findAll());
+        for(SpellTomes st : spellTomesList) {
+            if (st.getName().contains(maybe)) {
+                tv2.setText(st.toString());
+                newString = st.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<Wands> wandsQuery = realm.where(Wands.class);
+        List<Wands> wandsList = (wandsQuery.findAll());
+        for(Wands w : wandsList) {
+            if (w.getName().contains(maybe)) {
+                tv2.setText(w.toString());
+                newString = w.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
             }
