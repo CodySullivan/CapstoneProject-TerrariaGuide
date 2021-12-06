@@ -14,9 +14,11 @@ import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
+import com.example.capstoneprojectterrariaguide.Models.Spears;
 import com.example.capstoneprojectterrariaguide.Models.SpellTomes;
 import com.example.capstoneprojectterrariaguide.Models.Swords;
 import com.example.capstoneprojectterrariaguide.Models.Wands;
+import com.example.capstoneprojectterrariaguide.Models.YoYos;
 
 import java.util.List;
 
@@ -74,7 +76,6 @@ public class Info_Viewer extends AppCompatActivity {
 
         RealmQuery<Materials> materialsQuery = realm.where(Materials.class);
         List<Materials> materialsList = (materialsQuery.findAll());
-
         for(Materials m : materialsList) {
             if (m.getName().contains(maybe)) {
                 tv2.setText(m.toString());
@@ -159,6 +160,26 @@ public class Info_Viewer extends AppCompatActivity {
             if (w.getName().contains(maybe)) {
                 tv2.setText(w.toString());
                 newString = w.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<YoYos> yoyosQuery = realm.where(YoYos.class);
+        List<YoYos> yoyosList = (yoyosQuery.findAll());
+        for(YoYos yy : yoyosList) {
+            if (yy.getName().contains(maybe)) {
+                tv2.setText(yy.toString());
+                newString = yy.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+            }
+        }
+        RealmQuery<Spears> spearsQuery = realm.where(Spears.class);
+        List<Spears> spearsList = (spearsQuery.findAll());
+        for(Spears sp : spearsList) {
+            if (sp.getName().contains(maybe)) {
+                tv2.setText(sp.toString());
+                newString = sp.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
             }

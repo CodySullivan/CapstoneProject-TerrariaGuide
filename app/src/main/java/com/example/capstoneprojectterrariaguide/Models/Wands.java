@@ -75,7 +75,7 @@ public class Wands extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nName: " + name +
+        return  "\nWand ID: " + wandId +
                 "\nDamage: " + damage +
                 "\nMana Use: " + manaUse +
                 "\nPrice: " + price +

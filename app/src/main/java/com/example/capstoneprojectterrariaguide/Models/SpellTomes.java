@@ -75,7 +75,7 @@ public class SpellTomes extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nName: " + name +
+        return  "\nSpellTome ID: " + spellTomeId +
                 "\nDamage: " + damage +
                 "\nMana Use: " + manaUse +
                 "\nPrice: " + price +

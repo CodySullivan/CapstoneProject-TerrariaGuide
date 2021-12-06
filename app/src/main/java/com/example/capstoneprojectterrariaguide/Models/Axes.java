@@ -75,7 +75,7 @@ public class Axes extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nName: " + name +
+        return  "\nAxe ID: " + axeId +
                 "\nDamage: " + damage +
                 "\nPower: " + power +
                 "\nPrice: " + price +

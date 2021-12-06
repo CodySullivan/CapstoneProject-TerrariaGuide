@@ -12,9 +12,11 @@ import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Enemies
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Hammers;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Materials;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Pickaxes;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Spears;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_SpellTomes;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Wands;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_YoYos;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         addHammersToDatabase();
         addSpellTomesToDatabase();
         addWandsToDatabase();
+        addYoYosToDatabase();
+        addSpearsToDatabase();
 
     }
 
@@ -697,6 +701,56 @@ public class MainActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(gw.Staff_Of_Earth);
                 realm.copyToRealmOrUpdate(gw.Betsys_Wrath);
 
+
+            }
+        });
+    }
+    public void addYoYosToDatabase() {
+        //Get YoYos
+        final Generate_YoYos gYY = new Generate_YoYos();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode YoYos
+                realm.copyToRealmOrUpdate(gYY.Wooden_Yoyo);
+                realm.copyToRealmOrUpdate(gYY.Rally);
+                realm.copyToRealmOrUpdate(gYY.Malaise);
+                realm.copyToRealmOrUpdate(gYY.Artery);
+                realm.copyToRealmOrUpdate(gYY.Amazon);
+                realm.copyToRealmOrUpdate(gYY.Code_1);
+                realm.copyToRealmOrUpdate(gYY.Valor);
+                realm.copyToRealmOrUpdate(gYY.Cascade);
+
+                //Add Hardmode YoYos
+                realm.copyToRealmOrUpdate(gYY.Format_C);
+                realm.copyToRealmOrUpdate(gYY.Gradient);
+                realm.copyToRealmOrUpdate(gYY.Chik);
+                realm.copyToRealmOrUpdate(gYY.Hel_Fire);
+                realm.copyToRealmOrUpdate(gYY.Amarok);
+                realm.copyToRealmOrUpdate(gYY.Code_2);
+                realm.copyToRealmOrUpdate(gYY.Yelets);
+                realm.copyToRealmOrUpdate(gYY.Reds_Throw);
+                realm.copyToRealmOrUpdate(gYY.Valkyrie_Yoyo);
+                realm.copyToRealmOrUpdate(gYY.Kraken);
+                realm.copyToRealmOrUpdate(gYY.The_Eye_Of_Cthulhu);
+                realm.copyToRealmOrUpdate(gYY.Terrarian);
+
+            }
+        });
+    }
+    public void addSpearsToDatabase() {
+        //Get Spears
+        final Generate_Spears gsp = new Generate_Spears();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode Spears
+
+                //Add Hardmode Spears
 
             }
         });

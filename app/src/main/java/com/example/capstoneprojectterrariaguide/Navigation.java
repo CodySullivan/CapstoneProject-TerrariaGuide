@@ -16,9 +16,11 @@ import com.example.capstoneprojectterrariaguide.Models.Enemies;
 import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
+import com.example.capstoneprojectterrariaguide.Models.Spears;
 import com.example.capstoneprojectterrariaguide.Models.SpellTomes;
 import com.example.capstoneprojectterrariaguide.Models.Swords;
 import com.example.capstoneprojectterrariaguide.Models.Wands;
+import com.example.capstoneprojectterrariaguide.Models.YoYos;
 
 import java.util.List;
 
@@ -68,6 +70,8 @@ public class Navigation extends AppCompatActivity {
         GetHammers();
         GetSpellTomes();
         GetWands();
+        GetYoYos();
+        GetSpears();
     }
 
     public void BackOnClick(View v){
@@ -113,6 +117,14 @@ public class Navigation extends AppCompatActivity {
         RealmQuery<Wands> wandsQuery = realm.where(Wands.class);
         List<Wands> wandsList = (wandsQuery.findAll());
 
+        //YoYos
+        RealmQuery<YoYos> yoyosQuery = realm.where(YoYos.class);
+        List<YoYos> yoyosList = (yoyosQuery.findAll());
+
+        //Spears
+        RealmQuery<Spears> spearsQuery = realm.where(Spears.class);
+        List<Spears> spearsList = (spearsQuery.findAll());
+
         for(Materials m : materialsList) {
             if (m.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(m.getName());
@@ -156,6 +168,16 @@ public class Navigation extends AppCompatActivity {
         for(Wands w : wandsList) {
             if (w.getName().toLowerCase().contains(object.toLowerCase())) {
                 openActivity3(w.getName());
+            }
+        }
+        for(YoYos yy : yoyosList) {
+            if (yy.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(yy.getName());
+            }
+        }
+        for(Spears sp : spearsList) {
+            if (sp.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(sp.getName());
             }
         }
     }
@@ -467,6 +489,74 @@ public class Navigation extends AppCompatActivity {
 
                 if (a != 0) {
                     openActivity3(WandsList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetYoYos() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<YoYos> tasksQuery = realm.where(YoYos.class);
+        Spinner YoYoSpinner = (Spinner) findViewById(R.id.YoYo_Spinner);
+        List<YoYos> yoyosList = (tasksQuery.findAll());
+        final String[] YoYosList = new String[yoyosList.size() + 1];
+
+        int i = 1;
+        YoYosList[0] = "(YoYos)";
+
+        for(YoYos yy: yoyosList) {
+            YoYosList[i] = yy.getName();
+            i++;
+        }
+
+        final ArrayAdapter<String> YoYoAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,YoYosList);
+        YoYoAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        YoYoSpinner.setAdapter(YoYoAdapter);
+
+        YoYoSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(YoYosList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetSpears() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Spears> tasksQuery = realm.where(Spears.class);
+        Spinner SpearSpinner = (Spinner) findViewById(R.id.Spear_Spinner);
+        List<Spears> spearsList = (tasksQuery.findAll());
+        final String[] SpearsList = new String[spearsList.size() + 1];
+
+        int i = 1;
+        SpearsList[0] = "(Spears)";
+
+        for(Spears sp: spearsList) {
+            SpearsList[i] = sp.getName();
+            i++;
+        }
+
+        final ArrayAdapter<String> SpearAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SpearsList);
+        SpearAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        SpearSpinner.setAdapter(SpearAdapter);
+
+        SpearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(SpearsList[a]);
                 }
             }
 

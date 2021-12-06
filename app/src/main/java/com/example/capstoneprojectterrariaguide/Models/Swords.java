@@ -6,15 +6,15 @@ import io.realm.annotations.PrimaryKey;
 public class Swords extends RealmObject {
 
     @PrimaryKey
-    private int swordID;
+    private int swordId;
     private String name;
     private float damage;
     private String price;
     private String type;
     private String howToObtain;
 
-    public Swords(int swordID, String name, float damage, String price, String type, String howToObtain) {
-        this.swordID = swordID;
+    public Swords(int swordId, String name, float damage, String price, String type, String howToObtain) {
+        this.swordId = swordId;
         this.name = name;
         this.damage = damage;
         this.price = price;
@@ -25,12 +25,12 @@ public class Swords extends RealmObject {
     public Swords() {
     }
 
-    public int getSwordID() {
-        return swordID;
+    public int getSwordId() {
+        return swordId;
     }
 
-    public void setSwordID(int swordID) {
-        this.swordID = swordID;
+    public void setSwordId(int swordId) {
+        this.swordId = swordId;
     }
 
     public String getName() {
@@ -75,7 +75,7 @@ public class Swords extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nName:  " + name +
+        return  "\nSword ID:  " + swordId +
                 "\nDamage: " + damage +
                 "\nPrice: " + price +
                 "\nType: " + type +

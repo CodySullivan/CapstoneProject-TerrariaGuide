@@ -187,6 +187,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
                 app:layout_constraintVertical_bias="0.156"
                 tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/YoYo_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/Spear_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
     </ScrollView>
 
