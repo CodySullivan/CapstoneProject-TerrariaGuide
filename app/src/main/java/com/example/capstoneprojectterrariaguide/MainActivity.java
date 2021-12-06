@@ -749,8 +749,27 @@ public class MainActivity extends AppCompatActivity {
             public void execute(Realm realm) {
 
                 //Add Pre-Hardmode Spears
+                realm.copyToRealmOrUpdate(gsp.Spear);
+                realm.copyToRealmOrUpdate(gsp.Trident);
+                realm.copyToRealmOrUpdate(gsp.Storm_Spear);
+                realm.copyToRealmOrUpdate(gsp.The_Rotted_Fork);
+                realm.copyToRealmOrUpdate(gsp.Swordfish);
+                realm.copyToRealmOrUpdate(gsp.Dark_Lance);
 
                 //Add Hardmode Spears
+                realm.copyToRealmOrUpdate(gsp.Cobalt_Naginata);
+                realm.copyToRealmOrUpdate(gsp.Palladium_Pike);
+                realm.copyToRealmOrUpdate(gsp.Mythril_Halberd);
+                realm.copyToRealmOrUpdate(gsp.Orichalcum_Halberd);
+                realm.copyToRealmOrUpdate(gsp.Adamantite_Glaive);
+                realm.copyToRealmOrUpdate(gsp.Titanium_Trident);
+                realm.copyToRealmOrUpdate(gsp.Gungnir);
+                realm.copyToRealmOrUpdate(gsp.Ghastly_Glaive);
+                realm.copyToRealmOrUpdate(gsp.Chlorophyte_Partisan);
+                realm.copyToRealmOrUpdate(gsp.Tonbogiri);
+                realm.copyToRealmOrUpdate(gsp.Mushroom_Spear);
+                realm.copyToRealmOrUpdate(gsp.Obsidian_Swordfish);
+                realm.copyToRealmOrUpdate(gsp.North_Pole);
 
             }
         });

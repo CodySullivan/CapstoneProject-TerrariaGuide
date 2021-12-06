@@ -20,6 +20,8 @@ import com.example.capstoneprojectterrariaguide.Models.Swords;
 import com.example.capstoneprojectterrariaguide.Models.Wands;
 import com.example.capstoneprojectterrariaguide.Models.YoYos;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 import io.realm.Realm;
@@ -70,6 +72,7 @@ public class Info_Viewer extends AppCompatActivity {
 
     public void SetContent() {
         Realm realm = Realm.getDefaultInstance();
+        TextView tvT = findViewById(R.id.Info_Type);
         TextView tv2 = findViewById(R.id.Info_View);
         ImageView iv = findViewById(R.id.Material_Image);
         String newString;
@@ -82,6 +85,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = m.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Material");
             }
         }
         RealmQuery<Enemies> enemiesQuery = realm.where(Enemies.class);
@@ -92,6 +96,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = e.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Enemy");
             }
         }
         RealmQuery<Bosses> bossesQuery = realm.where(Bosses.class);
@@ -102,6 +107,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = b.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Boss");
             }
         }
         RealmQuery<Swords> swordsQuery = realm.where(Swords.class);
@@ -112,6 +118,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = s.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Sword");
             }
         }
         RealmQuery<Pickaxes> pickaxesQuery = realm.where(Pickaxes.class);
@@ -122,6 +129,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = p.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Pickaxe");
             }
         }
         RealmQuery<Axes> axesQuery = realm.where(Axes.class);
@@ -132,6 +140,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = a.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Axe");
             }
         }
         RealmQuery<Hammers> hammersQuery = realm.where(Hammers.class);
@@ -142,6 +151,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = h.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Hammer");
             }
         }
         RealmQuery<SpellTomes> spellTomesQuery = realm.where(SpellTomes.class);
@@ -152,6 +162,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = st.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Spell Tome");
             }
         }
         RealmQuery<Wands> wandsQuery = realm.where(Wands.class);
@@ -162,6 +173,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = w.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Wand");
             }
         }
         RealmQuery<YoYos> yoyosQuery = realm.where(YoYos.class);
@@ -172,6 +184,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = yy.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Yo-Yo");
             }
         }
         RealmQuery<Spears> spearsQuery = realm.where(Spears.class);
@@ -182,6 +195,7 @@ public class Info_Viewer extends AppCompatActivity {
                 newString = sp.getName().replace(" ", "_").toLowerCase();
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
+                tvT.setText("Spear");
             }
         }
     }
