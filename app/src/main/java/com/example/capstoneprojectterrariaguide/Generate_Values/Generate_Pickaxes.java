@@ -6,17 +6,17 @@ public class Generate_Pickaxes {
 
     //Generate Pickaxes & Drills (44)
     public Pickaxes Cactus_Pickaxe = new Pickaxes(1, "Catcus Pickaxe", 4, "35%", "4 Silver Coins", "You can craft this pickaxe with Cactus.");
-    public Pickaxes Copper_Pickaxe = new Pickaxes(2, "Copper Pickaxe", 4, "35%", "1 Silver Coin", "You can craft this, buy it for 5 Silver Coins, or you can spawn with it.");
-    public Pickaxes Tin_Pickaxe = new Pickaxes(3, "Tin Pickaxe", 5, "35%", "1 Silver and 50 Copper Coins", "You can craft this with Tin Bars.");
-    public Pickaxes Iron_Pickaxe = new Pickaxes(4, "Iron Pickaxe", 5, "40%", "4 Silver Coins", "You can craft this with Iron Bars.");
-    public Pickaxes Lead_Pickaxe = new Pickaxes(5, "Lead Pickaxe", 6, "43%", "6 Silver Coins", "You can craft this with Lead Bars.");
-    public Pickaxes Silver_Pickaxe = new Pickaxes(6, "Silver Pickaxe", 6, "45%", "10 Silver Coins", "You can craft this with Silver Bars.");
-    public Pickaxes Tungsten_Pickaxe = new Pickaxes(7, "Tungsten Pickaxe", 6, "50%", "15 Silver Coins", "You can craft this with Tungsten Bars.");
-    public Pickaxes Gold_Pickaxe = new Pickaxes(8, "Gold Pickaxe", 6, "55%", "20 Silver Coins", "You can craft this with Gold Bars.");
+    public Pickaxes Copper_Pickaxe = new Pickaxes(2, "Copper Pickaxe", 4, "35%", "1 Silver Coin", "You can craft this with Copper Bars and any wood, buy it for 5 Silver Coins, or you can spawn with it.");
+    public Pickaxes Tin_Pickaxe = new Pickaxes(3, "Tin Pickaxe", 5, "35%", "1 Silver and 50 Copper Coins", "You can craft this with Tin Bars and any wood.");
+    public Pickaxes Iron_Pickaxe = new Pickaxes(4, "Iron Pickaxe", 5, "40%", "4 Silver Coins", "You can craft this with Iron Bars and any wood.");
+    public Pickaxes Lead_Pickaxe = new Pickaxes(5, "Lead Pickaxe", 6, "43%", "6 Silver Coins", "You can craft this with Lead Bars and any wood.");
+    public Pickaxes Silver_Pickaxe = new Pickaxes(6, "Silver Pickaxe", 6, "45%", "10 Silver Coins", "You can craft this with Silver Bars and any wood.");
+    public Pickaxes Tungsten_Pickaxe = new Pickaxes(7, "Tungsten Pickaxe", 6, "50%", "15 Silver Coins", "You can craft this with Tungsten Bars any wood.");
+    public Pickaxes Gold_Pickaxe = new Pickaxes(8, "Gold Pickaxe", 6, "55%", "20 Silver Coins", "You can craft this with Gold Bars and any wood.");
     public Pickaxes Candy_Cane_Pickaxe = new Pickaxes(9, "Candy Cane Pickaxe", 7, "55%", "20 Silver Coins", "You can only obtain this from a present during the Christmas Event.");
-    public Pickaxes Fossil_Pickaxe = new Pickaxes(10, "Fossil Pickaxe", 8, "55%", "30 Silver Coins", "You can craft this with Sturdy Fossil.");
+    public Pickaxes Fossil_Pickaxe = new Pickaxes(10, "Fossil Pickaxe", 8, "55%", "30 Silver Coins", "You can craft this with Sturdy Fossil and any wood.");
     public Pickaxes Bone_Pickaxe = new Pickaxes(11, "Bone Pickaxe", 8, "55%", "30 Silver Coins", "You have to kill Undead Miners to obtain this Pickaxe.");
-    public Pickaxes Platinum_Pickaxe = new Pickaxes(12, "Platinum Pickaxe", 7, "59%", "30 Silver Coins", "You can craft this with Platinum Bars.");
+    public Pickaxes Platinum_Pickaxe = new Pickaxes(12, "Platinum Pickaxe", 7, "59%", "30 Silver Coins", "You can craft this with Platinum Bars and any wood.");
     public Pickaxes Reaver_Shark = new Pickaxes(13, "Reaver Shark", 16, "59%", "1 Gold and 50 Silver Coins", "You have to fish in the Ocean to obtain this Pickaxe.");
     public Pickaxes Nightmare_Pickaxe = new Pickaxes(14, "Nightmare Pickaxe", 9, "65%", "36 Silver Coins", "You can craft this with Demonite Bars and Shadow Scale.");
     public Pickaxes Deathbringer_Pickaxe = new Pickaxes(15, "Deathbringer Pickaxe", 12, "70%", "36 Silver Coins", "You can craft this with Crimtane Bars and Tissue Samples.");

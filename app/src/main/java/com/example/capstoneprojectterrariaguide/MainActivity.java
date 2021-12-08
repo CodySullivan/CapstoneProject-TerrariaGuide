@@ -3,12 +3,16 @@ package com.example.capstoneprojectterrariaguide;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Axes;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Boomerangs;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Bosses;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Enemies;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Flails;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Hammers;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Materials;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Pickaxes;
@@ -18,14 +22,16 @@ import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Wands;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_YoYos;
 
+import java.io.IOException;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
+import io.realm.mongodb.Credentials;
+import io.realm.mongodb.User;
 
 public class MainActivity extends AppCompatActivity {
-
-    String AppId = "capstone-szohf";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +39,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Realm.init(this);
+
+        String AppId = "capstone-szohf";
         App app = new App(new AppConfiguration.Builder(AppId).build());
+
+        Credentials credentials = Credentials.anonymous();
+
+        app.loginAsync(credentials, result -> {
+            if (result.isSuccess()) {
+                Log.v("QUICKSTART", "Successfully authenticated anonymously.");
+                User user = app.currentUser();
+            } else {
+                Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
+            }
+        });
+
+        // configuration to the realm database.
         RealmConfiguration config =
                 new RealmConfiguration.Builder()
-                        // below line is to allow write
-                        // data to database on ui thread.
                         .allowWritesOnUiThread(true)
-                        // below line is to delete realm
-                        // if migration is needed.
                         .deleteRealmIfMigrationNeeded()
-                        // at last we are calling a method to build.
                         .build();
-        // on below line we are setting
-        // configuration to our realm database.
+
         Realm.setDefaultConfiguration(config);
+
         addMaterialsToDatabase();
         addEnemiesToDatabase();
         addBossesToDatabase();
@@ -58,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
         addWandsToDatabase();
         addYoYosToDatabase();
         addSpearsToDatabase();
+        addBoomerangsToDatabase();
+        addFlailsToDatabase();
 
     }
 
@@ -65,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         openActivity2();
     }
     public void openActivity2(){
-        Intent intent = new Intent(this, Navigation.class);
+        Intent intent = new Intent(this, ObjectList.class);
         startActivity(intent);
     }
 
@@ -74,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Materials gm = new Generate_Materials();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
             public void execute(Realm realm) {
 
                 //Add Bar Materials
@@ -770,6 +789,66 @@ public class MainActivity extends AppCompatActivity {
                 realm.copyToRealmOrUpdate(gsp.Mushroom_Spear);
                 realm.copyToRealmOrUpdate(gsp.Obsidian_Swordfish);
                 realm.copyToRealmOrUpdate(gsp.North_Pole);
+
+            }
+        });
+    }
+    public void addBoomerangsToDatabase() {
+        //Get Boomerangs
+        final Generate_Boomerangs gb = new Generate_Boomerangs();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode Boomerangs
+                realm.copyToRealmOrUpdate(gb.Wooden_Boomerang);
+                realm.copyToRealmOrUpdate(gb.Enchanted_Boomerang);
+                realm.copyToRealmOrUpdate(gb.Fruitcake_Chakram);
+                realm.copyToRealmOrUpdate(gb.Bloody_Machete);
+                realm.copyToRealmOrUpdate(gb.Shroomerang);
+                realm.copyToRealmOrUpdate(gb.Ice_Boomerang);
+                realm.copyToRealmOrUpdate(gb.Thorn_Chakram);
+                realm.copyToRealmOrUpdate(gb.Combat_Wrench);
+                realm.copyToRealmOrUpdate(gb.Flamarang);
+
+                //Add Hardmode Boomerangs
+                realm.copyToRealmOrUpdate(gb.Flying_Knife);
+                realm.copyToRealmOrUpdate(gb.Sergeant_United_Shield);
+                realm.copyToRealmOrUpdate(gb.Light_Disc);
+                realm.copyToRealmOrUpdate(gb.Bananarang);
+                realm.copyToRealmOrUpdate(gb.Possessed_Hatchet);
+                realm.copyToRealmOrUpdate(gb.Paladins_Hammer);
+
+            }
+        });
+    }
+    public void addFlailsToDatabase() {
+        //Get Flails
+        final Generate_Flails gf = new Generate_Flails();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(new Realm.Transaction() {
+            public void execute(Realm realm) {
+
+                //Add Pre-Hardmode Flails
+                realm.copyToRealmOrUpdate(gf.Chain_Knife);
+                realm.copyToRealmOrUpdate(gf.Mace);
+                realm.copyToRealmOrUpdate(gf.Flaming_Mace);
+                realm.copyToRealmOrUpdate(gf.Ball_O_Hurt);
+                realm.copyToRealmOrUpdate(gf.The_Meatball);
+                realm.copyToRealmOrUpdate(gf.Blue_Moon);
+                realm.copyToRealmOrUpdate(gf.Sunfury);
+
+                //Add Hardmode Flails
+                realm.copyToRealmOrUpdate(gf.Anchor);
+                realm.copyToRealmOrUpdate(gf.KO_Cannon);
+                realm.copyToRealmOrUpdate(gf.Drippler_Crippler);
+                realm.copyToRealmOrUpdate(gf.Chain_Guillotines);
+                realm.copyToRealmOrUpdate(gf.Dao_Of_Pow);
+                realm.copyToRealmOrUpdate(gf.Flower_Pow);
+                realm.copyToRealmOrUpdate(gf.Golem_Fist);
+                realm.copyToRealmOrUpdate(gf.Flairon);
 
             }
         });

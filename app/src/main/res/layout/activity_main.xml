@@ -13,7 +13,7 @@
         android:layout_width="256dp"
         android:layout_height="58dp"
         android:background="#655DFA00"
-        android:text="Pocket Guide!"
+        android:text="Quick Wiki!"
         android:textAlignment="center"
         android:textColor="#E4BE5B17"
         android:textColorHighlight="#DAD51A1A"

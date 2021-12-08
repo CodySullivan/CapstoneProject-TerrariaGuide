@@ -2,6 +2,7 @@ package com.example.capstoneprojectterrariaguide;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,8 +12,10 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.capstoneprojectterrariaguide.Models.Axes;
+import com.example.capstoneprojectterrariaguide.Models.Boomerangs;
 import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
+import com.example.capstoneprojectterrariaguide.Models.Flails;
 import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
@@ -29,34 +32,43 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
+import io.realm.mongodb.Credentials;
+import io.realm.mongodb.User;
 
-public class Navigation extends AppCompatActivity {
+public class ObjectList extends AppCompatActivity {
 
-    String AppId = "capstone-szohf";
     public static final String Choice = "com.example.capstoneprojectterrariaguide.Choice";
     public EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.navigation_page);
+        setContentView(R.layout.objectlist_page);
 
         Realm.init(this);
+
+        String AppId = "capstone-szohf";
         App app = new App(new AppConfiguration.Builder(AppId).build());
+
+        Credentials credentials = Credentials.anonymous();
+
+        app.loginAsync(credentials, result -> {
+            if (result.isSuccess()) {
+                Log.v("QUICKSTART", "Successfully authenticated anonymously.");
+                User user = app.currentUser();
+            } else {
+                Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
+            }
+        });
+
+
+        // configuration to the realm database.
         RealmConfiguration config =
                 new RealmConfiguration.Builder()
-                        // below line is to allow write
-                        // data to database on ui thread.
                         .allowWritesOnUiThread(true)
-                        // below line is to delete realm
-                        // if migration is needed.
                         .deleteRealmIfMigrationNeeded()
-                        //allow reading the database
-                        .allowQueriesOnUiThread(true)
-                        // at last we are calling a method to build.
                         .build();
-        // on below line we are setting
-        // configuration to our realm database.
+
         Realm.setDefaultConfiguration(config);
 
         search = findViewById(R.id.Search_Bar);
@@ -72,6 +84,8 @@ public class Navigation extends AppCompatActivity {
         GetWands();
         GetYoYos();
         GetSpears();
+        GetBoomerangs();
+        GetFlails();
     }
 
     public void BackOnClick(View v){
@@ -124,6 +138,14 @@ public class Navigation extends AppCompatActivity {
         //Spears
         RealmQuery<Spears> spearsQuery = realm.where(Spears.class);
         List<Spears> spearsList = (spearsQuery.findAll());
+
+        //Boomerangs
+        RealmQuery<Boomerangs> boomerangsQuery = realm.where(Boomerangs.class);
+        List<Boomerangs> boomerangsList = (boomerangsQuery.findAll());
+
+        //Flails
+        RealmQuery<Flails> flailsQuery = realm.where(Flails.class);
+        List<Flails> flailsList = (flailsQuery.findAll());
 
         for(Materials m : materialsList) {
             if (m.getName().toLowerCase().contains(object.toLowerCase())) {
@@ -180,6 +202,16 @@ public class Navigation extends AppCompatActivity {
                 openActivity3(sp.getName());
             }
         }
+        for(Boomerangs b : boomerangsList) {
+            if (b.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(b.getName());
+            }
+        }
+        for(Flails f : flailsList) {
+            if (f.getName().toLowerCase().contains(object.toLowerCase())) {
+                openActivity3(f.getName());
+            }
+        }
     }
 
     public void openActivity1(){
@@ -207,7 +239,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,MaterialList);
+        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,MaterialList);
         MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         MaterialSpinner.setAdapter(MaterialAdapter);
 
@@ -241,7 +273,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> EnemyAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,EnemiesList);
+        ArrayAdapter<String> EnemyAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,EnemiesList);
         EnemyAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         EnemySpinner.setAdapter(EnemyAdapter);
 
@@ -275,7 +307,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> BossAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,BossesList);
+        ArrayAdapter<String> BossAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,BossesList);
         BossAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         BossSpinner.setAdapter(BossAdapter);
 
@@ -309,7 +341,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> SwordAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SwordsList);
+        ArrayAdapter<String> SwordAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,SwordsList);
         SwordAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         SwordSpinner.setAdapter(SwordAdapter);
 
@@ -343,7 +375,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> PickaxeAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,PickaxesList);
+        ArrayAdapter<String> PickaxeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,PickaxesList);
         PickaxeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         PickaxeSpinner.setAdapter(PickaxeAdapter);
 
@@ -377,7 +409,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> AxeAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,AxesList);
+        ArrayAdapter<String> AxeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,AxesList);
         AxeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         AxeSpinner.setAdapter(AxeAdapter);
 
@@ -411,7 +443,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> HammerAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,HammersList);
+        ArrayAdapter<String> HammerAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,HammersList);
         HammerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         HammerSpinner.setAdapter(HammerAdapter);
 
@@ -445,7 +477,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        ArrayAdapter<String> SpellTomeAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SpellTomesList);
+        ArrayAdapter<String> SpellTomeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,SpellTomesList);
         SpellTomeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         SpellTomeSpinner.setAdapter(SpellTomeAdapter);
 
@@ -479,7 +511,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        final ArrayAdapter<String> WandAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,WandsList);
+        final ArrayAdapter<String> WandAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,WandsList);
         WandAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         WandSpinner.setAdapter(WandAdapter);
 
@@ -513,7 +545,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        final ArrayAdapter<String> YoYoAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,YoYosList);
+        final ArrayAdapter<String> YoYoAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,YoYosList);
         YoYoAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         YoYoSpinner.setAdapter(YoYoAdapter);
 
@@ -547,7 +579,7 @@ public class Navigation extends AppCompatActivity {
             i++;
         }
 
-        final ArrayAdapter<String> SpearAdapter = new ArrayAdapter<>(Navigation.this, android.R.layout.simple_list_item_1 ,SpearsList);
+        final ArrayAdapter<String> SpearAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,SpearsList);
         SpearAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         SpearSpinner.setAdapter(SpearAdapter);
 
@@ -557,6 +589,74 @@ public class Navigation extends AppCompatActivity {
 
                 if (a != 0) {
                     openActivity3(SpearsList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetBoomerangs() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Boomerangs> tasksQuery = realm.where(Boomerangs.class);
+        Spinner BoomerangSpinner = (Spinner) findViewById(R.id.Boomerang_Spinner);
+        List<Boomerangs> boomerangsList = (tasksQuery.findAll());
+        final String[] BoomerangsList = new String[boomerangsList.size() + 1];
+
+        int i = 1;
+        BoomerangsList[0] = "(Boomerangs)";
+
+        for(Boomerangs b: boomerangsList) {
+            BoomerangsList[i] = b.getName();
+            i++;
+        }
+
+        final ArrayAdapter<String> BoomerangsAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,BoomerangsList);
+        BoomerangsAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        BoomerangSpinner.setAdapter(BoomerangsAdapter);
+
+        BoomerangSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(BoomerangsList[a]);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void GetFlails() {
+        Realm realm = Realm.getDefaultInstance();
+        RealmQuery<Flails> tasksQuery = realm.where(Flails.class);
+        Spinner FlailSpinner = (Spinner) findViewById(R.id.Flail_Spinner);
+        List<Flails> flailsList = (tasksQuery.findAll());
+        final String[] FlailsList = new String[flailsList.size() + 1];
+
+        int i = 1;
+        FlailsList[0] = "(Flails)";
+
+        for(Flails f: flailsList) {
+            FlailsList[i] = f.getName();
+            i++;
+        }
+
+        final ArrayAdapter<String> FlailAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,FlailsList);
+        FlailAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        FlailSpinner.setAdapter(FlailAdapter);
+
+        FlailSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
+
+                if (a != 0) {
+                    openActivity3(FlailsList[a]);
                 }
             }
 

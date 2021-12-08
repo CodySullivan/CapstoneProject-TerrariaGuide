@@ -71,8 +71,8 @@
         app:layout_constraintVertical_bias="0.955">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <Spinner
@@ -201,6 +201,30 @@
                 tools:ignore="SpeakableTextPresentCheck" />
             <Spinner
                 android:id="@+id/Spear_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/Boomerang_Spinner"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/Flail_Spinner"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"

@@ -2,6 +2,7 @@ package com.example.capstoneprojectterrariaguide;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,8 +10,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.capstoneprojectterrariaguide.Models.Axes;
+import com.example.capstoneprojectterrariaguide.Models.Boomerangs;
 import com.example.capstoneprojectterrariaguide.Models.Bosses;
 import com.example.capstoneprojectterrariaguide.Models.Enemies;
+import com.example.capstoneprojectterrariaguide.Models.Flails;
 import com.example.capstoneprojectterrariaguide.Models.Hammers;
 import com.example.capstoneprojectterrariaguide.Models.Materials;
 import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
@@ -20,8 +23,6 @@ import com.example.capstoneprojectterrariaguide.Models.Swords;
 import com.example.capstoneprojectterrariaguide.Models.Wands;
 import com.example.capstoneprojectterrariaguide.Models.YoYos;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 import io.realm.Realm;
@@ -29,10 +30,11 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmQuery;
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
+import io.realm.mongodb.Credentials;
+import io.realm.mongodb.User;
 
 public class Info_Viewer extends AppCompatActivity {
 
-    String AppId = "capstone-szohf";
     public String maybe;
 
     @Override
@@ -41,23 +43,33 @@ public class Info_Viewer extends AppCompatActivity {
         setContentView(R.layout.info_viewer);
 
         Realm.init(this);
+
+        String AppId = "capstone-szohf";
         App app = new App(new AppConfiguration.Builder(AppId).build());
+
+        Credentials credentials = Credentials.anonymous();
+
+        app.loginAsync(credentials, result -> {
+            if (result.isSuccess()) {
+                Log.v("QUICKSTART", "Successfully authenticated anonymously.");
+                User user = app.currentUser();
+            } else {
+                Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
+            }
+        });
+
+
+        // configuration to the realm database.
         RealmConfiguration config =
                 new RealmConfiguration.Builder()
-                        // below line is to allow write
-                        // data to database on ui thread.
                         .allowWritesOnUiThread(true)
-                        // below line is to delete realm
-                        // if migration is needed.
                         .deleteRealmIfMigrationNeeded()
-                        // at last we are calling a method to build.
                         .build();
-        // on below line we are setting
-        // configuration to our realm database.
+
         TextView tv = findViewById(R.id.Name_View);
         Realm.setDefaultConfiguration(config);
         Intent intent = getIntent();
-        maybe = intent.getStringExtra(Navigation.Choice);
+        maybe = intent.getStringExtra(ObjectList.Choice);
         tv.setText(maybe);
         SetContent();
     }
@@ -66,7 +78,7 @@ public class Info_Viewer extends AppCompatActivity {
         openActivity2();
     }
     public void openActivity2(){
-        Intent intent = new Intent(this, Navigation.class);
+        Intent intent = new Intent(this, ObjectList.class);
         startActivity(intent);
     }
 
@@ -86,6 +98,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Material");
+                break;
             }
         }
         RealmQuery<Enemies> enemiesQuery = realm.where(Enemies.class);
@@ -97,6 +110,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Enemy");
+                break;
             }
         }
         RealmQuery<Bosses> bossesQuery = realm.where(Bosses.class);
@@ -108,6 +122,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Boss");
+                break;
             }
         }
         RealmQuery<Swords> swordsQuery = realm.where(Swords.class);
@@ -119,6 +134,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Sword");
+                break;
             }
         }
         RealmQuery<Pickaxes> pickaxesQuery = realm.where(Pickaxes.class);
@@ -130,6 +146,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Pickaxe");
+                break;
             }
         }
         RealmQuery<Axes> axesQuery = realm.where(Axes.class);
@@ -141,6 +158,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Axe");
+                break;
             }
         }
         RealmQuery<Hammers> hammersQuery = realm.where(Hammers.class);
@@ -152,6 +170,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Hammer");
+                break;
             }
         }
         RealmQuery<SpellTomes> spellTomesQuery = realm.where(SpellTomes.class);
@@ -163,6 +182,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Spell Tome");
+                break;
             }
         }
         RealmQuery<Wands> wandsQuery = realm.where(Wands.class);
@@ -174,6 +194,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Wand");
+                break;
             }
         }
         RealmQuery<YoYos> yoyosQuery = realm.where(YoYos.class);
@@ -185,6 +206,7 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Yo-Yo");
+                break;
             }
         }
         RealmQuery<Spears> spearsQuery = realm.where(Spears.class);
@@ -196,6 +218,31 @@ public class Info_Viewer extends AppCompatActivity {
                 int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                 iv.setImageResource(resId);
                 tvT.setText("Spear");
+                break;
+            }
+        }
+        RealmQuery<Boomerangs> boomerangsQuery = realm.where(Boomerangs.class);
+        List<Boomerangs> boomerangsList = (boomerangsQuery.findAll());
+        for(Boomerangs b : boomerangsList) {
+            if (b.getName().contains(maybe)) {
+                tv2.setText(b.toString());
+                newString = b.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+                tvT.setText("Boomerang");
+                break;
+            }
+        }
+        RealmQuery<Flails> flailsQuery = realm.where(Flails.class);
+        List<Flails> flailsList = (flailsQuery.findAll());
+        for(Flails f : flailsList) {
+            if (f.getName().contains(maybe)) {
+                tv2.setText(f.toString());
+                newString = f.getName().replace(" ", "_").toLowerCase();
+                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                iv.setImageResource(resId);
+                tvT.setText("Flail");
+                break;
             }
         }
     }

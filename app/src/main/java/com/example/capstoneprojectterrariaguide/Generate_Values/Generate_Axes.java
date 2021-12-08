@@ -5,14 +5,14 @@ import com.example.capstoneprojectterrariaguide.Models.Axes;
 public class Generate_Axes {
 
     //Generate Axes and Chainsaws
-    public Axes Copper_Axe = new Axes(1, "Copper Axe", 3, "35%", "80 Copper Coins", "You can craft this, buy it for 4 Silver Coins, or you can spawn with it.");
-    public Axes Tin_Axe = new Axes(2, "Tin Axe", 4, "40%", "1 Silver and 20 Copper Coins", "You can craft this with Tin Bars.");
-    public Axes Iron_Axe = new Axes(3, "Iron Axe", 5, "45%", "3 Silver and 20 Copper Coins", "You can craft this with Iron Bars.");
-    public Axes Lead_Axe = new Axes(4, "Lead Axe", 6, "50%", "4 Silver and 80 Copper Coins", "You can craft this with Lead Bars.");
-    public Axes Silver_Axe = new Axes(5, "Silver Axe", 6, "50%", "8 Silver Coins", "You can craft this with Silver Bars.");
-    public Axes Tungsten_Axe = new Axes(6, "Tungsten Axe", 7, "55%", "12 Silver Coins", "You can craft this with Tungsten Bars.");
-    public Axes Gold_Axe = new Axes(7, "Gold Axe", 7, "55%", "16 Silver Coins", "You can craft this with Gold Bars.");
-    public Axes Platinum_Axe = new Axes(8, "Platinum Axe", 8, "60%", "24 Silver Coins", "You can craft this with Platinum Bars.");
+    public Axes Copper_Axe = new Axes(1, "Copper Axe", 3, "35%", "80 Copper Coins", "You can craft this with Copper Bars and any wood, buy it for 4 Silver Coins, or you can spawn with it.");
+    public Axes Tin_Axe = new Axes(2, "Tin Axe", 4, "40%", "1 Silver and 20 Copper Coins", "You can craft this with Tin Bars and any wood.");
+    public Axes Iron_Axe = new Axes(3, "Iron Axe", 5, "45%", "3 Silver and 20 Copper Coins", "You can craft this with Iron Bars and any wood.");
+    public Axes Lead_Axe = new Axes(4, "Lead Axe", 6, "50%", "4 Silver and 80 Copper Coins", "You can craft this with Lead Bars and any wood.");
+    public Axes Silver_Axe = new Axes(5, "Silver Axe", 6, "50%", "8 Silver Coins", "You can craft this with Silver Bars and any wood.");
+    public Axes Tungsten_Axe = new Axes(6, "Tungsten Axe", 7, "55%", "12 Silver Coins", "You can craft this with Tungsten Bars and any wood.");
+    public Axes Gold_Axe = new Axes(7, "Gold Axe", 7, "55%", "16 Silver Coins", "You can craft this with Gold Bars and any wood.");
+    public Axes Platinum_Axe = new Axes(8, "Platinum Axe", 8, "60%", "24 Silver Coins", "You can craft this with Platinum Bars and any wood.");
     public Axes Cobalt_Waraxe = new Axes(9, "Cobalt Waraxe", 33, "70%", "1 Gold and 8 Silver Coins", "You can craft this with Cobalt Bars.");
     public Axes Cobalt_Chainsaw = new Axes(10, "Cobalt Chainsaw", 23, "70%", "1 Gold and 8 Silver Coins", "You can craft this with Cobalt Bars.");
     public Axes Sawtooth_Shark = new Axes(11, "Sawtooth Shark", 13, "70%", "1 Gold and 50 Silver Coins", "You can obtain this item by fishing in the Ocean.");
