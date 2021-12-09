@@ -85,11 +85,11 @@ public class Enemy extends RealmObject {
 
     @Override
     public String toString() {
-        return "\nEnemy Id: " + enemyId +
-                "\nHealth: " + health +
-                "\nDamage: " + damage +
-                "\nType: " + type +
-                "\nLocation: " + location +
-                "\nDrops: " + drops;
+        return  "<b>" + "Enemy Id: "+ "</b>" + enemyId + "<br>" +
+                "<b>" + "Health: " + "</b>" +  health + "<br>" +
+                "<b>" + "Damage: " + "</b>" +  damage + "<br>" +
+                "<b>" + "Type: " + "</b>" +  type + "<br>" +
+                "<b>" + "Location: " + "</b>" +  location + "<br>" +
+                "<b>" + "Drops: " + "</b>" +  drops;
     }
 }

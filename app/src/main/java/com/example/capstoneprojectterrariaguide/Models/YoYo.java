@@ -75,10 +75,10 @@ public class YoYo extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nYo-Yo ID:  " + yoyoId +
-                "\nDamage: " + damage +
-                "\nPrice: " + price +
-                "\nType: " + type +
-                "\nHow to Obtain: " + howToObtain;
+        return  "<b>" + "Yo-Yo ID:  " + "</b>" + yoyoId + "<br>" +
+                "<b>" + "Damage: " + "</b>" + damage + "<br>" +
+                "<b>" + "Price: " + "</b>" + price + "<br>" +
+                "<b>" + "Type: " + "</b>" + type + "<br>" +
+                "<b>" + "How to Obtain: " + "</b>" + howToObtain;
     }
 }

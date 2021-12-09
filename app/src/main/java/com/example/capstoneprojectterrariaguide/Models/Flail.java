@@ -75,10 +75,10 @@ public class Flail extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nFlail ID:  " + flailId +
-                "\nDamage: " + damage +
-                "\nPrice: " + price +
-                "\nType: " + type +
-                "\nHow to Obtain: " + howToObtain;
+        return  "<b>" + "Flail ID:  "+ "</b>" + flailId + "<br>" +
+                "<b>" + "Damage: " + "</b>" +  damage + "<br>" +
+                "<b>" + "Price: " + "</b>" +  price + "<br>" +
+                "<b>" + "Type: " + "</b>" +  type + "<br>" +
+                "<b>" + "How to Obtain: " + "</b>" +  howToObtain;
     }
 }

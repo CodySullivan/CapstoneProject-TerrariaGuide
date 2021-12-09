@@ -1,4 +1,4 @@
-package com.example.capstoneprojectterrariaguide;
+package com.example.capstoneprojectterrariaguide.prog;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -25,6 +25,7 @@ import com.example.capstoneprojectterrariaguide.Models.SpellTome;
 import com.example.capstoneprojectterrariaguide.Models.Sword;
 import com.example.capstoneprojectterrariaguide.Models.Wand;
 import com.example.capstoneprojectterrariaguide.Models.YoYo;
+import com.example.capstoneprojectterrariaguide.R;
 
 import java.util.List;
 
@@ -116,7 +117,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Enemy> enemyList = (enemiesQuery.findAll());
             for (Enemy e : enemyList) {
                 if (e.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(e.toString());
+                    Spanned test = HtmlCompat.fromHtml(e.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = e.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -127,7 +129,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Boss> bossList = (bossesQuery.findAll());
             for (Boss b : bossList) {
                 if (b.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(b.toString());
+                    Spanned test = HtmlCompat.fromHtml(b.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = b.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -138,7 +141,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Sword> swordList = (swordsQuery.findAll());
             for (Sword s : swordList) {
                 if (s.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(s.toString());
+                    Spanned test = HtmlCompat.fromHtml(s.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = s.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -149,7 +153,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Pickaxe> pickaxeList = (pickaxesQuery.findAll());
             for (Pickaxe p : pickaxeList) {
                 if (p.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(p.toString());
+                    Spanned test = HtmlCompat.fromHtml(p.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = p.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -160,7 +165,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Axe> axeList = (axesQuery.findAll());
             for (Axe a : axeList) {
                 if (a.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(a.toString());
+                    Spanned test = HtmlCompat.fromHtml(a.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = a.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -171,7 +177,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Hammer> hammerList = (hammersQuery.findAll());
             for (Hammer h : hammerList) {
                 if (h.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(h.toString());
+                    Spanned test = HtmlCompat.fromHtml(h.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = h.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -182,7 +189,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<SpellTome> spellTomeList = (spellTomesQuery.findAll());
             for (SpellTome st : spellTomeList) {
                 if (st.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(st.toString());
+                    Spanned test = HtmlCompat.fromHtml(st.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = st.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -193,7 +201,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Wand> wandList = (wandsQuery.findAll());
             for (Wand w : wandList) {
                 if (w.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(w.toString());
+                    Spanned test = HtmlCompat.fromHtml(w.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = w.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -204,7 +213,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<YoYo> yoyosList = (yoyosQuery.findAll());
             for (YoYo yy : yoyosList) {
                 if (yy.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(yy.toString());
+                    Spanned test = HtmlCompat.fromHtml(yy.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = yy.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -215,7 +225,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Spear> spearList = (spearsQuery.findAll());
             for (Spear sp : spearList) {
                 if (sp.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(sp.toString());
+                    Spanned test = HtmlCompat.fromHtml(sp.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = sp.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -226,7 +237,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Boomerang> boomerangList = (boomerangsQuery.findAll());
             for (Boomerang b : boomerangList) {
                 if (b.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(b.toString());
+                    Spanned test = HtmlCompat.fromHtml(b.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = b.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);
@@ -237,7 +249,8 @@ public class Info_Viewer extends AppCompatActivity {
             List<Flail> flailList = (flailsQuery.findAll());
             for (Flail f : flailList) {
                 if (f.getName().equalsIgnoreCase(objectName)) {
-                    tv2.setText(f.toString());
+                    Spanned test = HtmlCompat.fromHtml(f.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
                     newString = f.getName().replace(" ", "_").toLowerCase();
                     int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
                     iv.setImageResource(resId);

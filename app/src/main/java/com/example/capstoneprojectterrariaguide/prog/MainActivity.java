@@ -1,4 +1,4 @@
-package com.example.capstoneprojectterrariaguide;
+package com.example.capstoneprojectterrariaguide.prog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +20,7 @@ import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_SpellTo
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Wands;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_YoYos;
+import com.example.capstoneprojectterrariaguide.R;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;

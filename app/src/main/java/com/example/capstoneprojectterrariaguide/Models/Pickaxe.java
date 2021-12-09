@@ -76,10 +76,10 @@ public class Pickaxe extends RealmObject {
     @Override
     public String toString() {
         return
-                "\nPickaxe ID: " + pickaxeId +
-                "\nDamage: " + damage +
-                "\nPower: " + power +
-                "\nPrice: " + price +
-                "\nHow To Obtain: " + howToObtain;
+                "<b>" + "Pickaxe ID: " + "</b>" + pickaxeId + "<br>" +
+                "<b>" + "Damage: " + "</b>" +  damage + "<br>" +
+                "<b>" + "Power: " + "</b>" +  power + "<br>" +
+                "<b>" + "Price: " + "</b>" +  price + "<br>" +
+                "<b>" + "How To Obtain: " + "</b>" +  howToObtain;
     }
 }

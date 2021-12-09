@@ -76,10 +76,10 @@ public class Spear extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nSpear ID:  " + spearId +
-                "\nDamage: " + damage +
-                "\nPrice: " + price +
-                "\nType: " + type +
-                "\nHow to Obtain: " + howToObtain;
+        return  "<b>" + "Spear ID:  " + "</br>" + spearId + "<br>" +
+                "<b>" + "Damage: " + "</br>" + damage + "<br>" +
+                "<b>" + "Price: " + "</br>" + price + "<br>" +
+                "<b>" + "Type: " + "</br>" + type + "<br>" +
+                "<b>" + "How to Obtain: " + "</br>" + howToObtain;
     }
 }

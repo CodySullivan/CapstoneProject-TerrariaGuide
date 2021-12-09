@@ -75,10 +75,10 @@ public class Hammer extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nHammer ID: " + hammerId +
-                "\nDamage: " + damage +
-                "\nPower: " + power +
-                "\nPrice: " + price +
-                "\nHow To Obtain: " + howToObtain;
+        return  "<b>" + "Hammer ID: " + "</b>" + hammerId + "<br>" +
+                "<b>" + "Damage: " + "</b>" +  damage + "<br>" +
+                "<b>" + "Power: " + "</b>" +  power + "<br>" +
+                "<b>" + "Price: " + "</b>" +  price + "<br>" +
+                "<b>" + "How To Obtain: " + "</b>" +  howToObtain;
     }
 }

@@ -76,10 +76,10 @@ public class Boss extends RealmObject {
     @Override
     public String toString() {
         return
-                "\nBoss ID: " + bossId +
-                "\nHealth: " + health +
-                "\nDamage: " + damage +
-                "\nLocation: " + location +
-                "\nDrops: " + drops;
+                "<b>" + "Boss ID: "+ "</b>" + bossId + "<br>" +
+                "<b>" + "Health: " + "</b>" +  health + "<br>" +
+                "<b>" + "Damage: " + "</b>" +  damage + "<br>" +
+                "<b>" + "Location: " + "</b>" +  location + "<br>" +
+                "<b>" + "Drops: " + "</b>" +  drops;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.capstoneprojectterrariaguide;
+package com.example.capstoneprojectterrariaguide.prog;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +24,7 @@ import com.example.capstoneprojectterrariaguide.Models.SpellTome;
 import com.example.capstoneprojectterrariaguide.Models.Sword;
 import com.example.capstoneprojectterrariaguide.Models.Wand;
 import com.example.capstoneprojectterrariaguide.Models.YoYo;
+import com.example.capstoneprojectterrariaguide.R;
 
 import java.util.List;
 
@@ -239,7 +240,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetMaterials() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Material> tasksQuery = realm.where(Material.class);
-        Spinner MaterialSpinner = (Spinner) findViewById(R.id.Material_Spinner);
+        Spinner MaterialSpinner = findViewById(R.id.Material_Spinner);
         List<Material> materialList = (tasksQuery.findAll());
         final String[] MaterialList = new String[materialList.size() + 1];
 
@@ -274,7 +275,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetEnemies() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Enemy> tasksQuery = realm.where(Enemy.class);
-        Spinner EnemySpinner = (Spinner) findViewById(R.id.Enemy_Spinner);
+        Spinner EnemySpinner = findViewById(R.id.Enemy_Spinner);
         List<Enemy> enemyList = (tasksQuery.findAll());
         final String[] EnemiesList = new String[enemyList.size() + 1];
 
@@ -309,7 +310,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetBosses() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Boss> tasksQuery = realm.where(Boss.class);
-        Spinner BossSpinner = (Spinner) findViewById(R.id.Boss_Spinner);
+        Spinner BossSpinner = findViewById(R.id.Boss_Spinner);
         List<Boss> bossList = (tasksQuery.findAll());
         final String[] BossesList = new String[bossList.size() + 1];
 
@@ -344,7 +345,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetSwords() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Sword> tasksQuery = realm.where(Sword.class);
-        Spinner SwordSpinner = (Spinner) findViewById(R.id.Sword_Spinner);
+        Spinner SwordSpinner = findViewById(R.id.Sword_Spinner);
         List<Sword> swordList = (tasksQuery.findAll());
         final String[] SwordsList = new String[swordList.size() + 1];
 
@@ -379,7 +380,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetPickaxes() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Pickaxe> tasksQuery = realm.where(Pickaxe.class);
-        Spinner PickaxeSpinner = (Spinner) findViewById(R.id.Pickaxe_Spinner);
+        Spinner PickaxeSpinner = findViewById(R.id.Pickaxe_Spinner);
         List<Pickaxe> pickaxeList = (tasksQuery.findAll());
         final String[] PickaxesList = new String[pickaxeList.size() + 1];
 
@@ -414,7 +415,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetAxes() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Axe> tasksQuery = realm.where(Axe.class);
-        Spinner AxeSpinner = (Spinner) findViewById(R.id.Axe_Spinner);
+        Spinner AxeSpinner = findViewById(R.id.Axe_Spinner);
         List<Axe> axeList = (tasksQuery.findAll());
         final String[] AxesList = new String[axeList.size() + 1];
 
@@ -449,7 +450,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetHammers() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Hammer> tasksQuery = realm.where(Hammer.class);
-        Spinner HammerSpinner = (Spinner) findViewById(R.id.Hammer_Spinner);
+        Spinner HammerSpinner = findViewById(R.id.Hammer_Spinner);
         List<Hammer> hammerList = (tasksQuery.findAll());
         final String[] HammersList = new String[hammerList.size() + 1];
 
@@ -484,7 +485,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetSpellTomes() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<SpellTome> tasksQuery = realm.where(SpellTome.class);
-        Spinner SpellTomeSpinner = (Spinner) findViewById(R.id.SpellTome_Spinner);
+        Spinner SpellTomeSpinner = findViewById(R.id.SpellTome_Spinner);
         List<SpellTome> spellTomeList = (tasksQuery.findAll());
         final String[] SpellTomesList = new String[spellTomeList.size() + 1];
 
@@ -519,7 +520,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetWands() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Wand> tasksQuery = realm.where(Wand.class);
-        Spinner WandSpinner = (Spinner) findViewById(R.id.Wand_Spinner);
+        Spinner WandSpinner = findViewById(R.id.Wand_Spinner);
         List<Wand> wandList = (tasksQuery.findAll());
         final String[] WandsList = new String[wandList.size() + 1];
 
@@ -554,7 +555,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetYoYos() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<YoYo> tasksQuery = realm.where(YoYo.class);
-        Spinner YoYoSpinner = (Spinner) findViewById(R.id.YoYo_Spinner);
+        Spinner YoYoSpinner = findViewById(R.id.YoYo_Spinner);
         List<YoYo> yoyosList = (tasksQuery.findAll());
         final String[] YoYosList = new String[yoyosList.size() + 1];
 
@@ -589,7 +590,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetSpears() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Spear> tasksQuery = realm.where(Spear.class);
-        Spinner SpearSpinner = (Spinner) findViewById(R.id.Spear_Spinner);
+        Spinner SpearSpinner = findViewById(R.id.Spear_Spinner);
         List<Spear> spearList = (tasksQuery.findAll());
         final String[] SpearsList = new String[spearList.size() + 1];
 
@@ -624,7 +625,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetBoomerangs() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Boomerang> tasksQuery = realm.where(Boomerang.class);
-        Spinner BoomerangSpinner = (Spinner) findViewById(R.id.Boomerang_Spinner);
+        Spinner BoomerangSpinner = findViewById(R.id.Boomerang_Spinner);
         List<Boomerang> boomerangList = (tasksQuery.findAll());
         final String[] BoomerangsList = new String[boomerangList.size() + 1];
 
@@ -659,7 +660,7 @@ public class ObjectList extends AppCompatActivity {
     public void GetFlails() {
         Realm realm = Realm.getDefaultInstance();
         RealmQuery<Flail> tasksQuery = realm.where(Flail.class);
-        Spinner FlailSpinner = (Spinner) findViewById(R.id.Flail_Spinner);
+        Spinner FlailSpinner = findViewById(R.id.Flail_Spinner);
         List<Flail> flailList = (tasksQuery.findAll());
         final String[] FlailsList = new String[flailList.size() + 1];
 
