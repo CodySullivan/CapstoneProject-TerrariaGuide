@@ -1,27 +1,30 @@
 package com.example.capstoneprojectterrariaguide;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
-import com.example.capstoneprojectterrariaguide.Models.Axes;
-import com.example.capstoneprojectterrariaguide.Models.Boomerangs;
-import com.example.capstoneprojectterrariaguide.Models.Bosses;
-import com.example.capstoneprojectterrariaguide.Models.Enemies;
-import com.example.capstoneprojectterrariaguide.Models.Flails;
-import com.example.capstoneprojectterrariaguide.Models.Hammers;
-import com.example.capstoneprojectterrariaguide.Models.Materials;
-import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
-import com.example.capstoneprojectterrariaguide.Models.Spears;
-import com.example.capstoneprojectterrariaguide.Models.SpellTomes;
-import com.example.capstoneprojectterrariaguide.Models.Swords;
-import com.example.capstoneprojectterrariaguide.Models.Wands;
-import com.example.capstoneprojectterrariaguide.Models.YoYos;
+import com.example.capstoneprojectterrariaguide.Models.Axe;
+import com.example.capstoneprojectterrariaguide.Models.Boomerang;
+import com.example.capstoneprojectterrariaguide.Models.Boss;
+import com.example.capstoneprojectterrariaguide.Models.Enemy;
+import com.example.capstoneprojectterrariaguide.Models.Flail;
+import com.example.capstoneprojectterrariaguide.Models.Hammer;
+import com.example.capstoneprojectterrariaguide.Models.Material;
+import com.example.capstoneprojectterrariaguide.Models.Pickaxe;
+import com.example.capstoneprojectterrariaguide.Models.Spear;
+import com.example.capstoneprojectterrariaguide.Models.SpellTome;
+import com.example.capstoneprojectterrariaguide.Models.Sword;
+import com.example.capstoneprojectterrariaguide.Models.Wand;
+import com.example.capstoneprojectterrariaguide.Models.YoYo;
 
 import java.util.List;
 
@@ -35,8 +38,10 @@ import io.realm.mongodb.User;
 
 public class Info_Viewer extends AppCompatActivity {
 
-    public String maybe;
+    public String objectName;
+    public String objectType;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +58,7 @@ public class Info_Viewer extends AppCompatActivity {
             if (result.isSuccess()) {
                 Log.v("QUICKSTART", "Successfully authenticated anonymously.");
                 User user = app.currentUser();
+                System.out.println(user);
             } else {
                 Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
             }
@@ -67,183 +73,177 @@ public class Info_Viewer extends AppCompatActivity {
                         .build();
 
         TextView tv = findViewById(R.id.Name_View);
+        TextView tvT = findViewById(R.id.Info_Type);
         Realm.setDefaultConfiguration(config);
         Intent intent = getIntent();
-        maybe = intent.getStringExtra(ObjectList.Choice);
-        tv.setText(maybe);
+        objectName = intent.getStringExtra(ObjectList.Choice);
+        objectType = intent.getStringExtra(ObjectList.Type);
+        tv.setText(objectName);
+        tvT.setText("Type: " + objectType);
         SetContent();
     }
 
-    public void BackOnClick(View v){
+    public void BackOnClick(View v) {
         openActivity2();
     }
-    public void openActivity2(){
+
+    public void openActivity2() {
         Intent intent = new Intent(this, ObjectList.class);
         startActivity(intent);
     }
 
     public void SetContent() {
         Realm realm = Realm.getDefaultInstance();
-        TextView tvT = findViewById(R.id.Info_Type);
         TextView tv2 = findViewById(R.id.Info_View);
         ImageView iv = findViewById(R.id.Material_Image);
         String newString;
 
-        RealmQuery<Materials> materialsQuery = realm.where(Materials.class);
-        List<Materials> materialsList = (materialsQuery.findAll());
-        for(Materials m : materialsList) {
-            if (m.getName().contains(maybe)) {
-                tv2.setText(m.toString());
-                newString = m.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Material");
-                break;
+        if (objectType.equals("Material")) {
+            RealmQuery<Material> materialsQuery = realm.where(Material.class);
+            List<Material> materialList = (materialsQuery.findAll());
+            for (Material m : materialList) {
+                if (m.getName().equalsIgnoreCase(objectName)) {
+                    Spanned test = HtmlCompat.fromHtml(m.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY);
+                    tv2.setText(test);
+                    newString = m.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
         }
-        RealmQuery<Enemies> enemiesQuery = realm.where(Enemies.class);
-        List<Enemies> enemiesList = (enemiesQuery.findAll());
-        for(Enemies e : enemiesList) {
-            if (e.getName().contains(maybe)) {
-                tv2.setText(e.toString());
-                newString = e.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Enemy");
-                break;
+        if (objectType.equals("Enemy")) {
+            RealmQuery<Enemy> enemiesQuery = realm.where(Enemy.class);
+            List<Enemy> enemyList = (enemiesQuery.findAll());
+            for (Enemy e : enemyList) {
+                if (e.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(e.toString());
+                    newString = e.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Bosses> bossesQuery = realm.where(Bosses.class);
-        List<Bosses> bossesList = (bossesQuery.findAll());
-        for(Bosses b : bossesList) {
-            if (b.getName().contains(maybe)) {
-                tv2.setText(b.toString());
-                newString = b.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Boss");
-                break;
+        } if (objectType.equals("Boss")) {
+            RealmQuery<Boss> bossesQuery = realm.where(Boss.class);
+            List<Boss> bossList = (bossesQuery.findAll());
+            for (Boss b : bossList) {
+                if (b.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(b.toString());
+                    newString = b.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Swords> swordsQuery = realm.where(Swords.class);
-        List<Swords> swordsList = (swordsQuery.findAll());
-        for(Swords s : swordsList) {
-            if (s.getName().contains(maybe)) {
-                tv2.setText(s.toString());
-                newString = s.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Sword");
-                break;
+        } if (objectType.equals("Sword")) {
+            RealmQuery<Sword> swordsQuery = realm.where(Sword.class);
+            List<Sword> swordList = (swordsQuery.findAll());
+            for (Sword s : swordList) {
+                if (s.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(s.toString());
+                    newString = s.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Pickaxes> pickaxesQuery = realm.where(Pickaxes.class);
-        List<Pickaxes> pickaxesList = (pickaxesQuery.findAll());
-        for(Pickaxes p : pickaxesList) {
-            if (p.getName().contains(maybe)) {
-                tv2.setText(p.toString());
-                newString = p.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Pickaxe");
-                break;
+        } if (objectType.equals("Pickaxe")) {
+            RealmQuery<Pickaxe> pickaxesQuery = realm.where(Pickaxe.class);
+            List<Pickaxe> pickaxeList = (pickaxesQuery.findAll());
+            for (Pickaxe p : pickaxeList) {
+                if (p.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(p.toString());
+                    newString = p.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Axes> axesQuery = realm.where(Axes.class);
-        List<Axes> axesList = (axesQuery.findAll());
-        for(Axes a : axesList) {
-            if (a.getName().contains(maybe)) {
-                tv2.setText(a.toString());
-                newString = a.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Axe");
-                break;
+        } if (objectType.equals("Axe")) {
+            RealmQuery<Axe> axesQuery = realm.where(Axe.class);
+            List<Axe> axeList = (axesQuery.findAll());
+            for (Axe a : axeList) {
+                if (a.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(a.toString());
+                    newString = a.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Hammers> hammersQuery = realm.where(Hammers.class);
-        List<Hammers> hammersList = (hammersQuery.findAll());
-        for(Hammers h : hammersList) {
-            if (h.getName().contains(maybe)) {
-                tv2.setText(h.toString());
-                newString = h.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Hammer");
-                break;
+        } if (objectType.equals("Hammer")) {
+            RealmQuery<Hammer> hammersQuery = realm.where(Hammer.class);
+            List<Hammer> hammerList = (hammersQuery.findAll());
+            for (Hammer h : hammerList) {
+                if (h.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(h.toString());
+                    newString = h.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<SpellTomes> spellTomesQuery = realm.where(SpellTomes.class);
-        List<SpellTomes> spellTomesList = (spellTomesQuery.findAll());
-        for(SpellTomes st : spellTomesList) {
-            if (st.getName().contains(maybe)) {
-                tv2.setText(st.toString());
-                newString = st.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Spell Tome");
-                break;
+        } if (objectType.equals("SpellTome")) {
+            RealmQuery<SpellTome> spellTomesQuery = realm.where(SpellTome.class);
+            List<SpellTome> spellTomeList = (spellTomesQuery.findAll());
+            for (SpellTome st : spellTomeList) {
+                if (st.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(st.toString());
+                    newString = st.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Wands> wandsQuery = realm.where(Wands.class);
-        List<Wands> wandsList = (wandsQuery.findAll());
-        for(Wands w : wandsList) {
-            if (w.getName().contains(maybe)) {
-                tv2.setText(w.toString());
-                newString = w.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Wand");
-                break;
+        } if (objectType.equals("Wand")) {
+            RealmQuery<Wand> wandsQuery = realm.where(Wand.class);
+            List<Wand> wandList = (wandsQuery.findAll());
+            for (Wand w : wandList) {
+                if (w.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(w.toString());
+                    newString = w.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<YoYos> yoyosQuery = realm.where(YoYos.class);
-        List<YoYos> yoyosList = (yoyosQuery.findAll());
-        for(YoYos yy : yoyosList) {
-            if (yy.getName().contains(maybe)) {
-                tv2.setText(yy.toString());
-                newString = yy.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Yo-Yo");
-                break;
+        } if (objectType.equals("YoYo")) {
+            RealmQuery<YoYo> yoyosQuery = realm.where(YoYo.class);
+            List<YoYo> yoyosList = (yoyosQuery.findAll());
+            for (YoYo yy : yoyosList) {
+                if (yy.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(yy.toString());
+                    newString = yy.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Spears> spearsQuery = realm.where(Spears.class);
-        List<Spears> spearsList = (spearsQuery.findAll());
-        for(Spears sp : spearsList) {
-            if (sp.getName().contains(maybe)) {
-                tv2.setText(sp.toString());
-                newString = sp.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Spear");
-                break;
+        } if (objectType.equals("Spear")) {
+            RealmQuery<Spear> spearsQuery = realm.where(Spear.class);
+            List<Spear> spearList = (spearsQuery.findAll());
+            for (Spear sp : spearList) {
+                if (sp.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(sp.toString());
+                    newString = sp.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Boomerangs> boomerangsQuery = realm.where(Boomerangs.class);
-        List<Boomerangs> boomerangsList = (boomerangsQuery.findAll());
-        for(Boomerangs b : boomerangsList) {
-            if (b.getName().contains(maybe)) {
-                tv2.setText(b.toString());
-                newString = b.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Boomerang");
-                break;
+        } if (objectType.equals("Boomerang")) {
+            RealmQuery<Boomerang> boomerangsQuery = realm.where(Boomerang.class);
+            List<Boomerang> boomerangList = (boomerangsQuery.findAll());
+            for (Boomerang b : boomerangList) {
+                if (b.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(b.toString());
+                    newString = b.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
-        }
-        RealmQuery<Flails> flailsQuery = realm.where(Flails.class);
-        List<Flails> flailsList = (flailsQuery.findAll());
-        for(Flails f : flailsList) {
-            if (f.getName().contains(maybe)) {
-                tv2.setText(f.toString());
-                newString = f.getName().replace(" ", "_").toLowerCase();
-                int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
-                iv.setImageResource(resId);
-                tvT.setText("Flail");
-                break;
+        } if (objectType.equals("Flail")) {
+            RealmQuery<Flail> flailsQuery = realm.where(Flail.class);
+            List<Flail> flailList = (flailsQuery.findAll());
+            for (Flail f : flailList) {
+                if (f.getName().equalsIgnoreCase(objectName)) {
+                    tv2.setText(f.toString());
+                    newString = f.getName().replace(" ", "_").toLowerCase();
+                    int resId = getResources().getIdentifier(newString, "drawable", getPackageName());
+                    iv.setImageResource(resId);
+                }
             }
         }
     }
 }
+

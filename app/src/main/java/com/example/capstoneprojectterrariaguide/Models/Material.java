@@ -3,7 +3,7 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Materials extends RealmObject {
+public class Material extends RealmObject {
 
     @PrimaryKey
     private int materialId;
@@ -12,7 +12,7 @@ public class Materials extends RealmObject {
     private String price;
     private String usedFor;
 
-    public Materials(int materialId, String name, String howToObtain, String price, String usedFor) {
+    public Material(int materialId, String name, String howToObtain, String price, String usedFor) {
         this.materialId = materialId;
         this.name = name;
         this.howToObtain = howToObtain;
@@ -20,8 +20,9 @@ public class Materials extends RealmObject {
         this.usedFor = usedFor;
     }
 
-    public Materials() {
+    public Material() {
     }
+
 
     public int getMaterialId() {
         return materialId;
@@ -65,9 +66,9 @@ public class Materials extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nMaterial Id: " + materialId +
-                "\nHow To Obtain: " + howToObtain +
-                "\nPrice: " + price +
-                "\nUsed For: " + usedFor;
+        return  "<b>" + "Material Id: " + "</b>" + materialId + "<br>" +
+                "<b>" + "How To Obtain: " + "</b>" + howToObtain + "<br>" +
+                "<b>" + "Price: " + "</b>" + price + "<br>" +
+                "<b>" + "Used For: " + "</b>" + usedFor;
     }
 }

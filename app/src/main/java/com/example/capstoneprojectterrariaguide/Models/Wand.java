@@ -3,7 +3,7 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Wands extends RealmObject {
+public class Wand extends RealmObject {
 
     @PrimaryKey
     private int wandId;
@@ -13,7 +13,7 @@ public class Wands extends RealmObject {
     private String price;
     private String howToObtain;
 
-    public Wands(int wandId, String name, float damage, int manaUse, String price, String howToObtain) {
+    public Wand(int wandId, String name, float damage, int manaUse, String price, String howToObtain) {
         this.wandId = wandId;
         this.name = name;
         this.damage = damage;
@@ -22,7 +22,7 @@ public class Wands extends RealmObject {
         this.howToObtain = howToObtain;
     }
 
-    public Wands() {
+    public Wand() {
     }
 
     public int getWantId() {

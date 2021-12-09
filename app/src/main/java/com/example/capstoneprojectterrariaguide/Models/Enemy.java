@@ -3,7 +3,7 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Enemies extends RealmObject {
+public class Enemy extends RealmObject {
 
     @PrimaryKey
     private int enemyId;
@@ -14,7 +14,7 @@ public class Enemies extends RealmObject {
     private String location;
     private String drops;
 
-    public Enemies(int enemyId, String name, float health, float damage, String type, String location, String drops) {
+    public Enemy(int enemyId, String name, float health, float damage, String type, String location, String drops) {
         this.enemyId = enemyId;
         this.name = name;
         this.health = health;
@@ -24,7 +24,7 @@ public class Enemies extends RealmObject {
         this.drops = drops;
     }
 
-    public Enemies() {
+    public Enemy() {
     }
 
     public int getEnemyId() {

@@ -3,34 +3,34 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Hammers extends RealmObject {
+public class SpellTome extends RealmObject {
 
     @PrimaryKey
-    private int hammerId;
+    private int spellTomeId;
     private String name;
     private float damage;
-    private String power;
+    private int manaUse;
     private String price;
     private String howToObtain;
 
-    public Hammers() {
-    }
-
-    public Hammers(int hammerId, String name, float damage, String power, String price, String howToObtain) {
-        this.hammerId = hammerId;
+    public SpellTome(int spellTomeId, String name, float damage, int manaUse, String price, String howToObtain) {
+        this.spellTomeId = spellTomeId;
         this.name = name;
         this.damage = damage;
-        this.power = power;
+        this.manaUse = manaUse;
         this.price = price;
         this.howToObtain = howToObtain;
     }
 
-    public int getHammerId() {
-        return hammerId;
+    public SpellTome() {
     }
 
-    public void setHammerId(int hammerId) {
-        this.hammerId = hammerId;
+    public int getSpellTomeId() {
+        return spellTomeId;
+    }
+
+    public void setSpellTomeId(int spellTomeId) {
+        this.spellTomeId = spellTomeId;
     }
 
     public String getName() {
@@ -49,12 +49,12 @@ public class Hammers extends RealmObject {
         this.damage = damage;
     }
 
-    public String getPower() {
-        return power;
+    public int getManaUse() {
+        return manaUse;
     }
 
-    public void setPower(String power) {
-        this.power = power;
+    public void setManaUse(int manaUse) {
+        this.manaUse = manaUse;
     }
 
     public String getPrice() {
@@ -75,9 +75,9 @@ public class Hammers extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nHammer ID: " + hammerId +
+        return  "\nSpellTome ID: " + spellTomeId +
                 "\nDamage: " + damage +
-                "\nPower: " + power +
+                "\nMana Use: " + manaUse +
                 "\nPrice: " + price +
                 "\nHow To Obtain: " + howToObtain;
     }

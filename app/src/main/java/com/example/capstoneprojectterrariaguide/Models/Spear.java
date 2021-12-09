@@ -3,34 +3,35 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Axes extends RealmObject {
+public class Spear extends RealmObject {
+
 
     @PrimaryKey
-    private int axeId;
+    private int spearId;
     private String name;
     private float damage;
-    private String power;
     private String price;
+    private String type;
     private String howToObtain;
 
-    public Axes() {
-    }
-
-    public Axes(int axeId, String name, float damage, String power, String price, String howToObtain) {
-        this.axeId = axeId;
+    public Spear(int spearId, String name, float damage, String price, String type, String howToObtain) {
+        this.spearId = spearId;
         this.name = name;
         this.damage = damage;
-        this.power = power;
         this.price = price;
+        this.type = type;
         this.howToObtain = howToObtain;
     }
 
-    public int getAxeId() {
-        return axeId;
+    public Spear() {
     }
 
-    public void setAxeId(int axeId) {
-        this.axeId = axeId;
+    public int getSpearId() {
+        return spearId;
+    }
+
+    public void setSpearId(int spearId) {
+        this.spearId = spearId;
     }
 
     public String getName() {
@@ -49,20 +50,20 @@ public class Axes extends RealmObject {
         this.damage = damage;
     }
 
-    public String getPower() {
-        return power;
-    }
-
-    public void setPower(String power) {
-        this.power = power;
-    }
-
     public String getPrice() {
         return price;
     }
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getHowToObtain() {
@@ -75,10 +76,10 @@ public class Axes extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nAxe ID: " + axeId +
+        return  "\nSpear ID:  " + spearId +
                 "\nDamage: " + damage +
-                "\nPower: " + power +
                 "\nPrice: " + price +
-                "\nHow To Obtain: " + howToObtain;
+                "\nType: " + type +
+                "\nHow to Obtain: " + howToObtain;
     }
 }

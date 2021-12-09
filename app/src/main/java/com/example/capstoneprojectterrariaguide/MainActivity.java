@@ -3,7 +3,6 @@ package com.example.capstoneprojectterrariaguide;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,8 +20,6 @@ import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_SpellTo
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Wands;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_YoYos;
-
-import java.io.IOException;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -49,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             if (result.isSuccess()) {
                 Log.v("QUICKSTART", "Successfully authenticated anonymously.");
                 User user = app.currentUser();
+                System.out.println(user);
             } else {
                 Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
             }
@@ -92,77 +90,74 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Materials gm = new Generate_Materials();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
+        realm.executeTransaction(realm1 -> {
 
-                //Add Bar Materials
-                realm.copyToRealmOrUpdate(gm.Adamantite_Bar);
-                realm.copyToRealmOrUpdate(gm.Chlorophyte_Bar);
-                realm.copyToRealmOrUpdate(gm.Cobalt_Bar);
-                realm.copyToRealmOrUpdate(gm.Copper_Bar);
-                realm.copyToRealmOrUpdate(gm.Crimtane_Bar);
-                realm.copyToRealmOrUpdate(gm.Demonite_Bar);
-                realm.copyToRealmOrUpdate(gm.Gold_Bar);
-                realm.copyToRealmOrUpdate(gm.Hallowed_Bar);
-                realm.copyToRealmOrUpdate(gm.Hellstone_Bar);
-                realm.copyToRealmOrUpdate(gm.Iron_Bar);
-                realm.copyToRealmOrUpdate(gm.Lead_Bar);
-                realm.copyToRealmOrUpdate(gm.Luminite_Bar);
-                realm.copyToRealmOrUpdate(gm.Meteorite_Bar);
-                realm.copyToRealmOrUpdate(gm.Mythril_Bar);
-                realm.copyToRealmOrUpdate(gm.Orichalcum_Bar);
-                realm.copyToRealmOrUpdate(gm.Palladium_Bar);
-                realm.copyToRealmOrUpdate(gm.Platinum_Bar);
-                realm.copyToRealmOrUpdate(gm.Shroomite_Bar);
-                realm.copyToRealmOrUpdate(gm.Silver_Bar);
-                realm.copyToRealmOrUpdate(gm.Spectre_Bar);
-                realm.copyToRealmOrUpdate(gm.Tin_Bar);
-                realm.copyToRealmOrUpdate(gm.Titanium_Bar);
-                realm.copyToRealmOrUpdate(gm.Tungsten_Bar);
+            //Add Bar Materials
+            realm1.copyToRealmOrUpdate(gm.Adamantite_Bar);
+            realm1.copyToRealmOrUpdate(gm.Chlorophyte_Bar);
+            realm1.copyToRealmOrUpdate(gm.Cobalt_Bar);
+            realm1.copyToRealmOrUpdate(gm.Copper_Bar);
+            realm1.copyToRealmOrUpdate(gm.Crimtane_Bar);
+            realm1.copyToRealmOrUpdate(gm.Demonite_Bar);
+            realm1.copyToRealmOrUpdate(gm.Gold_Bar);
+            realm1.copyToRealmOrUpdate(gm.Hallowed_Bar);
+            realm1.copyToRealmOrUpdate(gm.Hellstone_Bar);
+            realm1.copyToRealmOrUpdate(gm.Iron_Bar);
+            realm1.copyToRealmOrUpdate(gm.Lead_Bar);
+            realm1.copyToRealmOrUpdate(gm.Luminite_Bar);
+            realm1.copyToRealmOrUpdate(gm.Meteorite_Bar);
+            realm1.copyToRealmOrUpdate(gm.Mythril_Bar);
+            realm1.copyToRealmOrUpdate(gm.Orichalcum_Bar);
+            realm1.copyToRealmOrUpdate(gm.Palladium_Bar);
+            realm1.copyToRealmOrUpdate(gm.Platinum_Bar);
+            realm1.copyToRealmOrUpdate(gm.Shroomite_Bar);
+            realm1.copyToRealmOrUpdate(gm.Silver_Bar);
+            realm1.copyToRealmOrUpdate(gm.Spectre_Bar);
+            realm1.copyToRealmOrUpdate(gm.Tin_Bar);
+            realm1.copyToRealmOrUpdate(gm.Titanium_Bar);
+            realm1.copyToRealmOrUpdate(gm.Tungsten_Bar);
 
-                //Add Gem Materials
-                realm.copyToRealmOrUpdate(gm.Amber);
-                realm.copyToRealmOrUpdate(gm.Amethyst);
-                realm.copyToRealmOrUpdate(gm.Diamond);
-                realm.copyToRealmOrUpdate(gm.Emerald);
-                realm.copyToRealmOrUpdate(gm.Ruby);
-                realm.copyToRealmOrUpdate(gm.Sapphire);
-                realm.copyToRealmOrUpdate(gm.Topaz);
+            //Add Gem Materials
+            realm1.copyToRealmOrUpdate(gm.Amber);
+            realm1.copyToRealmOrUpdate(gm.Amethyst);
+            realm1.copyToRealmOrUpdate(gm.Diamond);
+            realm1.copyToRealmOrUpdate(gm.Emerald);
+            realm1.copyToRealmOrUpdate(gm.Ruby);
+            realm1.copyToRealmOrUpdate(gm.Sapphire);
+            realm1.copyToRealmOrUpdate(gm.Topaz);
 
-                //Add Ore Materials
-                realm.copyToRealmOrUpdate(gm.Adamantite_Ore);
-                realm.copyToRealmOrUpdate(gm.Chlorophyte_Ore);
-                realm.copyToRealmOrUpdate(gm.Cobalt_Ore);
-                realm.copyToRealmOrUpdate(gm.Copper_Ore);
-                realm.copyToRealmOrUpdate(gm.Crimtane_Ore);
-                realm.copyToRealmOrUpdate(gm.Demonite_Ore);
-                realm.copyToRealmOrUpdate(gm.Gold_Ore);
-                realm.copyToRealmOrUpdate(gm.Hellstone);
-                realm.copyToRealmOrUpdate(gm.Iron_Ore);
-                realm.copyToRealmOrUpdate(gm.Lead_Ore);
-                realm.copyToRealmOrUpdate(gm.Luminite);
-                realm.copyToRealmOrUpdate(gm.Meteorite);
-                realm.copyToRealmOrUpdate(gm.Mythril_Ore);
-                realm.copyToRealmOrUpdate(gm.Obsidian);
-                realm.copyToRealmOrUpdate(gm.Orichalcum_Ore);
-                realm.copyToRealmOrUpdate(gm.Palladium_Ore);
-                realm.copyToRealmOrUpdate(gm.Platinum_Ore);
-                realm.copyToRealmOrUpdate(gm.Silver_Ore);
-                realm.copyToRealmOrUpdate(gm.Tin_Ore);
-                realm.copyToRealmOrUpdate(gm.Titanium_Ore);
-                realm.copyToRealmOrUpdate(gm.Tungsten_Ore);
+            //Add Ore Materials
+            realm1.copyToRealmOrUpdate(gm.Adamantite_Ore);
+            realm1.copyToRealmOrUpdate(gm.Chlorophyte_Ore);
+            realm1.copyToRealmOrUpdate(gm.Cobalt_Ore);
+            realm1.copyToRealmOrUpdate(gm.Copper_Ore);
+            realm1.copyToRealmOrUpdate(gm.Crimtane_Ore);
+            realm1.copyToRealmOrUpdate(gm.Demonite_Ore);
+            realm1.copyToRealmOrUpdate(gm.Gold_Ore);
+            realm1.copyToRealmOrUpdate(gm.Hellstone);
+            realm1.copyToRealmOrUpdate(gm.Iron_Ore);
+            realm1.copyToRealmOrUpdate(gm.Lead_Ore);
+            realm1.copyToRealmOrUpdate(gm.Luminite);
+            realm1.copyToRealmOrUpdate(gm.Meteorite);
+            realm1.copyToRealmOrUpdate(gm.Mythril_Ore);
+            realm1.copyToRealmOrUpdate(gm.Obsidian);
+            realm1.copyToRealmOrUpdate(gm.Orichalcum_Ore);
+            realm1.copyToRealmOrUpdate(gm.Palladium_Ore);
+            realm1.copyToRealmOrUpdate(gm.Platinum_Ore);
+            realm1.copyToRealmOrUpdate(gm.Silver_Ore);
+            realm1.copyToRealmOrUpdate(gm.Tin_Ore);
+            realm1.copyToRealmOrUpdate(gm.Titanium_Ore);
+            realm1.copyToRealmOrUpdate(gm.Tungsten_Ore);
 
-                //Add Soul Materials
-                realm.copyToRealmOrUpdate(gm.Souls_of_Blight);
-                realm.copyToRealmOrUpdate(gm.Souls_of_Flight);
-                realm.copyToRealmOrUpdate(gm.Souls_of_Fright);
-                realm.copyToRealmOrUpdate(gm.Souls_of_Light);
-                realm.copyToRealmOrUpdate(gm.Souls_of_Might);
-                realm.copyToRealmOrUpdate(gm.Souls_of_Night);
-                realm.copyToRealmOrUpdate(gm.Souls_of_Sight);
+            //Add Soul Materials
+            realm1.copyToRealmOrUpdate(gm.Souls_of_Blight);
+            realm1.copyToRealmOrUpdate(gm.Souls_of_Flight);
+            realm1.copyToRealmOrUpdate(gm.Souls_of_Fright);
+            realm1.copyToRealmOrUpdate(gm.Souls_of_Light);
+            realm1.copyToRealmOrUpdate(gm.Souls_of_Might);
+            realm1.copyToRealmOrUpdate(gm.Souls_of_Night);
+            realm1.copyToRealmOrUpdate(gm.Souls_of_Sight);
 
-            }
         });
     }
     public void addEnemiesToDatabase() {
@@ -170,194 +165,192 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Enemies ge = new Generate_Enemies();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode Enemies
-                realm.copyToRealmOrUpdate(ge.Angry_Bones);
-                realm.copyToRealmOrUpdate(ge.Anomura_Fungus);
-                realm.copyToRealmOrUpdate(ge.Antlion);
-                realm.copyToRealmOrUpdate(ge.Antlion_Charger);
-                realm.copyToRealmOrUpdate(ge.Antlion_Larva);
-                realm.copyToRealmOrUpdate(ge.Antlion_Swarmer);
-                realm.copyToRealmOrUpdate(ge.Baby_Slime);
-                realm.copyToRealmOrUpdate(ge.Bee);
-                realm.copyToRealmOrUpdate(ge.Black_Slime);
-                realm.copyToRealmOrUpdate(ge.Blazing_Wheel);
-                realm.copyToRealmOrUpdate(ge.Blood_Crawler);
-                realm.copyToRealmOrUpdate(ge.Blue_Jellyfish);
-                realm.copyToRealmOrUpdate(ge.Blue_Slime);
-                realm.copyToRealmOrUpdate(ge.Bone_Serpent);
-                realm.copyToRealmOrUpdate(ge.Cave_Bat);
-                realm.copyToRealmOrUpdate(ge.Cochineal_Beetle);
-                realm.copyToRealmOrUpdate(ge.Crab);
-                realm.copyToRealmOrUpdate(ge.Crawdad);
-                realm.copyToRealmOrUpdate(ge.Crimera);
-                realm.copyToRealmOrUpdate(ge.Cursed_Skull);
-                realm.copyToRealmOrUpdate(ge.Cyan_Beetle);
-                realm.copyToRealmOrUpdate(ge.Dark_Caster);
-                realm.copyToRealmOrUpdate(ge.Demon);
-                realm.copyToRealmOrUpdate(ge.Demon_Eye);
-                realm.copyToRealmOrUpdate(ge.Devourer);
-                realm.copyToRealmOrUpdate(ge.Doctor_Bones);
-                realm.copyToRealmOrUpdate(ge.Dungeon_Guardian);
-                realm.copyToRealmOrUpdate(ge.Dungeon_Slime);
-                realm.copyToRealmOrUpdate(ge.Eater_of_Souls);
-                realm.copyToRealmOrUpdate(ge.Face_Monster);
-                realm.copyToRealmOrUpdate(ge.Fire_Imp);
-                realm.copyToRealmOrUpdate(ge.Frozen_Zombie);
-                realm.copyToRealmOrUpdate(ge.Fungi_Bulb);
-                realm.copyToRealmOrUpdate(ge.Ghost);
-                realm.copyToRealmOrUpdate(ge.Giant_Antlion_Charger);
-                realm.copyToRealmOrUpdate(ge.Giant_Antlion_Swarmer);
-                realm.copyToRealmOrUpdate(ge.Giant_Shelly);
-                realm.copyToRealmOrUpdate(ge.Giant_Worm);
-                realm.copyToRealmOrUpdate(ge.Gnome);
-                realm.copyToRealmOrUpdate(ge.Goblin_Scout);
-                realm.copyToRealmOrUpdate(ge.Granite_Elemental);
-                realm.copyToRealmOrUpdate(ge.Granite_Golem);
-                realm.copyToRealmOrUpdate(ge.Green_Slime);
-                realm.copyToRealmOrUpdate(ge.Harpy);
-                realm.copyToRealmOrUpdate(ge.Hell_Bat);
-                realm.copyToRealmOrUpdate(ge.Hoplite);
-                realm.copyToRealmOrUpdate(ge.Hornet);
-                realm.copyToRealmOrUpdate(ge.Ice_Bat);
-                realm.copyToRealmOrUpdate(ge.Ice_Slime);
-                realm.copyToRealmOrUpdate(ge.Jungle_Bat);
-                realm.copyToRealmOrUpdate(ge.Jungle_Slime);
-                realm.copyToRealmOrUpdate(ge.Lac_Beetle);
-                realm.copyToRealmOrUpdate(ge.Lava_Slime);
-                realm.copyToRealmOrUpdate(ge.Maggot_Zombie);
-                realm.copyToRealmOrUpdate(ge.Man_Eater);
-                realm.copyToRealmOrUpdate(ge.Meteor_Head);
-                realm.copyToRealmOrUpdate(ge.Mother_Slime);
-                realm.copyToRealmOrUpdate(ge.Mushi_Ladybug);
-                realm.copyToRealmOrUpdate(ge.Nymph);
-                realm.copyToRealmOrUpdate(ge.Pink_Jellyfish);
-                realm.copyToRealmOrUpdate(ge.Pinky);
-                realm.copyToRealmOrUpdate(ge.Piranhas);
-                realm.copyToRealmOrUpdate(ge.Purple_Slime);
-                realm.copyToRealmOrUpdate(ge.Raven);
-                realm.copyToRealmOrUpdate(ge.Red_Slime);
-                realm.copyToRealmOrUpdate(ge.Salamander);
-                realm.copyToRealmOrUpdate(ge.Sand_Slime);
-                realm.copyToRealmOrUpdate(ge.Sea_Snail);
-                realm.copyToRealmOrUpdate(ge.Shark);
-                realm.copyToRealmOrUpdate(ge.Skeleton);
-                realm.copyToRealmOrUpdate(ge.Snatcher);
-                realm.copyToRealmOrUpdate(ge.Snow_Flinx);
-                realm.copyToRealmOrUpdate(ge.Spike_Ball);
-                realm.copyToRealmOrUpdate(ge.Spiked_Ice_Slime);
-                realm.copyToRealmOrUpdate(ge.Spiked_Jungle_Slime);
-                realm.copyToRealmOrUpdate(ge.Spore_Bat);
-                realm.copyToRealmOrUpdate(ge.Spore_Skeleton);
-                realm.copyToRealmOrUpdate(ge.Spore_Zombie);
-                realm.copyToRealmOrUpdate(ge.Squid);
-                realm.copyToRealmOrUpdate(ge.Tim);
-                realm.copyToRealmOrUpdate(ge.Tomb_Crawler);
-                realm.copyToRealmOrUpdate(ge.Undead_Miner);
-                realm.copyToRealmOrUpdate(ge.Undead_Viking);
-                realm.copyToRealmOrUpdate(ge.Voodoo_Demon);
-                realm.copyToRealmOrUpdate(ge.Vulture);
-                realm.copyToRealmOrUpdate(ge.Wall_Creeper);
-                realm.copyToRealmOrUpdate(ge.Yellow_Slime);
-                realm.copyToRealmOrUpdate(ge.Zombie);
+            //Add Pre-Hardmode Enemies
+            realm1.copyToRealmOrUpdate(ge.Angry_Bones);
+            realm1.copyToRealmOrUpdate(ge.Anomura_Fungus);
+            realm1.copyToRealmOrUpdate(ge.Antlion);
+            realm1.copyToRealmOrUpdate(ge.Antlion_Charger);
+            realm1.copyToRealmOrUpdate(ge.Antlion_Larva);
+            realm1.copyToRealmOrUpdate(ge.Antlion_Swarmer);
+            realm1.copyToRealmOrUpdate(ge.Baby_Slime);
+            realm1.copyToRealmOrUpdate(ge.Bee);
+            realm1.copyToRealmOrUpdate(ge.Black_Slime);
+            realm1.copyToRealmOrUpdate(ge.Blazing_Wheel);
+            realm1.copyToRealmOrUpdate(ge.Blood_Crawler);
+            realm1.copyToRealmOrUpdate(ge.Blue_Jellyfish);
+            realm1.copyToRealmOrUpdate(ge.Blue_Slime);
+            realm1.copyToRealmOrUpdate(ge.Bone_Serpent);
+            realm1.copyToRealmOrUpdate(ge.Cave_Bat);
+            realm1.copyToRealmOrUpdate(ge.Cochineal_Beetle);
+            realm1.copyToRealmOrUpdate(ge.Crab);
+            realm1.copyToRealmOrUpdate(ge.Crawdad);
+            realm1.copyToRealmOrUpdate(ge.Crimera);
+            realm1.copyToRealmOrUpdate(ge.Cursed_Skull);
+            realm1.copyToRealmOrUpdate(ge.Cyan_Beetle);
+            realm1.copyToRealmOrUpdate(ge.Dark_Caster);
+            realm1.copyToRealmOrUpdate(ge.Demon);
+            realm1.copyToRealmOrUpdate(ge.Demon_Eye);
+            realm1.copyToRealmOrUpdate(ge.Devourer);
+            realm1.copyToRealmOrUpdate(ge.Doctor_Bones);
+            realm1.copyToRealmOrUpdate(ge.Dungeon_Guardian);
+            realm1.copyToRealmOrUpdate(ge.Dungeon_Slime);
+            realm1.copyToRealmOrUpdate(ge.Eater_of_Souls);
+            realm1.copyToRealmOrUpdate(ge.Face_Monster);
+            realm1.copyToRealmOrUpdate(ge.Fire_Imp);
+            realm1.copyToRealmOrUpdate(ge.Frozen_Zombie);
+            realm1.copyToRealmOrUpdate(ge.Fungi_Bulb);
+            realm1.copyToRealmOrUpdate(ge.Ghost);
+            realm1.copyToRealmOrUpdate(ge.Giant_Antlion_Charger);
+            realm1.copyToRealmOrUpdate(ge.Giant_Antlion_Swarmer);
+            realm1.copyToRealmOrUpdate(ge.Giant_Shelly);
+            realm1.copyToRealmOrUpdate(ge.Giant_Worm);
+            realm1.copyToRealmOrUpdate(ge.Gnome);
+            realm1.copyToRealmOrUpdate(ge.Goblin_Scout);
+            realm1.copyToRealmOrUpdate(ge.Granite_Elemental);
+            realm1.copyToRealmOrUpdate(ge.Granite_Golem);
+            realm1.copyToRealmOrUpdate(ge.Green_Slime);
+            realm1.copyToRealmOrUpdate(ge.Harpy);
+            realm1.copyToRealmOrUpdate(ge.Hell_Bat);
+            realm1.copyToRealmOrUpdate(ge.Hoplite);
+            realm1.copyToRealmOrUpdate(ge.Hornet);
+            realm1.copyToRealmOrUpdate(ge.Ice_Bat);
+            realm1.copyToRealmOrUpdate(ge.Ice_Slime);
+            realm1.copyToRealmOrUpdate(ge.Jungle_Bat);
+            realm1.copyToRealmOrUpdate(ge.Jungle_Slime);
+            realm1.copyToRealmOrUpdate(ge.Lac_Beetle);
+            realm1.copyToRealmOrUpdate(ge.Lava_Slime);
+            realm1.copyToRealmOrUpdate(ge.Maggot_Zombie);
+            realm1.copyToRealmOrUpdate(ge.Man_Eater);
+            realm1.copyToRealmOrUpdate(ge.Meteor_Head);
+            realm1.copyToRealmOrUpdate(ge.Mother_Slime);
+            realm1.copyToRealmOrUpdate(ge.Mushi_Ladybug);
+            realm1.copyToRealmOrUpdate(ge.Nymph);
+            realm1.copyToRealmOrUpdate(ge.Pink_Jellyfish);
+            realm1.copyToRealmOrUpdate(ge.Pinky);
+            realm1.copyToRealmOrUpdate(ge.Piranhas);
+            realm1.copyToRealmOrUpdate(ge.Purple_Slime);
+            realm1.copyToRealmOrUpdate(ge.Raven);
+            realm1.copyToRealmOrUpdate(ge.Red_Slime);
+            realm1.copyToRealmOrUpdate(ge.Salamander);
+            realm1.copyToRealmOrUpdate(ge.Sand_Slime);
+            realm1.copyToRealmOrUpdate(ge.Sea_Snail);
+            realm1.copyToRealmOrUpdate(ge.Shark);
+            realm1.copyToRealmOrUpdate(ge.Skeleton);
+            realm1.copyToRealmOrUpdate(ge.Snatcher);
+            realm1.copyToRealmOrUpdate(ge.Snow_Flinx);
+            realm1.copyToRealmOrUpdate(ge.Spike_Ball);
+            realm1.copyToRealmOrUpdate(ge.Spiked_Ice_Slime);
+            realm1.copyToRealmOrUpdate(ge.Spiked_Jungle_Slime);
+            realm1.copyToRealmOrUpdate(ge.Spore_Bat);
+            realm1.copyToRealmOrUpdate(ge.Spore_Skeleton);
+            realm1.copyToRealmOrUpdate(ge.Spore_Zombie);
+            realm1.copyToRealmOrUpdate(ge.Squid);
+            realm1.copyToRealmOrUpdate(ge.Tim);
+            realm1.copyToRealmOrUpdate(ge.Tomb_Crawler);
+            realm1.copyToRealmOrUpdate(ge.Undead_Miner);
+            realm1.copyToRealmOrUpdate(ge.Undead_Viking);
+            realm1.copyToRealmOrUpdate(ge.Voodoo_Demon);
+            realm1.copyToRealmOrUpdate(ge.Vulture);
+            realm1.copyToRealmOrUpdate(ge.Wall_Creeper);
+            realm1.copyToRealmOrUpdate(ge.Yellow_Slime);
+            realm1.copyToRealmOrUpdate(ge.Zombie);
 
-                //Add Hardmode Enemies
-                realm.copyToRealmOrUpdate(ge.Angler_Fish);
-                realm.copyToRealmOrUpdate(ge.Angry_Trapper);
-                realm.copyToRealmOrUpdate(ge.Arapaima);
-                realm.copyToRealmOrUpdate(ge.Armored_Skeleton);
-                realm.copyToRealmOrUpdate(ge.Armored_Viking);
-                realm.copyToRealmOrUpdate(ge.Basilisk);
-                realm.copyToRealmOrUpdate(ge.Black_Recluse);
-                realm.copyToRealmOrUpdate(ge.Blood_Feeder);
-                realm.copyToRealmOrUpdate(ge.Blood_Jelly);
-                realm.copyToRealmOrUpdate(ge.Blood_Mummy);
-                realm.copyToRealmOrUpdate(ge.Blue_Armored_Bones);
-                realm.copyToRealmOrUpdate(ge.Blue_Cultist_Archer);
-                realm.copyToRealmOrUpdate(ge.Bone_Lee);
-                realm.copyToRealmOrUpdate(ge.Chaos_Elemental);
-                realm.copyToRealmOrUpdate(ge.Clinger);
-                realm.copyToRealmOrUpdate(ge.Corrupt_Mimic);
-                realm.copyToRealmOrUpdate(ge.Corrupt_Slime);
-                realm.copyToRealmOrUpdate(ge.Corruptor);
-                realm.copyToRealmOrUpdate(ge.Crimslime);
-                realm.copyToRealmOrUpdate(ge.Crimson_Axe);
-                realm.copyToRealmOrUpdate(ge.Crimson_Mimic);
-                realm.copyToRealmOrUpdate(ge.Cursed_Hammer);
-                realm.copyToRealmOrUpdate(ge.Dark_Mummy);
-                realm.copyToRealmOrUpdate(ge.Derpling);
-                realm.copyToRealmOrUpdate(ge.Desert_Spirit);
-                realm.copyToRealmOrUpdate(ge.Diablolist);
-                realm.copyToRealmOrUpdate(ge.Digger);
-                realm.copyToRealmOrUpdate(ge.Dreamer_Ghoul);
-                realm.copyToRealmOrUpdate(ge.Dune_Splicer);
-                realm.copyToRealmOrUpdate(ge.Dungeon_Spirit);
-                realm.copyToRealmOrUpdate(ge.Enchanted_Sword);
-                realm.copyToRealmOrUpdate(ge.Floaty_Gross);
-                realm.copyToRealmOrUpdate(ge.Flying_Snake);
-                realm.copyToRealmOrUpdate(ge.Fungo_Fish);
-                realm.copyToRealmOrUpdate(ge.Gastropod);
-                realm.copyToRealmOrUpdate(ge.Ghoul);
-                realm.copyToRealmOrUpdate(ge.Giant_Bat);
-                realm.copyToRealmOrUpdate(ge.Giant_Cursed_Skull);
-                realm.copyToRealmOrUpdate(ge.Giant_Flying_Fox);
-                realm.copyToRealmOrUpdate(ge.Giant_Fungi_Bulb);
-                realm.copyToRealmOrUpdate(ge.Giant_Tortoise);
-                realm.copyToRealmOrUpdate(ge.Green_Jellyfish);
-                realm.copyToRealmOrUpdate(ge.Hallowed_Mimic);
-                realm.copyToRealmOrUpdate(ge.Hell_Armored_Bones);
-                realm.copyToRealmOrUpdate(ge.Herpling);
-                realm.copyToRealmOrUpdate(ge.Hoppin_Jack);
-                realm.copyToRealmOrUpdate(ge.Ice_Elemental);
-                realm.copyToRealmOrUpdate(ge.Ice_Mimic);
-                realm.copyToRealmOrUpdate(ge.Ice_Tortoise);
-                realm.copyToRealmOrUpdate(ge.Ichor_Sticker);
-                realm.copyToRealmOrUpdate(ge.Icy_Merman);
-                realm.copyToRealmOrUpdate(ge.Illuminant_Bat);
-                realm.copyToRealmOrUpdate(ge.Illuminant_Slime);
-                realm.copyToRealmOrUpdate(ge.Jungle_Creeper);
-                realm.copyToRealmOrUpdate(ge.Lamia);
-                realm.copyToRealmOrUpdate(ge.Lava_Bat);
-                realm.copyToRealmOrUpdate(ge.Light_Mummy);
-                realm.copyToRealmOrUpdate(ge.Lihzahrd);
-                realm.copyToRealmOrUpdate(ge.Lunatic_Devotee);
-                realm.copyToRealmOrUpdate(ge.Martian_Probe);
-                realm.copyToRealmOrUpdate(ge.Medusa);
-                realm.copyToRealmOrUpdate(ge.Mimic);
-                realm.copyToRealmOrUpdate(ge.Moss_Hornet);
-                realm.copyToRealmOrUpdate(ge.Moth);
-                realm.copyToRealmOrUpdate(ge.Mummy);
-                realm.copyToRealmOrUpdate(ge.Necromancer);
-                realm.copyToRealmOrUpdate(ge.Paladin);
-                realm.copyToRealmOrUpdate(ge.Pigron);
-                realm.copyToRealmOrUpdate(ge.Pixie);
-                realm.copyToRealmOrUpdate(ge.Possessed_Armor);
-                realm.copyToRealmOrUpdate(ge.Ragged_Caster);
-                realm.copyToRealmOrUpdate(ge.Red_Devil);
-                realm.copyToRealmOrUpdate(ge.Rock_Golem);
-                realm.copyToRealmOrUpdate(ge.Rune_Wizard);
-                realm.copyToRealmOrUpdate(ge.Rusty_Armored_Bones);
-                realm.copyToRealmOrUpdate(ge.Sand_Poacher);
-                realm.copyToRealmOrUpdate(ge.Skeleton_Archer);
-                realm.copyToRealmOrUpdate(ge.Skeleton_Commando);
-                realm.copyToRealmOrUpdate(ge.Skeleton_Sniper);
-                realm.copyToRealmOrUpdate(ge.Slimeling);
-                realm.copyToRealmOrUpdate(ge.Slimer);
-                realm.copyToRealmOrUpdate(ge.Tactical_Skeleton);
-                realm.copyToRealmOrUpdate(ge.Tainted_Ghoul);
-                realm.copyToRealmOrUpdate(ge.Tortured_Soul);
-                realm.copyToRealmOrUpdate(ge.Toxic_Sludge);
-                realm.copyToRealmOrUpdate(ge.Unicorn);
-                realm.copyToRealmOrUpdate(ge.Vile_Ghoul);
-                realm.copyToRealmOrUpdate(ge.Wandering_Eye);
-                realm.copyToRealmOrUpdate(ge.Werewolf);
-                realm.copyToRealmOrUpdate(ge.Wolf);
-                realm.copyToRealmOrUpdate(ge.World_Feeder);
-                realm.copyToRealmOrUpdate(ge.Wraith);
-                realm.copyToRealmOrUpdate(ge.Wyvern);
-            }
+            //Add Hardmode Enemies
+            realm1.copyToRealmOrUpdate(ge.Angler_Fish);
+            realm1.copyToRealmOrUpdate(ge.Angry_Trapper);
+            realm1.copyToRealmOrUpdate(ge.Arapaima);
+            realm1.copyToRealmOrUpdate(ge.Armored_Skeleton);
+            realm1.copyToRealmOrUpdate(ge.Armored_Viking);
+            realm1.copyToRealmOrUpdate(ge.Basilisk);
+            realm1.copyToRealmOrUpdate(ge.Black_Recluse);
+            realm1.copyToRealmOrUpdate(ge.Blood_Feeder);
+            realm1.copyToRealmOrUpdate(ge.Blood_Jelly);
+            realm1.copyToRealmOrUpdate(ge.Blood_Mummy);
+            realm1.copyToRealmOrUpdate(ge.Blue_Armored_Bones);
+            realm1.copyToRealmOrUpdate(ge.Blue_Cultist_Archer);
+            realm1.copyToRealmOrUpdate(ge.Bone_Lee);
+            realm1.copyToRealmOrUpdate(ge.Chaos_Elemental);
+            realm1.copyToRealmOrUpdate(ge.Clinger);
+            realm1.copyToRealmOrUpdate(ge.Corrupt_Mimic);
+            realm1.copyToRealmOrUpdate(ge.Corrupt_Slime);
+            realm1.copyToRealmOrUpdate(ge.Corruptor);
+            realm1.copyToRealmOrUpdate(ge.Crimslime);
+            realm1.copyToRealmOrUpdate(ge.Crimson_Axe);
+            realm1.copyToRealmOrUpdate(ge.Crimson_Mimic);
+            realm1.copyToRealmOrUpdate(ge.Cursed_Hammer);
+            realm1.copyToRealmOrUpdate(ge.Dark_Mummy);
+            realm1.copyToRealmOrUpdate(ge.Derpling);
+            realm1.copyToRealmOrUpdate(ge.Desert_Spirit);
+            realm1.copyToRealmOrUpdate(ge.Diablolist);
+            realm1.copyToRealmOrUpdate(ge.Digger);
+            realm1.copyToRealmOrUpdate(ge.Dreamer_Ghoul);
+            realm1.copyToRealmOrUpdate(ge.Dune_Splicer);
+            realm1.copyToRealmOrUpdate(ge.Dungeon_Spirit);
+            realm1.copyToRealmOrUpdate(ge.Enchanted_Sword);
+            realm1.copyToRealmOrUpdate(ge.Floaty_Gross);
+            realm1.copyToRealmOrUpdate(ge.Flying_Snake);
+            realm1.copyToRealmOrUpdate(ge.Fungo_Fish);
+            realm1.copyToRealmOrUpdate(ge.Gastropod);
+            realm1.copyToRealmOrUpdate(ge.Ghoul);
+            realm1.copyToRealmOrUpdate(ge.Giant_Bat);
+            realm1.copyToRealmOrUpdate(ge.Giant_Cursed_Skull);
+            realm1.copyToRealmOrUpdate(ge.Giant_Flying_Fox);
+            realm1.copyToRealmOrUpdate(ge.Giant_Fungi_Bulb);
+            realm1.copyToRealmOrUpdate(ge.Giant_Tortoise);
+            realm1.copyToRealmOrUpdate(ge.Green_Jellyfish);
+            realm1.copyToRealmOrUpdate(ge.Hallowed_Mimic);
+            realm1.copyToRealmOrUpdate(ge.Hell_Armored_Bones);
+            realm1.copyToRealmOrUpdate(ge.Herpling);
+            realm1.copyToRealmOrUpdate(ge.Hoppin_Jack);
+            realm1.copyToRealmOrUpdate(ge.Ice_Elemental);
+            realm1.copyToRealmOrUpdate(ge.Ice_Mimic);
+            realm1.copyToRealmOrUpdate(ge.Ice_Tortoise);
+            realm1.copyToRealmOrUpdate(ge.Ichor_Sticker);
+            realm1.copyToRealmOrUpdate(ge.Icy_Merman);
+            realm1.copyToRealmOrUpdate(ge.Illuminant_Bat);
+            realm1.copyToRealmOrUpdate(ge.Illuminant_Slime);
+            realm1.copyToRealmOrUpdate(ge.Jungle_Creeper);
+            realm1.copyToRealmOrUpdate(ge.Lamia);
+            realm1.copyToRealmOrUpdate(ge.Lava_Bat);
+            realm1.copyToRealmOrUpdate(ge.Light_Mummy);
+            realm1.copyToRealmOrUpdate(ge.Lihzahrd);
+            realm1.copyToRealmOrUpdate(ge.Lunatic_Devotee);
+            realm1.copyToRealmOrUpdate(ge.Martian_Probe);
+            realm1.copyToRealmOrUpdate(ge.Medusa);
+            realm1.copyToRealmOrUpdate(ge.Mimic);
+            realm1.copyToRealmOrUpdate(ge.Moss_Hornet);
+            realm1.copyToRealmOrUpdate(ge.Moth);
+            realm1.copyToRealmOrUpdate(ge.Mummy);
+            realm1.copyToRealmOrUpdate(ge.Necromancer);
+            realm1.copyToRealmOrUpdate(ge.Paladin);
+            realm1.copyToRealmOrUpdate(ge.Pigron);
+            realm1.copyToRealmOrUpdate(ge.Pixie);
+            realm1.copyToRealmOrUpdate(ge.Possessed_Armor);
+            realm1.copyToRealmOrUpdate(ge.Ragged_Caster);
+            realm1.copyToRealmOrUpdate(ge.Red_Devil);
+            realm1.copyToRealmOrUpdate(ge.Rock_Golem);
+            realm1.copyToRealmOrUpdate(ge.Rune_Wizard);
+            realm1.copyToRealmOrUpdate(ge.Rusty_Armored_Bones);
+            realm1.copyToRealmOrUpdate(ge.Sand_Poacher);
+            realm1.copyToRealmOrUpdate(ge.Skeleton_Archer);
+            realm1.copyToRealmOrUpdate(ge.Skeleton_Commando);
+            realm1.copyToRealmOrUpdate(ge.Skeleton_Sniper);
+            realm1.copyToRealmOrUpdate(ge.Slimeling);
+            realm1.copyToRealmOrUpdate(ge.Slimer);
+            realm1.copyToRealmOrUpdate(ge.Tactical_Skeleton);
+            realm1.copyToRealmOrUpdate(ge.Tainted_Ghoul);
+            realm1.copyToRealmOrUpdate(ge.Tortured_Soul);
+            realm1.copyToRealmOrUpdate(ge.Toxic_Sludge);
+            realm1.copyToRealmOrUpdate(ge.Unicorn);
+            realm1.copyToRealmOrUpdate(ge.Vile_Ghoul);
+            realm1.copyToRealmOrUpdate(ge.Wandering_Eye);
+            realm1.copyToRealmOrUpdate(ge.Werewolf);
+            realm1.copyToRealmOrUpdate(ge.Wolf);
+            realm1.copyToRealmOrUpdate(ge.World_Feeder);
+            realm1.copyToRealmOrUpdate(ge.Wraith);
+            realm1.copyToRealmOrUpdate(ge.Wyvern);
         });
     }
     public void addBossesToDatabase() {
@@ -365,30 +358,28 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Bosses gb = new Generate_Bosses();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode Bosses
-                realm.copyToRealmOrUpdate(gb.King_Slime);
-                realm.copyToRealmOrUpdate(gb.Eye_Of_Cthulhu);
-                realm.copyToRealmOrUpdate(gb.Eater_Of_Worlds);
-                realm.copyToRealmOrUpdate(gb.Brain_Of_Cthulhu);
-                realm.copyToRealmOrUpdate(gb.Queen_Bee);
-                realm.copyToRealmOrUpdate(gb.Skeletron);
-                realm.copyToRealmOrUpdate(gb.Wall_Of_Flesh);
+            //Add Pre-Hardmode Bosses
+            realm1.copyToRealmOrUpdate(gb.King_Slime);
+            realm1.copyToRealmOrUpdate(gb.Eye_Of_Cthulhu);
+            realm1.copyToRealmOrUpdate(gb.Eater_Of_Worlds);
+            realm1.copyToRealmOrUpdate(gb.Brain_Of_Cthulhu);
+            realm1.copyToRealmOrUpdate(gb.Queen_Bee);
+            realm1.copyToRealmOrUpdate(gb.Skeletron);
+            realm1.copyToRealmOrUpdate(gb.Wall_Of_Flesh);
 
-                //Add Hardmode Bosses
-                realm.copyToRealmOrUpdate(gb.Queen_Slime);
-                realm.copyToRealmOrUpdate(gb.The_Twins);
-                realm.copyToRealmOrUpdate(gb.The_Destroyer);
-                realm.copyToRealmOrUpdate(gb.Skeletron_Prime);
-                realm.copyToRealmOrUpdate(gb.Plantera);
-                realm.copyToRealmOrUpdate(gb.Golem);
-                realm.copyToRealmOrUpdate(gb.Empress_Of_Light);
-                realm.copyToRealmOrUpdate(gb.Duke_Fishron);
-                realm.copyToRealmOrUpdate(gb.Lunatic_Cultist);
-                realm.copyToRealmOrUpdate(gb.Moon_Lord);
-            }
+            //Add Hardmode Bosses
+            realm1.copyToRealmOrUpdate(gb.Queen_Slime);
+            realm1.copyToRealmOrUpdate(gb.The_Twins);
+            realm1.copyToRealmOrUpdate(gb.The_Destroyer);
+            realm1.copyToRealmOrUpdate(gb.Skeletron_Prime);
+            realm1.copyToRealmOrUpdate(gb.Plantera);
+            realm1.copyToRealmOrUpdate(gb.Golem);
+            realm1.copyToRealmOrUpdate(gb.Empress_Of_Light);
+            realm1.copyToRealmOrUpdate(gb.Duke_Fishron);
+            realm1.copyToRealmOrUpdate(gb.Lunatic_Cultist);
+            realm1.copyToRealmOrUpdate(gb.Moon_Lord);
         });
     }
     public void addSwordsToDatabase() {
@@ -396,99 +387,97 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Swords gs = new Generate_Swords();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode Swords
-                realm.copyToRealmOrUpdate(gs.Copper_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Tin_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Wooden_Sword);
-                realm.copyToRealmOrUpdate(gs.Boreal_Wood_Sword);
-                realm.copyToRealmOrUpdate(gs.Copper_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Iron_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Palm_Wood_Sword);
-                realm.copyToRealmOrUpdate(gs.Rich_Mahogany_Sword);
-                realm.copyToRealmOrUpdate(gs.Cactus_Sword);
-                realm.copyToRealmOrUpdate(gs.Lead_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Silver_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Tin_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Ebonwood_Sword);
-                realm.copyToRealmOrUpdate(gs.Iron_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Shadewood_Sword);
-                realm.copyToRealmOrUpdate(gs.Tungsten_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Gold_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Lead_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Silver_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Bladed_Glove);
-                realm.copyToRealmOrUpdate(gs.Tungsten_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Zombie_Arm);
-                realm.copyToRealmOrUpdate(gs.Gold_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Platinum_Shortsword);
-                realm.copyToRealmOrUpdate(gs.Mandible_Blade);
-                realm.copyToRealmOrUpdate(gs.Stylish_Scissors);
-                realm.copyToRealmOrUpdate(gs.Ruler);
-                realm.copyToRealmOrUpdate(gs.Platinum_Broadsword);
-                realm.copyToRealmOrUpdate(gs.Umbrella);
-                realm.copyToRealmOrUpdate(gs.Breathing_Reed);
-                realm.copyToRealmOrUpdate(gs.Gladius);
-                realm.copyToRealmOrUpdate(gs.Bone_Sword);
-                realm.copyToRealmOrUpdate(gs.Candy_Cane_Sword);
-                realm.copyToRealmOrUpdate(gs.Katana);
-                realm.copyToRealmOrUpdate(gs.Ice_Blade);
-                realm.copyToRealmOrUpdate(gs.Lights_Bane);
-                realm.copyToRealmOrUpdate(gs.Tragic_Umbrella);
-                realm.copyToRealmOrUpdate(gs.Muramasa);
-                realm.copyToRealmOrUpdate(gs.Exotic_Scimitar);
-                realm.copyToRealmOrUpdate(gs.Phaseblade);
-                realm.copyToRealmOrUpdate(gs.Blood_Butcherer);
-                realm.copyToRealmOrUpdate(gs.Starfury);
-                realm.copyToRealmOrUpdate(gs.Enchanted_Sword);
-                realm.copyToRealmOrUpdate(gs.Purple_Clubberfish);
-                realm.copyToRealmOrUpdate(gs.Bee_Keeper);
-                realm.copyToRealmOrUpdate(gs.Falcon_Blade);
-                realm.copyToRealmOrUpdate(gs.Blade_Of_Grass);
-                realm.copyToRealmOrUpdate(gs.Fiery_Greatsword);
-                realm.copyToRealmOrUpdate(gs.Nights_Edge);
+            //Add Pre-Hardmode Swords
+            realm1.copyToRealmOrUpdate(gs.Copper_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Tin_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Wooden_Sword);
+            realm1.copyToRealmOrUpdate(gs.Boreal_Wood_Sword);
+            realm1.copyToRealmOrUpdate(gs.Copper_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Iron_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Palm_Wood_Sword);
+            realm1.copyToRealmOrUpdate(gs.Rich_Mahogany_Sword);
+            realm1.copyToRealmOrUpdate(gs.Cactus_Sword);
+            realm1.copyToRealmOrUpdate(gs.Lead_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Silver_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Tin_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Ebonwood_Sword);
+            realm1.copyToRealmOrUpdate(gs.Iron_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Shadewood_Sword);
+            realm1.copyToRealmOrUpdate(gs.Tungsten_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Gold_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Lead_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Silver_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Bladed_Glove);
+            realm1.copyToRealmOrUpdate(gs.Tungsten_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Zombie_Arm);
+            realm1.copyToRealmOrUpdate(gs.Gold_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Platinum_Shortsword);
+            realm1.copyToRealmOrUpdate(gs.Mandible_Blade);
+            realm1.copyToRealmOrUpdate(gs.Stylish_Scissors);
+            realm1.copyToRealmOrUpdate(gs.Ruler);
+            realm1.copyToRealmOrUpdate(gs.Platinum_Broadsword);
+            realm1.copyToRealmOrUpdate(gs.Umbrella);
+            realm1.copyToRealmOrUpdate(gs.Breathing_Reed);
+            realm1.copyToRealmOrUpdate(gs.Gladius);
+            realm1.copyToRealmOrUpdate(gs.Bone_Sword);
+            realm1.copyToRealmOrUpdate(gs.Candy_Cane_Sword);
+            realm1.copyToRealmOrUpdate(gs.Katana);
+            realm1.copyToRealmOrUpdate(gs.Ice_Blade);
+            realm1.copyToRealmOrUpdate(gs.Lights_Bane);
+            realm1.copyToRealmOrUpdate(gs.Tragic_Umbrella);
+            realm1.copyToRealmOrUpdate(gs.Muramasa);
+            realm1.copyToRealmOrUpdate(gs.Exotic_Scimitar);
+            realm1.copyToRealmOrUpdate(gs.Phaseblade);
+            realm1.copyToRealmOrUpdate(gs.Blood_Butcherer);
+            realm1.copyToRealmOrUpdate(gs.Starfury);
+            realm1.copyToRealmOrUpdate(gs.Enchanted_Sword);
+            realm1.copyToRealmOrUpdate(gs.Purple_Clubberfish);
+            realm1.copyToRealmOrUpdate(gs.Bee_Keeper);
+            realm1.copyToRealmOrUpdate(gs.Falcon_Blade);
+            realm1.copyToRealmOrUpdate(gs.Blade_Of_Grass);
+            realm1.copyToRealmOrUpdate(gs.Fiery_Greatsword);
+            realm1.copyToRealmOrUpdate(gs.Nights_Edge);
 
-                //Add Hardmode Swords
-                realm.copyToRealmOrUpdate(gs.Pearlwood_Sword);
-                realm.copyToRealmOrUpdate(gs.Classy_Cane);
-                realm.copyToRealmOrUpdate(gs.Slap_Hand);
-                realm.copyToRealmOrUpdate(gs.Cobalt_Sword);
-                realm.copyToRealmOrUpdate(gs.Palladium_Sword);
-                realm.copyToRealmOrUpdate(gs.Phasesaber);
-                realm.copyToRealmOrUpdate(gs.Ice_Sickle);
-                realm.copyToRealmOrUpdate(gs.Brand_Of_The_Inferno);
-                realm.copyToRealmOrUpdate(gs.Mythril_Sword);
-                realm.copyToRealmOrUpdate(gs.Orichalcum_Sword);
-                realm.copyToRealmOrUpdate(gs.Breaker_Blade);
-                realm.copyToRealmOrUpdate(gs.Cutlass);
-                realm.copyToRealmOrUpdate(gs.Frostbrand);
-                realm.copyToRealmOrUpdate(gs.Adamantite_Sword);
-                realm.copyToRealmOrUpdate(gs.Beam_Sword);
-                realm.copyToRealmOrUpdate(gs.Titanium_Sword);
-                realm.copyToRealmOrUpdate(gs.Fetid_Baghnakhs);
-                realm.copyToRealmOrUpdate(gs.Bladetongue);
-                realm.copyToRealmOrUpdate(gs.Tizona);
-                realm.copyToRealmOrUpdate(gs.Excaliber);
-                realm.copyToRealmOrUpdate(gs.True_Excaliber);
-                realm.copyToRealmOrUpdate(gs.Chlorophyte_Saber);
-                realm.copyToRealmOrUpdate(gs.Death_Sickle);
-                realm.copyToRealmOrUpdate(gs.Psycho_Knife);
-                realm.copyToRealmOrUpdate(gs.Keybrand);
-                realm.copyToRealmOrUpdate(gs.Chlorophyte_Claymore);
-                realm.copyToRealmOrUpdate(gs.The_Horsemans_Blade);
-                realm.copyToRealmOrUpdate(gs.Christmas_Tree_Sword);
-                realm.copyToRealmOrUpdate(gs.True_Nights_Edge);
-                realm.copyToRealmOrUpdate(gs.Seedler);
-                realm.copyToRealmOrUpdate(gs.Flying_Dragon);
-                realm.copyToRealmOrUpdate(gs.Starlight);
-                realm.copyToRealmOrUpdate(gs.Terra_Blade);
-                realm.copyToRealmOrUpdate(gs.Influx_Waver);
-                realm.copyToRealmOrUpdate(gs.Star_Wrath);
-                realm.copyToRealmOrUpdate(gs.Meowmere);
+            //Add Hardmode Swords
+            realm1.copyToRealmOrUpdate(gs.Pearlwood_Sword);
+            realm1.copyToRealmOrUpdate(gs.Classy_Cane);
+            realm1.copyToRealmOrUpdate(gs.Slap_Hand);
+            realm1.copyToRealmOrUpdate(gs.Cobalt_Sword);
+            realm1.copyToRealmOrUpdate(gs.Palladium_Sword);
+            realm1.copyToRealmOrUpdate(gs.Phasesaber);
+            realm1.copyToRealmOrUpdate(gs.Ice_Sickle);
+            realm1.copyToRealmOrUpdate(gs.Brand_Of_The_Inferno);
+            realm1.copyToRealmOrUpdate(gs.Mythril_Sword);
+            realm1.copyToRealmOrUpdate(gs.Orichalcum_Sword);
+            realm1.copyToRealmOrUpdate(gs.Breaker_Blade);
+            realm1.copyToRealmOrUpdate(gs.Cutlass);
+            realm1.copyToRealmOrUpdate(gs.Frostbrand);
+            realm1.copyToRealmOrUpdate(gs.Adamantite_Sword);
+            realm1.copyToRealmOrUpdate(gs.Beam_Sword);
+            realm1.copyToRealmOrUpdate(gs.Titanium_Sword);
+            realm1.copyToRealmOrUpdate(gs.Fetid_Baghnakhs);
+            realm1.copyToRealmOrUpdate(gs.Bladetongue);
+            realm1.copyToRealmOrUpdate(gs.Tizona);
+            realm1.copyToRealmOrUpdate(gs.Excaliber);
+            realm1.copyToRealmOrUpdate(gs.True_Excaliber);
+            realm1.copyToRealmOrUpdate(gs.Chlorophyte_Saber);
+            realm1.copyToRealmOrUpdate(gs.Death_Sickle);
+            realm1.copyToRealmOrUpdate(gs.Psycho_Knife);
+            realm1.copyToRealmOrUpdate(gs.Keybrand);
+            realm1.copyToRealmOrUpdate(gs.Chlorophyte_Claymore);
+            realm1.copyToRealmOrUpdate(gs.The_Horsemans_Blade);
+            realm1.copyToRealmOrUpdate(gs.Christmas_Tree_Sword);
+            realm1.copyToRealmOrUpdate(gs.True_Nights_Edge);
+            realm1.copyToRealmOrUpdate(gs.Seedler);
+            realm1.copyToRealmOrUpdate(gs.Flying_Dragon);
+            realm1.copyToRealmOrUpdate(gs.Starlight);
+            realm1.copyToRealmOrUpdate(gs.Terra_Blade);
+            realm1.copyToRealmOrUpdate(gs.Influx_Waver);
+            realm1.copyToRealmOrUpdate(gs.Star_Wrath);
+            realm1.copyToRealmOrUpdate(gs.Meowmere);
 
-            }
         });
     }
     public void addPickaxesToDatabase() {
@@ -496,56 +485,54 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Pickaxes gp = new Generate_Pickaxes();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pickaxes & Drills
-                realm.copyToRealmOrUpdate(gp.Cactus_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Copper_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Tin_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Iron_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Lead_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Silver_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Tungsten_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Gold_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Candy_Cane_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Fossil_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Bone_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Platinum_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Reaver_Shark);
-                realm.copyToRealmOrUpdate(gp.Nightmare_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Deathbringer_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Molten_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Cobalt_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Cobalt_Drill);
-                realm.copyToRealmOrUpdate(gp.Palladium_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Palladium_Drill);
-                realm.copyToRealmOrUpdate(gp.Mythril_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Mythril_Drill);
-                realm.copyToRealmOrUpdate(gp.Orichalcum_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Orichalcum_Drill);
-                realm.copyToRealmOrUpdate(gp.Adamantite_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Adamantite_Drill);
-                realm.copyToRealmOrUpdate(gp.Titanium_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Titanium_Drill);
-                realm.copyToRealmOrUpdate(gp.Spectre_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Chlorophyte_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Chlorophyte_Drill);
-                realm.copyToRealmOrUpdate(gp.Pickaxe_Axe_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Drax_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Shroomite_Digging_Claw_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Picksaw_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Solar_Flare_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Solar_Flare_Drill);
-                realm.copyToRealmOrUpdate(gp.Vortex_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Vortex_Drill);
-                realm.copyToRealmOrUpdate(gp.Nebula_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Nebula_Drill);
-                realm.copyToRealmOrUpdate(gp.Stardust_Pickaxe);
-                realm.copyToRealmOrUpdate(gp.Stardust_Drill);
-                realm.copyToRealmOrUpdate(gp.Laser_Drill);
+            //Add Pickaxes & Drills
+            realm1.copyToRealmOrUpdate(gp.Cactus_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Copper_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Tin_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Iron_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Lead_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Silver_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Tungsten_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Gold_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Candy_Cane_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Fossil_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Bone_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Platinum_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Reaver_Shark);
+            realm1.copyToRealmOrUpdate(gp.Nightmare_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Deathbringer_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Molten_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Cobalt_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Cobalt_Drill);
+            realm1.copyToRealmOrUpdate(gp.Palladium_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Palladium_Drill);
+            realm1.copyToRealmOrUpdate(gp.Mythril_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Mythril_Drill);
+            realm1.copyToRealmOrUpdate(gp.Orichalcum_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Orichalcum_Drill);
+            realm1.copyToRealmOrUpdate(gp.Adamantite_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Adamantite_Drill);
+            realm1.copyToRealmOrUpdate(gp.Titanium_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Titanium_Drill);
+            realm1.copyToRealmOrUpdate(gp.Spectre_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Chlorophyte_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Chlorophyte_Drill);
+            realm1.copyToRealmOrUpdate(gp.Pickaxe_Axe_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Drax_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Shroomite_Digging_Claw_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Picksaw_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Solar_Flare_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Solar_Flare_Drill);
+            realm1.copyToRealmOrUpdate(gp.Vortex_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Vortex_Drill);
+            realm1.copyToRealmOrUpdate(gp.Nebula_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Nebula_Drill);
+            realm1.copyToRealmOrUpdate(gp.Stardust_Pickaxe);
+            realm1.copyToRealmOrUpdate(gp.Stardust_Drill);
+            realm1.copyToRealmOrUpdate(gp.Laser_Drill);
 
-            }
         });
     }
     public void addAxesToDatabase() {
@@ -553,53 +540,51 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Axes ga = new Generate_Axes();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Axes and Chainsaws
-                realm.copyToRealmOrUpdate(ga.Copper_Axe);
-                realm.copyToRealmOrUpdate(ga.Tin_Axe);
-                realm.copyToRealmOrUpdate(ga.Iron_Axe);
-                realm.copyToRealmOrUpdate(ga.Lead_Axe);
-                realm.copyToRealmOrUpdate(ga.Silver_Axe);
-                realm.copyToRealmOrUpdate(ga.Tungsten_Axe);
-                realm.copyToRealmOrUpdate(ga.Gold_Axe);
-                realm.copyToRealmOrUpdate(ga.Platinum_Axe);
-                realm.copyToRealmOrUpdate(ga.Cobalt_Waraxe);
-                realm.copyToRealmOrUpdate(ga.Cobalt_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Sawtooth_Shark);
-                realm.copyToRealmOrUpdate(ga.War_Axe_Of_The_Night);
-                realm.copyToRealmOrUpdate(ga.Blood_Lust_Cluster);
-                realm.copyToRealmOrUpdate(ga.Palladium_Waraxe);
-                realm.copyToRealmOrUpdate(ga.Palladium_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Mythril_Waraxe);
-                realm.copyToRealmOrUpdate(ga.Mythril_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Orichalcum_Waraxe);
-                realm.copyToRealmOrUpdate(ga.Orichalcum_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Adamantite_Waraxe);
-                realm.copyToRealmOrUpdate(ga.Adamantite_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Meteor_Hamaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.Titanium_Waraxe);
-                realm.copyToRealmOrUpdate(ga.Titanium_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Pickaxe_Axe_Axe);
-                realm.copyToRealmOrUpdate(ga.Drax_Axe);
-                realm.copyToRealmOrUpdate(ga.Chlorophyte_Greataxe);
-                realm.copyToRealmOrUpdate(ga.Chlorophyte_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Lucy_The_Axe);
-                realm.copyToRealmOrUpdate(ga.Picksaw_Axe);
-                realm.copyToRealmOrUpdate(ga.Shroomite_Digging_Claw_Axe);
-                realm.copyToRealmOrUpdate(ga.Butchers_Chainsaw);
-                realm.copyToRealmOrUpdate(ga.Molten_Hamaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.Haemorrhaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.Spectre_Hamaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.Solar_Flare_Hamaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.Vortex_Hamaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.Nebula_Hamaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.Stardust_Hamaxe_Axe);
-                realm.copyToRealmOrUpdate(ga.The_Axe_Axe);
+            //Add Axes and Chainsaws
+            realm1.copyToRealmOrUpdate(ga.Copper_Axe);
+            realm1.copyToRealmOrUpdate(ga.Tin_Axe);
+            realm1.copyToRealmOrUpdate(ga.Iron_Axe);
+            realm1.copyToRealmOrUpdate(ga.Lead_Axe);
+            realm1.copyToRealmOrUpdate(ga.Silver_Axe);
+            realm1.copyToRealmOrUpdate(ga.Tungsten_Axe);
+            realm1.copyToRealmOrUpdate(ga.Gold_Axe);
+            realm1.copyToRealmOrUpdate(ga.Platinum_Axe);
+            realm1.copyToRealmOrUpdate(ga.Cobalt_Waraxe);
+            realm1.copyToRealmOrUpdate(ga.Cobalt_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Sawtooth_Shark);
+            realm1.copyToRealmOrUpdate(ga.War_Axe_Of_The_Night);
+            realm1.copyToRealmOrUpdate(ga.Blood_Lust_Cluster);
+            realm1.copyToRealmOrUpdate(ga.Palladium_Waraxe);
+            realm1.copyToRealmOrUpdate(ga.Palladium_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Mythril_Waraxe);
+            realm1.copyToRealmOrUpdate(ga.Mythril_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Orichalcum_Waraxe);
+            realm1.copyToRealmOrUpdate(ga.Orichalcum_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Adamantite_Waraxe);
+            realm1.copyToRealmOrUpdate(ga.Adamantite_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Meteor_Hamaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Titanium_Waraxe);
+            realm1.copyToRealmOrUpdate(ga.Titanium_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Pickaxe_Axe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Drax_Axe);
+            realm1.copyToRealmOrUpdate(ga.Chlorophyte_Greataxe);
+            realm1.copyToRealmOrUpdate(ga.Chlorophyte_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Lucy_The_Axe);
+            realm1.copyToRealmOrUpdate(ga.Picksaw_Axe);
+            realm1.copyToRealmOrUpdate(ga.Shroomite_Digging_Claw_Axe);
+            realm1.copyToRealmOrUpdate(ga.Butchers_Chainsaw);
+            realm1.copyToRealmOrUpdate(ga.Molten_Hamaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Haemorrhaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Spectre_Hamaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Solar_Flare_Hamaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Vortex_Hamaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Nebula_Hamaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.Stardust_Hamaxe_Axe);
+            realm1.copyToRealmOrUpdate(ga.The_Axe_Axe);
 
 
-            }
         });
     }
     public void addHammersToDatabase() {
@@ -607,44 +592,42 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Hammers gh = new Generate_Hammers();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Hammers and Jackhammers
-                realm.copyToRealmOrUpdate(gh.Wooden_Hammer);
-                realm.copyToRealmOrUpdate(gh.Rich_Mahogany_Hammer);
-                realm.copyToRealmOrUpdate(gh.Palm_Wood_Hammer);
-                realm.copyToRealmOrUpdate(gh.Boreal_Wood_Hammer);
-                realm.copyToRealmOrUpdate(gh.Copper_Hammer);
-                realm.copyToRealmOrUpdate(gh.Tin_Hammer);
-                realm.copyToRealmOrUpdate(gh.Iron_Hammer);
-                realm.copyToRealmOrUpdate(gh.Ebonwood_Hammer);
-                realm.copyToRealmOrUpdate(gh.Shadewood_Hammer);
-                realm.copyToRealmOrUpdate(gh.Lead_Hammer);
-                realm.copyToRealmOrUpdate(gh.Pearlwood_Hammer);
-                realm.copyToRealmOrUpdate(gh.Silver_Hammer);
-                realm.copyToRealmOrUpdate(gh.Tungsten_Hammer);
-                realm.copyToRealmOrUpdate(gh.Gold_Hammer);
-                realm.copyToRealmOrUpdate(gh.The_Breaker);
-                realm.copyToRealmOrUpdate(gh.Flesh_Grinder);
-                realm.copyToRealmOrUpdate(gh.Platinum_Hammer);
-                realm.copyToRealmOrUpdate(gh.Meteor_Hamaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.Rockfish);
-                realm.copyToRealmOrUpdate(gh.Molten_Hamaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.Pwnhammer);
-                realm.copyToRealmOrUpdate(gh.Haemorrhaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.Hammush);
-                realm.copyToRealmOrUpdate(gh.Chlorophyte_Warhammer);
-                realm.copyToRealmOrUpdate(gh.Chlorophyte_Jackhammer);
-                realm.copyToRealmOrUpdate(gh.Spectre_Hamaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.Solar_Flare_Hamaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.Vortex_Hamaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.Nebula_Hamaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.Stardust_Hamaxe_Hammer);
-                realm.copyToRealmOrUpdate(gh.The_Axe_Hammer);
+            //Add Hammers and Jackhammers
+            realm1.copyToRealmOrUpdate(gh.Wooden_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Rich_Mahogany_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Palm_Wood_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Boreal_Wood_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Copper_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Tin_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Iron_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Ebonwood_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Shadewood_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Lead_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Pearlwood_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Silver_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Tungsten_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Gold_Hammer);
+            realm1.copyToRealmOrUpdate(gh.The_Breaker);
+            realm1.copyToRealmOrUpdate(gh.Flesh_Grinder);
+            realm1.copyToRealmOrUpdate(gh.Platinum_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Meteor_Hamaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Rockfish);
+            realm1.copyToRealmOrUpdate(gh.Molten_Hamaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Pwnhammer);
+            realm1.copyToRealmOrUpdate(gh.Haemorrhaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Hammush);
+            realm1.copyToRealmOrUpdate(gh.Chlorophyte_Warhammer);
+            realm1.copyToRealmOrUpdate(gh.Chlorophyte_Jackhammer);
+            realm1.copyToRealmOrUpdate(gh.Spectre_Hamaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Solar_Flare_Hamaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Vortex_Hamaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Nebula_Hamaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.Stardust_Hamaxe_Hammer);
+            realm1.copyToRealmOrUpdate(gh.The_Axe_Hammer);
 
 
-            }
         });
     }
     public void addSpellTomesToDatabase() {
@@ -652,23 +635,21 @@ public class MainActivity extends AppCompatActivity {
         final Generate_SpellTomes gst = new Generate_SpellTomes();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode SpellTomes
-                realm.copyToRealmOrUpdate(gst.Water_Bolt);
-                realm.copyToRealmOrUpdate(gst.Book_Of_Skulls);
-                realm.copyToRealmOrUpdate(gst.Demon_Scythe);
+            //Add Pre-Hardmode SpellTomes
+            realm1.copyToRealmOrUpdate(gst.Water_Bolt);
+            realm1.copyToRealmOrUpdate(gst.Book_Of_Skulls);
+            realm1.copyToRealmOrUpdate(gst.Demon_Scythe);
 
-                //Add Hardmode SpellTomes
-                realm.copyToRealmOrUpdate(gst.Cursed_Flames);
-                realm.copyToRealmOrUpdate(gst.Golden_Shower);
-                realm.copyToRealmOrUpdate(gst.Crystal_Storm);
-                realm.copyToRealmOrUpdate(gst.Magnet_Sphere);
-                realm.copyToRealmOrUpdate(gst.Razorblade_Typhoon);
-                realm.copyToRealmOrUpdate(gst.Lunar_Flare);
+            //Add Hardmode SpellTomes
+            realm1.copyToRealmOrUpdate(gst.Cursed_Flames);
+            realm1.copyToRealmOrUpdate(gst.Golden_Shower);
+            realm1.copyToRealmOrUpdate(gst.Crystal_Storm);
+            realm1.copyToRealmOrUpdate(gst.Magnet_Sphere);
+            realm1.copyToRealmOrUpdate(gst.Razorblade_Typhoon);
+            realm1.copyToRealmOrUpdate(gst.Lunar_Flare);
 
-            }
         });
     }
     public void addWandsToDatabase() {
@@ -676,52 +657,50 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Wands gw = new Generate_Wands();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode Wands
-                realm.copyToRealmOrUpdate(gw.Wand_Of_Sparking);
-                realm.copyToRealmOrUpdate(gw.Thunder_Zapper);
-                realm.copyToRealmOrUpdate(gw.Amethyst_Staff);
-                realm.copyToRealmOrUpdate(gw.Topaz_Staff);
-                realm.copyToRealmOrUpdate(gw.Sapphire_Staff);
-                realm.copyToRealmOrUpdate(gw.Emerald_Staff);
-                realm.copyToRealmOrUpdate(gw.Ruby_Staff);
-                realm.copyToRealmOrUpdate(gw.Diamond_Staff);
-                realm.copyToRealmOrUpdate(gw.Amber_Staff);
-                realm.copyToRealmOrUpdate(gw.Vilethorn);
-                realm.copyToRealmOrUpdate(gw.Weather_Pain);
-                realm.copyToRealmOrUpdate(gw.Magic_Missile);
-                realm.copyToRealmOrUpdate(gw.Aqua_Scepter);
-                realm.copyToRealmOrUpdate(gw.Flower_Of_Fire);
-                realm.copyToRealmOrUpdate(gw.Flamelash);
+            //Add Pre-Hardmode Wands
+            realm1.copyToRealmOrUpdate(gw.Wand_Of_Sparking);
+            realm1.copyToRealmOrUpdate(gw.Thunder_Zapper);
+            realm1.copyToRealmOrUpdate(gw.Amethyst_Staff);
+            realm1.copyToRealmOrUpdate(gw.Topaz_Staff);
+            realm1.copyToRealmOrUpdate(gw.Sapphire_Staff);
+            realm1.copyToRealmOrUpdate(gw.Emerald_Staff);
+            realm1.copyToRealmOrUpdate(gw.Ruby_Staff);
+            realm1.copyToRealmOrUpdate(gw.Diamond_Staff);
+            realm1.copyToRealmOrUpdate(gw.Amber_Staff);
+            realm1.copyToRealmOrUpdate(gw.Vilethorn);
+            realm1.copyToRealmOrUpdate(gw.Weather_Pain);
+            realm1.copyToRealmOrUpdate(gw.Magic_Missile);
+            realm1.copyToRealmOrUpdate(gw.Aqua_Scepter);
+            realm1.copyToRealmOrUpdate(gw.Flower_Of_Fire);
+            realm1.copyToRealmOrUpdate(gw.Flamelash);
 
-                //Add Hardmode Wands
-                realm.copyToRealmOrUpdate(gw.Sky_Fracture);
-                realm.copyToRealmOrUpdate(gw.Crystal_Serpent);
-                realm.copyToRealmOrUpdate(gw.Flower_Of_Frost);
-                realm.copyToRealmOrUpdate(gw.Frost_Staff);
-                realm.copyToRealmOrUpdate(gw.Crystal_Vile_Shard);
-                realm.copyToRealmOrUpdate(gw.Life_Drain);
-                realm.copyToRealmOrUpdate(gw.Meteor_Staff);
-                realm.copyToRealmOrUpdate(gw.Poison_Staff);
-                realm.copyToRealmOrUpdate(gw.Rainbow_Rod);
-                realm.copyToRealmOrUpdate(gw.Unholy_Trident);
-                realm.copyToRealmOrUpdate(gw.Tome_Of_Infinite_Wisdom);
-                realm.copyToRealmOrUpdate(gw.Venom_Staff);
-                realm.copyToRealmOrUpdate(gw.Nettle_Burst);
-                realm.copyToRealmOrUpdate(gw.Bat_Scepter);
-                realm.copyToRealmOrUpdate(gw.Blizzard_Staff);
-                realm.copyToRealmOrUpdate(gw.Inferno_Fork);
-                realm.copyToRealmOrUpdate(gw.Shadowbeam_Staff);
-                realm.copyToRealmOrUpdate(gw.Spectre_Staff);
-                realm.copyToRealmOrUpdate(gw.Resonance_Scepter);
-                realm.copyToRealmOrUpdate(gw.Razorpine);
-                realm.copyToRealmOrUpdate(gw.Staff_Of_Earth);
-                realm.copyToRealmOrUpdate(gw.Betsys_Wrath);
+            //Add Hardmode Wands
+            realm1.copyToRealmOrUpdate(gw.Sky_Fracture);
+            realm1.copyToRealmOrUpdate(gw.Crystal_Serpent);
+            realm1.copyToRealmOrUpdate(gw.Flower_Of_Frost);
+            realm1.copyToRealmOrUpdate(gw.Frost_Staff);
+            realm1.copyToRealmOrUpdate(gw.Crystal_Vile_Shard);
+            realm1.copyToRealmOrUpdate(gw.Life_Drain);
+            realm1.copyToRealmOrUpdate(gw.Meteor_Staff);
+            realm1.copyToRealmOrUpdate(gw.Poison_Staff);
+            realm1.copyToRealmOrUpdate(gw.Rainbow_Rod);
+            realm1.copyToRealmOrUpdate(gw.Unholy_Trident);
+            realm1.copyToRealmOrUpdate(gw.Tome_Of_Infinite_Wisdom);
+            realm1.copyToRealmOrUpdate(gw.Venom_Staff);
+            realm1.copyToRealmOrUpdate(gw.Nettle_Burst);
+            realm1.copyToRealmOrUpdate(gw.Bat_Scepter);
+            realm1.copyToRealmOrUpdate(gw.Blizzard_Staff);
+            realm1.copyToRealmOrUpdate(gw.Inferno_Fork);
+            realm1.copyToRealmOrUpdate(gw.Shadowbeam_Staff);
+            realm1.copyToRealmOrUpdate(gw.Spectre_Staff);
+            realm1.copyToRealmOrUpdate(gw.Resonance_Scepter);
+            realm1.copyToRealmOrUpdate(gw.Razorpine);
+            realm1.copyToRealmOrUpdate(gw.Staff_Of_Earth);
+            realm1.copyToRealmOrUpdate(gw.Betsys_Wrath);
 
 
-            }
         });
     }
     public void addYoYosToDatabase() {
@@ -729,34 +708,32 @@ public class MainActivity extends AppCompatActivity {
         final Generate_YoYos gYY = new Generate_YoYos();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode YoYos
-                realm.copyToRealmOrUpdate(gYY.Wooden_Yoyo);
-                realm.copyToRealmOrUpdate(gYY.Rally);
-                realm.copyToRealmOrUpdate(gYY.Malaise);
-                realm.copyToRealmOrUpdate(gYY.Artery);
-                realm.copyToRealmOrUpdate(gYY.Amazon);
-                realm.copyToRealmOrUpdate(gYY.Code_1);
-                realm.copyToRealmOrUpdate(gYY.Valor);
-                realm.copyToRealmOrUpdate(gYY.Cascade);
+            //Add Pre-Hardmode YoYos
+            realm1.copyToRealmOrUpdate(gYY.Wooden_Yoyo);
+            realm1.copyToRealmOrUpdate(gYY.Rally);
+            realm1.copyToRealmOrUpdate(gYY.Malaise);
+            realm1.copyToRealmOrUpdate(gYY.Artery);
+            realm1.copyToRealmOrUpdate(gYY.Amazon);
+            realm1.copyToRealmOrUpdate(gYY.Code_1);
+            realm1.copyToRealmOrUpdate(gYY.Valor);
+            realm1.copyToRealmOrUpdate(gYY.Cascade);
 
-                //Add Hardmode YoYos
-                realm.copyToRealmOrUpdate(gYY.Format_C);
-                realm.copyToRealmOrUpdate(gYY.Gradient);
-                realm.copyToRealmOrUpdate(gYY.Chik);
-                realm.copyToRealmOrUpdate(gYY.Hel_Fire);
-                realm.copyToRealmOrUpdate(gYY.Amarok);
-                realm.copyToRealmOrUpdate(gYY.Code_2);
-                realm.copyToRealmOrUpdate(gYY.Yelets);
-                realm.copyToRealmOrUpdate(gYY.Reds_Throw);
-                realm.copyToRealmOrUpdate(gYY.Valkyrie_Yoyo);
-                realm.copyToRealmOrUpdate(gYY.Kraken);
-                realm.copyToRealmOrUpdate(gYY.The_Eye_Of_Cthulhu);
-                realm.copyToRealmOrUpdate(gYY.Terrarian);
+            //Add Hardmode YoYos
+            realm1.copyToRealmOrUpdate(gYY.Format_C);
+            realm1.copyToRealmOrUpdate(gYY.Gradient);
+            realm1.copyToRealmOrUpdate(gYY.Chik);
+            realm1.copyToRealmOrUpdate(gYY.Hel_Fire);
+            realm1.copyToRealmOrUpdate(gYY.Amarok);
+            realm1.copyToRealmOrUpdate(gYY.Code_2);
+            realm1.copyToRealmOrUpdate(gYY.Yelets);
+            realm1.copyToRealmOrUpdate(gYY.Reds_Throw);
+            realm1.copyToRealmOrUpdate(gYY.Valkyrie_Yoyo);
+            realm1.copyToRealmOrUpdate(gYY.Kraken);
+            realm1.copyToRealmOrUpdate(gYY.The_Eye_Of_Cthulhu);
+            realm1.copyToRealmOrUpdate(gYY.Terrarian);
 
-            }
         });
     }
     public void addSpearsToDatabase() {
@@ -764,33 +741,31 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Spears gsp = new Generate_Spears();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode Spears
-                realm.copyToRealmOrUpdate(gsp.Spear);
-                realm.copyToRealmOrUpdate(gsp.Trident);
-                realm.copyToRealmOrUpdate(gsp.Storm_Spear);
-                realm.copyToRealmOrUpdate(gsp.The_Rotted_Fork);
-                realm.copyToRealmOrUpdate(gsp.Swordfish);
-                realm.copyToRealmOrUpdate(gsp.Dark_Lance);
+            //Add Pre-Hardmode Spears
+            realm1.copyToRealmOrUpdate(gsp.Spear);
+            realm1.copyToRealmOrUpdate(gsp.Trident);
+            realm1.copyToRealmOrUpdate(gsp.Storm_Spear);
+            realm1.copyToRealmOrUpdate(gsp.The_Rotted_Fork);
+            realm1.copyToRealmOrUpdate(gsp.Swordfish);
+            realm1.copyToRealmOrUpdate(gsp.Dark_Lance);
 
-                //Add Hardmode Spears
-                realm.copyToRealmOrUpdate(gsp.Cobalt_Naginata);
-                realm.copyToRealmOrUpdate(gsp.Palladium_Pike);
-                realm.copyToRealmOrUpdate(gsp.Mythril_Halberd);
-                realm.copyToRealmOrUpdate(gsp.Orichalcum_Halberd);
-                realm.copyToRealmOrUpdate(gsp.Adamantite_Glaive);
-                realm.copyToRealmOrUpdate(gsp.Titanium_Trident);
-                realm.copyToRealmOrUpdate(gsp.Gungnir);
-                realm.copyToRealmOrUpdate(gsp.Ghastly_Glaive);
-                realm.copyToRealmOrUpdate(gsp.Chlorophyte_Partisan);
-                realm.copyToRealmOrUpdate(gsp.Tonbogiri);
-                realm.copyToRealmOrUpdate(gsp.Mushroom_Spear);
-                realm.copyToRealmOrUpdate(gsp.Obsidian_Swordfish);
-                realm.copyToRealmOrUpdate(gsp.North_Pole);
+            //Add Hardmode Spears
+            realm1.copyToRealmOrUpdate(gsp.Cobalt_Naginata);
+            realm1.copyToRealmOrUpdate(gsp.Palladium_Pike);
+            realm1.copyToRealmOrUpdate(gsp.Mythril_Halberd);
+            realm1.copyToRealmOrUpdate(gsp.Orichalcum_Halberd);
+            realm1.copyToRealmOrUpdate(gsp.Adamantite_Glaive);
+            realm1.copyToRealmOrUpdate(gsp.Titanium_Trident);
+            realm1.copyToRealmOrUpdate(gsp.Gungnir);
+            realm1.copyToRealmOrUpdate(gsp.Ghastly_Glaive);
+            realm1.copyToRealmOrUpdate(gsp.Chlorophyte_Partisan);
+            realm1.copyToRealmOrUpdate(gsp.Tonbogiri);
+            realm1.copyToRealmOrUpdate(gsp.Mushroom_Spear);
+            realm1.copyToRealmOrUpdate(gsp.Obsidian_Swordfish);
+            realm1.copyToRealmOrUpdate(gsp.North_Pole);
 
-            }
         });
     }
     public void addBoomerangsToDatabase() {
@@ -798,29 +773,27 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Boomerangs gb = new Generate_Boomerangs();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode Boomerangs
-                realm.copyToRealmOrUpdate(gb.Wooden_Boomerang);
-                realm.copyToRealmOrUpdate(gb.Enchanted_Boomerang);
-                realm.copyToRealmOrUpdate(gb.Fruitcake_Chakram);
-                realm.copyToRealmOrUpdate(gb.Bloody_Machete);
-                realm.copyToRealmOrUpdate(gb.Shroomerang);
-                realm.copyToRealmOrUpdate(gb.Ice_Boomerang);
-                realm.copyToRealmOrUpdate(gb.Thorn_Chakram);
-                realm.copyToRealmOrUpdate(gb.Combat_Wrench);
-                realm.copyToRealmOrUpdate(gb.Flamarang);
+            //Add Pre-Hardmode Boomerangs
+            realm1.copyToRealmOrUpdate(gb.Wooden_Boomerang);
+            realm1.copyToRealmOrUpdate(gb.Enchanted_Boomerang);
+            realm1.copyToRealmOrUpdate(gb.Fruitcake_Chakram);
+            realm1.copyToRealmOrUpdate(gb.Bloody_Machete);
+            realm1.copyToRealmOrUpdate(gb.Shroomerang);
+            realm1.copyToRealmOrUpdate(gb.Ice_Boomerang);
+            realm1.copyToRealmOrUpdate(gb.Thorn_Chakram);
+            realm1.copyToRealmOrUpdate(gb.Combat_Wrench);
+            realm1.copyToRealmOrUpdate(gb.Flamarang);
 
-                //Add Hardmode Boomerangs
-                realm.copyToRealmOrUpdate(gb.Flying_Knife);
-                realm.copyToRealmOrUpdate(gb.Sergeant_United_Shield);
-                realm.copyToRealmOrUpdate(gb.Light_Disc);
-                realm.copyToRealmOrUpdate(gb.Bananarang);
-                realm.copyToRealmOrUpdate(gb.Possessed_Hatchet);
-                realm.copyToRealmOrUpdate(gb.Paladins_Hammer);
+            //Add Hardmode Boomerangs
+            realm1.copyToRealmOrUpdate(gb.Flying_Knife);
+            realm1.copyToRealmOrUpdate(gb.Sergeant_United_Shield);
+            realm1.copyToRealmOrUpdate(gb.Light_Disc);
+            realm1.copyToRealmOrUpdate(gb.Bananarang);
+            realm1.copyToRealmOrUpdate(gb.Possessed_Hatchet);
+            realm1.copyToRealmOrUpdate(gb.Paladins_Hammer);
 
-            }
         });
     }
     public void addFlailsToDatabase() {
@@ -828,29 +801,27 @@ public class MainActivity extends AppCompatActivity {
         final Generate_Flails gf = new Generate_Flails();
         // on below line we are calling a method to execute a transaction.
         Realm realm = Realm.getDefaultInstance();
-        realm.executeTransactionAsync(new Realm.Transaction() {
-            public void execute(Realm realm) {
+        realm.executeTransactionAsync(realm1 -> {
 
-                //Add Pre-Hardmode Flails
-                realm.copyToRealmOrUpdate(gf.Chain_Knife);
-                realm.copyToRealmOrUpdate(gf.Mace);
-                realm.copyToRealmOrUpdate(gf.Flaming_Mace);
-                realm.copyToRealmOrUpdate(gf.Ball_O_Hurt);
-                realm.copyToRealmOrUpdate(gf.The_Meatball);
-                realm.copyToRealmOrUpdate(gf.Blue_Moon);
-                realm.copyToRealmOrUpdate(gf.Sunfury);
+            //Add Pre-Hardmode Flails
+            realm1.copyToRealmOrUpdate(gf.Chain_Knife);
+            realm1.copyToRealmOrUpdate(gf.Mace);
+            realm1.copyToRealmOrUpdate(gf.Flaming_Mace);
+            realm1.copyToRealmOrUpdate(gf.Ball_O_Hurt);
+            realm1.copyToRealmOrUpdate(gf.The_Meatball);
+            realm1.copyToRealmOrUpdate(gf.Blue_Moon);
+            realm1.copyToRealmOrUpdate(gf.Sunfury);
 
-                //Add Hardmode Flails
-                realm.copyToRealmOrUpdate(gf.Anchor);
-                realm.copyToRealmOrUpdate(gf.KO_Cannon);
-                realm.copyToRealmOrUpdate(gf.Drippler_Crippler);
-                realm.copyToRealmOrUpdate(gf.Chain_Guillotines);
-                realm.copyToRealmOrUpdate(gf.Dao_Of_Pow);
-                realm.copyToRealmOrUpdate(gf.Flower_Pow);
-                realm.copyToRealmOrUpdate(gf.Golem_Fist);
-                realm.copyToRealmOrUpdate(gf.Flairon);
+            //Add Hardmode Flails
+            realm1.copyToRealmOrUpdate(gf.Anchor);
+            realm1.copyToRealmOrUpdate(gf.KO_Cannon);
+            realm1.copyToRealmOrUpdate(gf.Drippler_Crippler);
+            realm1.copyToRealmOrUpdate(gf.Chain_Guillotines);
+            realm1.copyToRealmOrUpdate(gf.Dao_Of_Pow);
+            realm1.copyToRealmOrUpdate(gf.Flower_Pow);
+            realm1.copyToRealmOrUpdate(gf.Golem_Fist);
+            realm1.copyToRealmOrUpdate(gf.Flairon);
 
-            }
         });
     }
 }

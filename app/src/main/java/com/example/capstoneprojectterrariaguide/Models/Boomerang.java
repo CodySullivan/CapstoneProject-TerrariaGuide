@@ -3,7 +3,7 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Boomerangs extends RealmObject {
+public class Boomerang extends RealmObject {
 
     @PrimaryKey
     private int boomerangId;
@@ -13,7 +13,7 @@ public class Boomerangs extends RealmObject {
     private String type;
     private String howToObtain;
 
-    public Boomerangs(int boomerangId, String name, float damage, String price, String type, String howToObtain) {
+    public Boomerang(int boomerangId, String name, float damage, String price, String type, String howToObtain) {
         this.boomerangId = boomerangId;
         this.name = name;
         this.damage = damage;
@@ -22,7 +22,7 @@ public class Boomerangs extends RealmObject {
         this.howToObtain = howToObtain;
     }
 
-    public Boomerangs() {
+    public Boomerang() {
     }
 
     public int getBoomerangId() {

@@ -3,7 +3,7 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Pickaxes extends RealmObject {
+public class Pickaxe extends RealmObject {
 
     @PrimaryKey
     private int pickaxeId;
@@ -13,10 +13,10 @@ public class Pickaxes extends RealmObject {
     private String price;
     private String howToObtain;
 
-    public Pickaxes() {
+    public Pickaxe() {
     }
 
-    public Pickaxes(int pickaxeId, String name, float damage, String power, String price, String howToObtain) {
+    public Pickaxe(int pickaxeId, String name, float damage, String power, String price, String howToObtain) {
         this.pickaxeId = pickaxeId;
         this.name = name;
         this.damage = damage;

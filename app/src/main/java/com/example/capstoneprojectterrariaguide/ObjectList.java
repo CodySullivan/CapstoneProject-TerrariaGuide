@@ -11,19 +11,19 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.capstoneprojectterrariaguide.Models.Axes;
-import com.example.capstoneprojectterrariaguide.Models.Boomerangs;
-import com.example.capstoneprojectterrariaguide.Models.Bosses;
-import com.example.capstoneprojectterrariaguide.Models.Enemies;
-import com.example.capstoneprojectterrariaguide.Models.Flails;
-import com.example.capstoneprojectterrariaguide.Models.Hammers;
-import com.example.capstoneprojectterrariaguide.Models.Materials;
-import com.example.capstoneprojectterrariaguide.Models.Pickaxes;
-import com.example.capstoneprojectterrariaguide.Models.Spears;
-import com.example.capstoneprojectterrariaguide.Models.SpellTomes;
-import com.example.capstoneprojectterrariaguide.Models.Swords;
-import com.example.capstoneprojectterrariaguide.Models.Wands;
-import com.example.capstoneprojectterrariaguide.Models.YoYos;
+import com.example.capstoneprojectterrariaguide.Models.Axe;
+import com.example.capstoneprojectterrariaguide.Models.Boomerang;
+import com.example.capstoneprojectterrariaguide.Models.Boss;
+import com.example.capstoneprojectterrariaguide.Models.Enemy;
+import com.example.capstoneprojectterrariaguide.Models.Flail;
+import com.example.capstoneprojectterrariaguide.Models.Hammer;
+import com.example.capstoneprojectterrariaguide.Models.Material;
+import com.example.capstoneprojectterrariaguide.Models.Pickaxe;
+import com.example.capstoneprojectterrariaguide.Models.Spear;
+import com.example.capstoneprojectterrariaguide.Models.SpellTome;
+import com.example.capstoneprojectterrariaguide.Models.Sword;
+import com.example.capstoneprojectterrariaguide.Models.Wand;
+import com.example.capstoneprojectterrariaguide.Models.YoYo;
 
 import java.util.List;
 
@@ -38,6 +38,7 @@ import io.realm.mongodb.User;
 public class ObjectList extends AppCompatActivity {
 
     public static final String Choice = "com.example.capstoneprojectterrariaguide.Choice";
+    public static final String Type = "com.example.capstoneprojectterrariaguide.Type";
     public EditText search;
 
     @Override
@@ -56,6 +57,7 @@ public class ObjectList extends AppCompatActivity {
             if (result.isSuccess()) {
                 Log.v("QUICKSTART", "Successfully authenticated anonymously.");
                 User user = app.currentUser();
+                System.out.println(user);
             } else {
                 Log.e("QUICKSTART", "Failed to log in. Error: " + result.getError());
             }
@@ -88,158 +90,168 @@ public class ObjectList extends AppCompatActivity {
         GetFlails();
     }
 
-    public void BackOnClick(View v){
+    public void BackOnClick(View v) {
         openActivity1();
     }
+
     public void SearchOnClick(View v) {
         String object = search.getText().toString();
         Realm realm = Realm.getDefaultInstance();
 
         //Materials
-        RealmQuery<Materials> materialQuery = realm.where(Materials.class);
-        List<Materials> materialsList = (materialQuery.findAll());
+        RealmQuery<Material> materialQuery = realm.where(Material.class);
+        List<Material> materialList = (materialQuery.findAll());
 
         //Enemies
-        RealmQuery<Enemies> enemyQuery = realm.where(Enemies.class);
-        List<Enemies> enemiesList = (enemyQuery.findAll());
+        RealmQuery<Enemy> enemyQuery = realm.where(Enemy.class);
+        List<Enemy> enemyList = (enemyQuery.findAll());
 
         //Bosses
-        RealmQuery<Bosses> bossQuery = realm.where(Bosses.class);
-        List<Bosses> bossesList = (bossQuery.findAll());
+        RealmQuery<Boss> bossQuery = realm.where(Boss.class);
+        List<Boss> bossList = (bossQuery.findAll());
 
         //Swords
-        RealmQuery<Swords> swordQuery = realm.where(Swords.class);
-        List<Swords> swordsList = (swordQuery.findAll());
+        RealmQuery<Sword> swordQuery = realm.where(Sword.class);
+        List<Sword> swordList = (swordQuery.findAll());
 
         //Pickaxes
-        RealmQuery<Pickaxes> pickaxeQuery = realm.where(Pickaxes.class);
-        List<Pickaxes> pickaxesList = (pickaxeQuery.findAll());
+        RealmQuery<Pickaxe> pickaxeQuery = realm.where(Pickaxe.class);
+        List<Pickaxe> pickaxeList = (pickaxeQuery.findAll());
 
         //Axes
-        RealmQuery<Axes> axeQuery = realm.where(Axes.class);
-        List<Axes> axesList = (axeQuery.findAll());
+        RealmQuery<Axe> axeQuery = realm.where(Axe.class);
+        List<Axe> axeList = (axeQuery.findAll());
 
         //Hammers
-        RealmQuery<Hammers> hammerQuery = realm.where(Hammers.class);
-        List<Hammers> hammersList = (hammerQuery.findAll());
+        RealmQuery<Hammer> hammerQuery = realm.where(Hammer.class);
+        List<Hammer> hammerList = (hammerQuery.findAll());
 
         //SpellTomes
-        RealmQuery<SpellTomes> spellTomesQuery = realm.where(SpellTomes.class);
-        List<SpellTomes> spellTomesList = (spellTomesQuery.findAll());
+        RealmQuery<SpellTome> spellTomesQuery = realm.where(SpellTome.class);
+        List<SpellTome> spellTomeList = (spellTomesQuery.findAll());
 
         //Wands
-        RealmQuery<Wands> wandsQuery = realm.where(Wands.class);
-        List<Wands> wandsList = (wandsQuery.findAll());
+        RealmQuery<Wand> wandsQuery = realm.where(Wand.class);
+        List<Wand> wandList = (wandsQuery.findAll());
 
         //YoYos
-        RealmQuery<YoYos> yoyosQuery = realm.where(YoYos.class);
-        List<YoYos> yoyosList = (yoyosQuery.findAll());
+        RealmQuery<YoYo> yoyosQuery = realm.where(YoYo.class);
+        List<YoYo> yoyosList = (yoyosQuery.findAll());
 
         //Spears
-        RealmQuery<Spears> spearsQuery = realm.where(Spears.class);
-        List<Spears> spearsList = (spearsQuery.findAll());
+        RealmQuery<Spear> spearsQuery = realm.where(Spear.class);
+        List<Spear> spearList = (spearsQuery.findAll());
 
         //Boomerangs
-        RealmQuery<Boomerangs> boomerangsQuery = realm.where(Boomerangs.class);
-        List<Boomerangs> boomerangsList = (boomerangsQuery.findAll());
+        RealmQuery<Boomerang> boomerangsQuery = realm.where(Boomerang.class);
+        List<Boomerang> boomerangList = (boomerangsQuery.findAll());
 
         //Flails
-        RealmQuery<Flails> flailsQuery = realm.where(Flails.class);
-        List<Flails> flailsList = (flailsQuery.findAll());
+        RealmQuery<Flail> flailsQuery = realm.where(Flail.class);
+        List<Flail> flailList = (flailsQuery.findAll());
 
-        for(Materials m : materialsList) {
-            if (m.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(m.getName());
+        for (Material m : materialList) {
+            if (m.getName().equalsIgnoreCase(object)) {
+                openActivity3(m.getName(), "Material");
             }
         }
-        for(Enemies e : enemiesList) {
-            if (e.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(e.getName());
+
+        for (Enemy e : enemyList) {
+            if (e.getName().equalsIgnoreCase(object)) {
+                openActivity3(e.getName(), "Enemy");
             }
         }
-        for(Bosses b : bossesList) {
-            if (b.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(b.getName());
+
+        for (Boss b : bossList) {
+            if (b.getName().equalsIgnoreCase(object)) {
+                openActivity3(b.getName(), "Boss");
             }
         }
-        for(Swords s : swordsList) {
-            if (s.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(s.getName());
+
+        for (Sword s : swordList) {
+            if (s.getName().equalsIgnoreCase(object)) {
+                openActivity3(s.getName(), "Sword");
             }
         }
-        for(Pickaxes p : pickaxesList) {
-            if (p.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(p.getName());
+
+        for (Pickaxe p : pickaxeList) {
+            if (p.getName().equalsIgnoreCase(object)) {
+                openActivity3(p.getName(), "Pickaxe");
             }
         }
-        for(Axes a : axesList) {
-            if (a.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(a.getName());
+
+        for (Axe a : axeList) {
+            if (a.getName().equalsIgnoreCase(object)) {
+                openActivity3(a.getName(), "Axe");
             }
         }
-        for(Hammers h : hammersList) {
-            if (h.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(h.getName());
+
+        for (Hammer h : hammerList) {
+            if (h.getName().equalsIgnoreCase(object)) {
+                openActivity3(h.getName(), "Hammer");
             }
         }
-        for(SpellTomes st : spellTomesList) {
-            if (st.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(st.getName());
+
+        for (SpellTome st : spellTomeList) {
+            if (st.getName().equalsIgnoreCase(object)) {
+                openActivity3(st.getName(), "SpellTome");
             }
         }
-        for(Wands w : wandsList) {
-            if (w.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(w.getName());
+        for (Wand w : wandList) {
+            if (w.getName().equalsIgnoreCase(object)) {
+                openActivity3(w.getName(), "Wand");
             }
         }
-        for(YoYos yy : yoyosList) {
-            if (yy.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(yy.getName());
+        for (YoYo yy : yoyosList) {
+            if (yy.getName().equalsIgnoreCase(object)) {
+                openActivity3(yy.getName(), "YoYo");
             }
         }
-        for(Spears sp : spearsList) {
-            if (sp.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(sp.getName());
+        for (Spear sp : spearList) {
+            if (sp.getName().equalsIgnoreCase(object)) {
+                openActivity3(sp.getName(), "Spear");
             }
         }
-        for(Boomerangs b : boomerangsList) {
-            if (b.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(b.getName());
+        for (Boomerang b : boomerangList) {
+            if (b.getName().equalsIgnoreCase(object)) {
+                openActivity3(b.getName(), "Boomerang");
             }
         }
-        for(Flails f : flailsList) {
-            if (f.getName().toLowerCase().contains(object.toLowerCase())) {
-                openActivity3(f.getName());
+        for (Flail f : flailList) {
+            if (f.getName().equalsIgnoreCase(object)) {
+                openActivity3(f.getName(), "Flail");
             }
         }
     }
 
-    public void openActivity1(){
+    public void openActivity1() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-    public void openActivity3(String MChoice){
+
+    public void openActivity3(String MChoice, String MType) {
         Intent intent = new Intent(this, Info_Viewer.class);
         intent.putExtra(Choice, MChoice);
+        intent.putExtra(Type, MType);
         startActivity(intent);
     }
 
     public void GetMaterials() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Materials> tasksQuery = realm.where(Materials.class);
+        RealmQuery<Material> tasksQuery = realm.where(Material.class);
         Spinner MaterialSpinner = (Spinner) findViewById(R.id.Material_Spinner);
-        List<Materials> materialsList = (tasksQuery.findAll());
-        final String[] MaterialList = new String[materialsList.size() + 1];
+        List<Material> materialList = (tasksQuery.findAll());
+        final String[] MaterialList = new String[materialList.size() + 1];
 
         int i = 1;
         MaterialList[0] = "(Materials)";
 
-        for(Materials m: materialsList) {
+        for (Material m : materialList) {
             MaterialList[i] = m.getName();
             i++;
         }
 
-        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,MaterialList);
+        ArrayAdapter<String> MaterialAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, MaterialList);
         MaterialAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         MaterialSpinner.setAdapter(MaterialAdapter);
 
@@ -248,7 +260,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(MaterialList[a]);
+                    openActivity3(MaterialList[a], "Material");
                 }
             }
 
@@ -258,22 +270,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetEnemies() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Enemies> tasksQuery = realm.where(Enemies.class);
+        RealmQuery<Enemy> tasksQuery = realm.where(Enemy.class);
         Spinner EnemySpinner = (Spinner) findViewById(R.id.Enemy_Spinner);
-        List<Enemies> enemiesList = (tasksQuery.findAll());
-        final String[] EnemiesList = new String[enemiesList.size() + 1];
+        List<Enemy> enemyList = (tasksQuery.findAll());
+        final String[] EnemiesList = new String[enemyList.size() + 1];
 
         int i = 1;
         EnemiesList[0] = "(Enemies)";
 
-        for(Enemies e: enemiesList) {
+        for (Enemy e : enemyList) {
             EnemiesList[i] = e.getName();
             i++;
         }
 
-        ArrayAdapter<String> EnemyAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,EnemiesList);
+        ArrayAdapter<String> EnemyAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, EnemiesList);
         EnemyAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         EnemySpinner.setAdapter(EnemyAdapter);
 
@@ -282,7 +295,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(EnemiesList[a]);
+                    openActivity3(EnemiesList[a], "Enemy");
                 }
             }
 
@@ -292,22 +305,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetBosses() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Bosses> tasksQuery = realm.where(Bosses.class);
+        RealmQuery<Boss> tasksQuery = realm.where(Boss.class);
         Spinner BossSpinner = (Spinner) findViewById(R.id.Boss_Spinner);
-        List<Bosses> bossesList = (tasksQuery.findAll());
-        final String[] BossesList = new String[bossesList.size() + 1];
+        List<Boss> bossList = (tasksQuery.findAll());
+        final String[] BossesList = new String[bossList.size() + 1];
 
         int i = 1;
         BossesList[0] = "(Bosses)";
 
-        for(Bosses b: bossesList) {
+        for (Boss b : bossList) {
             BossesList[i] = b.getName();
             i++;
         }
 
-        ArrayAdapter<String> BossAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,BossesList);
+        ArrayAdapter<String> BossAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, BossesList);
         BossAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         BossSpinner.setAdapter(BossAdapter);
 
@@ -316,7 +330,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(BossesList[a]);
+                    openActivity3(BossesList[a], "Boss");
                 }
             }
 
@@ -326,22 +340,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetSwords() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Swords> tasksQuery = realm.where(Swords.class);
+        RealmQuery<Sword> tasksQuery = realm.where(Sword.class);
         Spinner SwordSpinner = (Spinner) findViewById(R.id.Sword_Spinner);
-        List<Swords> swordsList = (tasksQuery.findAll());
-        final String[] SwordsList = new String[swordsList.size() + 1];
+        List<Sword> swordList = (tasksQuery.findAll());
+        final String[] SwordsList = new String[swordList.size() + 1];
 
         int i = 1;
         SwordsList[0] = "(Swords)";
 
-        for(Swords s: swordsList) {
+        for (Sword s : swordList) {
             SwordsList[i] = s.getName();
             i++;
         }
 
-        ArrayAdapter<String> SwordAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,SwordsList);
+        ArrayAdapter<String> SwordAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, SwordsList);
         SwordAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         SwordSpinner.setAdapter(SwordAdapter);
 
@@ -350,7 +365,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(SwordsList[a]);
+                    openActivity3(SwordsList[a], "Sword");
                 }
             }
 
@@ -360,22 +375,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetPickaxes() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Pickaxes> tasksQuery = realm.where(Pickaxes.class);
+        RealmQuery<Pickaxe> tasksQuery = realm.where(Pickaxe.class);
         Spinner PickaxeSpinner = (Spinner) findViewById(R.id.Pickaxe_Spinner);
-        List<Pickaxes> pickaxesList = (tasksQuery.findAll());
-        final String[] PickaxesList = new String[pickaxesList.size() + 1];
+        List<Pickaxe> pickaxeList = (tasksQuery.findAll());
+        final String[] PickaxesList = new String[pickaxeList.size() + 1];
 
         int i = 1;
         PickaxesList[0] = "(Pickaxes)";
 
-        for(Pickaxes p: pickaxesList) {
+        for (Pickaxe p : pickaxeList) {
             PickaxesList[i] = p.getName();
             i++;
         }
 
-        ArrayAdapter<String> PickaxeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,PickaxesList);
+        ArrayAdapter<String> PickaxeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, PickaxesList);
         PickaxeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         PickaxeSpinner.setAdapter(PickaxeAdapter);
 
@@ -384,7 +400,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(PickaxesList[a]);
+                    openActivity3(PickaxesList[a], "Pickaxe");
                 }
             }
 
@@ -394,22 +410,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetAxes() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Axes> tasksQuery = realm.where(Axes.class);
+        RealmQuery<Axe> tasksQuery = realm.where(Axe.class);
         Spinner AxeSpinner = (Spinner) findViewById(R.id.Axe_Spinner);
-        List<Axes> axesList = (tasksQuery.findAll());
-        final String[] AxesList = new String[axesList.size() + 1];
+        List<Axe> axeList = (tasksQuery.findAll());
+        final String[] AxesList = new String[axeList.size() + 1];
 
         int i = 1;
         AxesList[0] = "(Axes)";
 
-        for(Axes a: axesList) {
+        for (Axe a : axeList) {
             AxesList[i] = a.getName();
             i++;
         }
 
-        ArrayAdapter<String> AxeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,AxesList);
+        ArrayAdapter<String> AxeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, AxesList);
         AxeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         AxeSpinner.setAdapter(AxeAdapter);
 
@@ -418,7 +435,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(AxesList[a]);
+                    openActivity3(AxesList[a], "Axe");
                 }
             }
 
@@ -428,22 +445,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetHammers() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Hammers> tasksQuery = realm.where(Hammers.class);
+        RealmQuery<Hammer> tasksQuery = realm.where(Hammer.class);
         Spinner HammerSpinner = (Spinner) findViewById(R.id.Hammer_Spinner);
-        List<Hammers> hammersList = (tasksQuery.findAll());
-        final String[] HammersList = new String[hammersList.size() + 1];
+        List<Hammer> hammerList = (tasksQuery.findAll());
+        final String[] HammersList = new String[hammerList.size() + 1];
 
         int i = 1;
         HammersList[0] = "(Hammers)";
 
-        for(Hammers h: hammersList) {
+        for (Hammer h : hammerList) {
             HammersList[i] = h.getName();
             i++;
         }
 
-        ArrayAdapter<String> HammerAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,HammersList);
+        ArrayAdapter<String> HammerAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, HammersList);
         HammerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         HammerSpinner.setAdapter(HammerAdapter);
 
@@ -452,7 +470,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(HammersList[a]);
+                    openActivity3(HammersList[a], "Hammer");
                 }
             }
 
@@ -462,22 +480,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetSpellTomes() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<SpellTomes> tasksQuery = realm.where(SpellTomes.class);
+        RealmQuery<SpellTome> tasksQuery = realm.where(SpellTome.class);
         Spinner SpellTomeSpinner = (Spinner) findViewById(R.id.SpellTome_Spinner);
-        List<SpellTomes> spellTomesList = (tasksQuery.findAll());
-        final String[] SpellTomesList = new String[spellTomesList.size() + 1];
+        List<SpellTome> spellTomeList = (tasksQuery.findAll());
+        final String[] SpellTomesList = new String[spellTomeList.size() + 1];
 
         int i = 1;
         SpellTomesList[0] = "(Spell Tomes)";
 
-        for(SpellTomes st: spellTomesList) {
+        for (SpellTome st : spellTomeList) {
             SpellTomesList[i] = st.getName();
             i++;
         }
 
-        ArrayAdapter<String> SpellTomeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,SpellTomesList);
+        ArrayAdapter<String> SpellTomeAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, SpellTomesList);
         SpellTomeAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         SpellTomeSpinner.setAdapter(SpellTomeAdapter);
 
@@ -486,7 +505,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(SpellTomesList[a]);
+                    openActivity3(SpellTomesList[a], "SpellTome");
                 }
             }
 
@@ -496,22 +515,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetWands() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Wands> tasksQuery = realm.where(Wands.class);
+        RealmQuery<Wand> tasksQuery = realm.where(Wand.class);
         Spinner WandSpinner = (Spinner) findViewById(R.id.Wand_Spinner);
-        List<Wands> wandsList = (tasksQuery.findAll());
-        final String[] WandsList = new String[wandsList.size() + 1];
+        List<Wand> wandList = (tasksQuery.findAll());
+        final String[] WandsList = new String[wandList.size() + 1];
 
         int i = 1;
         WandsList[0] = "(Wands)";
 
-        for(Wands w: wandsList) {
+        for (Wand w : wandList) {
             WandsList[i] = w.getName();
             i++;
         }
 
-        final ArrayAdapter<String> WandAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,WandsList);
+        final ArrayAdapter<String> WandAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, WandsList);
         WandAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         WandSpinner.setAdapter(WandAdapter);
 
@@ -520,7 +540,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(WandsList[a]);
+                    openActivity3(WandsList[a], "Wand");
                 }
             }
 
@@ -530,22 +550,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetYoYos() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<YoYos> tasksQuery = realm.where(YoYos.class);
+        RealmQuery<YoYo> tasksQuery = realm.where(YoYo.class);
         Spinner YoYoSpinner = (Spinner) findViewById(R.id.YoYo_Spinner);
-        List<YoYos> yoyosList = (tasksQuery.findAll());
+        List<YoYo> yoyosList = (tasksQuery.findAll());
         final String[] YoYosList = new String[yoyosList.size() + 1];
 
         int i = 1;
         YoYosList[0] = "(YoYos)";
 
-        for(YoYos yy: yoyosList) {
+        for (YoYo yy : yoyosList) {
             YoYosList[i] = yy.getName();
             i++;
         }
 
-        final ArrayAdapter<String> YoYoAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,YoYosList);
+        final ArrayAdapter<String> YoYoAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, YoYosList);
         YoYoAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         YoYoSpinner.setAdapter(YoYoAdapter);
 
@@ -554,7 +575,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(YoYosList[a]);
+                    openActivity3(YoYosList[a], "YoYo");
                 }
             }
 
@@ -564,22 +585,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetSpears() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Spears> tasksQuery = realm.where(Spears.class);
+        RealmQuery<Spear> tasksQuery = realm.where(Spear.class);
         Spinner SpearSpinner = (Spinner) findViewById(R.id.Spear_Spinner);
-        List<Spears> spearsList = (tasksQuery.findAll());
-        final String[] SpearsList = new String[spearsList.size() + 1];
+        List<Spear> spearList = (tasksQuery.findAll());
+        final String[] SpearsList = new String[spearList.size() + 1];
 
         int i = 1;
         SpearsList[0] = "(Spears)";
 
-        for(Spears sp: spearsList) {
+        for (Spear sp : spearList) {
             SpearsList[i] = sp.getName();
             i++;
         }
 
-        final ArrayAdapter<String> SpearAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,SpearsList);
+        final ArrayAdapter<String> SpearAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, SpearsList);
         SpearAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         SpearSpinner.setAdapter(SpearAdapter);
 
@@ -588,7 +610,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(SpearsList[a]);
+                    openActivity3(SpearsList[a], "Spear");
                 }
             }
 
@@ -598,22 +620,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetBoomerangs() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Boomerangs> tasksQuery = realm.where(Boomerangs.class);
+        RealmQuery<Boomerang> tasksQuery = realm.where(Boomerang.class);
         Spinner BoomerangSpinner = (Spinner) findViewById(R.id.Boomerang_Spinner);
-        List<Boomerangs> boomerangsList = (tasksQuery.findAll());
-        final String[] BoomerangsList = new String[boomerangsList.size() + 1];
+        List<Boomerang> boomerangList = (tasksQuery.findAll());
+        final String[] BoomerangsList = new String[boomerangList.size() + 1];
 
         int i = 1;
         BoomerangsList[0] = "(Boomerangs)";
 
-        for(Boomerangs b: boomerangsList) {
+        for (Boomerang b : boomerangList) {
             BoomerangsList[i] = b.getName();
             i++;
         }
 
-        final ArrayAdapter<String> BoomerangsAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,BoomerangsList);
+        final ArrayAdapter<String> BoomerangsAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, BoomerangsList);
         BoomerangsAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         BoomerangSpinner.setAdapter(BoomerangsAdapter);
 
@@ -622,7 +645,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(BoomerangsList[a]);
+                    openActivity3(BoomerangsList[a], "Boomerang");
                 }
             }
 
@@ -632,22 +655,23 @@ public class ObjectList extends AppCompatActivity {
             }
         });
     }
+
     public void GetFlails() {
         Realm realm = Realm.getDefaultInstance();
-        RealmQuery<Flails> tasksQuery = realm.where(Flails.class);
+        RealmQuery<Flail> tasksQuery = realm.where(Flail.class);
         Spinner FlailSpinner = (Spinner) findViewById(R.id.Flail_Spinner);
-        List<Flails> flailsList = (tasksQuery.findAll());
-        final String[] FlailsList = new String[flailsList.size() + 1];
+        List<Flail> flailList = (tasksQuery.findAll());
+        final String[] FlailsList = new String[flailList.size() + 1];
 
         int i = 1;
         FlailsList[0] = "(Flails)";
 
-        for(Flails f: flailsList) {
+        for (Flail f : flailList) {
             FlailsList[i] = f.getName();
             i++;
         }
 
-        final ArrayAdapter<String> FlailAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1 ,FlailsList);
+        final ArrayAdapter<String> FlailAdapter = new ArrayAdapter<>(ObjectList.this, android.R.layout.simple_list_item_1, FlailsList);
         FlailAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
         FlailSpinner.setAdapter(FlailAdapter);
 
@@ -656,7 +680,7 @@ public class ObjectList extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int a, long id) {
 
                 if (a != 0) {
-                    openActivity3(FlailsList[a]);
+                    openActivity3(FlailsList[a], "Flail");
                 }
             }
 

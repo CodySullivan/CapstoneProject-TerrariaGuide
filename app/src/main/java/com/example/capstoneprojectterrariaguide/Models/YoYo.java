@@ -3,19 +3,18 @@ package com.example.capstoneprojectterrariaguide.Models;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class Spears extends RealmObject {
-
+public class YoYo extends RealmObject {
 
     @PrimaryKey
-    private int spearId;
+    private int yoyoId;
     private String name;
     private float damage;
     private String price;
     private String type;
     private String howToObtain;
 
-    public Spears(int spearId, String name, float damage, String price, String type, String howToObtain) {
-        this.spearId = spearId;
+    public YoYo(int yoyoId, String name, float damage, String price, String type, String howToObtain) {
+        this.yoyoId = yoyoId;
         this.name = name;
         this.damage = damage;
         this.price = price;
@@ -23,15 +22,15 @@ public class Spears extends RealmObject {
         this.howToObtain = howToObtain;
     }
 
-    public Spears() {
+    public YoYo() {
     }
 
-    public int getSpearId() {
-        return spearId;
+    public int getYoyoId() {
+        return yoyoId;
     }
 
-    public void setSpearId(int spearId) {
-        this.spearId = spearId;
+    public void setYoyoId(int yoyoId) {
+        this.yoyoId = yoyoId;
     }
 
     public String getName() {
@@ -76,7 +75,7 @@ public class Spears extends RealmObject {
 
     @Override
     public String toString() {
-        return  "\nSpear ID:  " + spearId +
+        return  "\nYo-Yo ID:  " + yoyoId +
                 "\nDamage: " + damage +
                 "\nPrice: " + price +
                 "\nType: " + type +
