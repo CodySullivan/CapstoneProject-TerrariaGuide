@@ -10,11 +10,13 @@ import android.view.View;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Axes;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Boomerangs;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Bosses;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Bows;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Enemies;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Flails;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Hammers;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Materials;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Pickaxes;
+import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Repeaters;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Spears;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_SpellTomes;
 import com.example.capstoneprojectterrariaguide.Generate_Values.Generate_Swords;
@@ -29,7 +31,7 @@ import io.realm.mongodb.AppConfiguration;
 import io.realm.mongodb.Credentials;
 import io.realm.mongodb.User;
 
-public class MainActivity extends AppCompatActivity {
+public class Main_Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,17 +77,22 @@ public class MainActivity extends AppCompatActivity {
         addSpearsToDatabase();
         addBoomerangsToDatabase();
         addFlailsToDatabase();
-
+        addBowsToDatabase();
+        addRepeatersToDatabase();
     }
 
+    //Button OnClick
     public void StartOnClick(View v){
         openActivity2();
     }
+
+    //Intent Opening
     public void openActivity2(){
-        Intent intent = new Intent(this, ObjectList.class);
+        Intent intent = new Intent(this, Object_List.class);
         startActivity(intent);
     }
 
+    //Add things to Local Database
     public void addMaterialsToDatabase() {
         //Get Materials
         final Generate_Materials gm = new Generate_Materials();
@@ -822,6 +829,72 @@ public class MainActivity extends AppCompatActivity {
             realm1.copyToRealmOrUpdate(gf.Flower_Pow);
             realm1.copyToRealmOrUpdate(gf.Golem_Fist);
             realm1.copyToRealmOrUpdate(gf.Flairon);
+
+        });
+    }
+    public void addBowsToDatabase() {
+        //Get Bows
+        final Generate_Bows gb = new Generate_Bows();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(realm1 -> {
+
+            //Add Pre-Hardmode Bows
+            realm1.copyToRealmOrUpdate(gb.Wooden_Bow);
+            realm1.copyToRealmOrUpdate(gb.Boreal_Wood_Bow);
+            realm1.copyToRealmOrUpdate(gb.Copper_Bow);
+            realm1.copyToRealmOrUpdate(gb.Palm_Wood_Bow);
+            realm1.copyToRealmOrUpdate(gb.Rich_Mahogany_Bow);
+            realm1.copyToRealmOrUpdate(gb.Tin_Bow);
+            realm1.copyToRealmOrUpdate(gb.Ebonwood_Bow);
+            realm1.copyToRealmOrUpdate(gb.Iron_Bow);
+            realm1.copyToRealmOrUpdate(gb.Shadewood_Bow);
+            realm1.copyToRealmOrUpdate(gb.Lead_Bow);
+            realm1.copyToRealmOrUpdate(gb.Silver_Bow);
+            realm1.copyToRealmOrUpdate(gb.Tungsten_Bow);
+            realm1.copyToRealmOrUpdate(gb.Gold_Bow);
+            realm1.copyToRealmOrUpdate(gb.Platinum_Bow);
+            realm1.copyToRealmOrUpdate(gb.Demon_Bow);
+            realm1.copyToRealmOrUpdate(gb.Tendon_Bow);
+            realm1.copyToRealmOrUpdate(gb.Blood_Rain_Bow);
+            realm1.copyToRealmOrUpdate(gb.The_Bees_Knees);
+            realm1.copyToRealmOrUpdate(gb.Hellwing_Bow);
+            realm1.copyToRealmOrUpdate(gb.Molten_Fury);
+            realm1.copyToRealmOrUpdate(gb.Sharanga);
+
+            //Add1 Hardmode Bows
+            realm1.copyToRealmOrUpdate(gb.Pearlwood_Bow);
+            realm1.copyToRealmOrUpdate(gb.Marrow);
+            realm1.copyToRealmOrUpdate(gb.Ice_Bow);
+            realm1.copyToRealmOrUpdate(gb.Daedalus_Stormbow);
+            realm1.copyToRealmOrUpdate(gb.Shadowflame_Bow);
+            realm1.copyToRealmOrUpdate(gb.Phantom_Phoenix);
+            realm1.copyToRealmOrUpdate(gb.Pulse_Bow);
+            realm1.copyToRealmOrUpdate(gb.Aerial_Bane);
+            realm1.copyToRealmOrUpdate(gb.Tsunami);
+            realm1.copyToRealmOrUpdate(gb.Eventide);
+            realm1.copyToRealmOrUpdate(gb.Phantasm);
+
+        });
+    }
+    public void addRepeatersToDatabase() {
+        //Get Repeaters
+        final Generate_Repeaters gr = new Generate_Repeaters();
+        // on below line we are calling a method to execute a transaction.
+        Realm realm = Realm.getDefaultInstance();
+        realm.executeTransactionAsync(realm1 -> {
+
+            //Add Repeaters
+            realm1.copyToRealmOrUpdate(gr.Cobalt_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Palladium_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Mythril_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Orichalcum_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Adamantite_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Titanium_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Hallowed_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Vulcan_Repeater);
+            realm1.copyToRealmOrUpdate(gr.Chlorophyte_Shotbow);
+            realm1.copyToRealmOrUpdate(gr.Stake_Launcher);
 
         });
     }

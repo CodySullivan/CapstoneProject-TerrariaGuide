@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:textAlignment="inherit"
     android:background="@drawable/titlepage"
-    tools:context=".prog.MainActivity">
+    tools:context=".prog.Main_Activity">
 
     <TextView
         android:id="@+id/textView"

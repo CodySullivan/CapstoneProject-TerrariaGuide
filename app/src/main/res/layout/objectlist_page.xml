@@ -14,9 +14,10 @@
         android:onClick="BackOnClick"
         android:text="Back"
         android:textColor="#FFFFFF"
-        android:textSize="10sp"
+        android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView2"
@@ -31,7 +32,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/Search_Bar"
@@ -44,7 +46,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="Autofill,HardcodedText" />
 
     <Button
         android:id="@+id/Search_Button"
@@ -58,7 +61,8 @@
         android:textColor="#FFFFFF"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <ScrollView
         android:layout_width="413dp"
@@ -77,7 +81,7 @@
 
             <Spinner
                 android:id="@+id/Material_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="220dp"
                 android:minHeight="48dp"
@@ -88,7 +92,7 @@
 
             <Spinner
                 android:id="@+id/Enemy_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +104,7 @@
 
             <Spinner
                 android:id="@+id/Boss_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +117,7 @@
 
             <Spinner
                 android:id="@+id/Sword_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -126,7 +130,7 @@
 
             <Spinner
                 android:id="@+id/Pickaxe_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -139,7 +143,7 @@
 
             <Spinner
                 android:id="@+id/Axe_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -151,7 +155,7 @@
 
             <Spinner
                 android:id="@+id/Hammer_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -164,7 +168,7 @@
 
             <Spinner
                 android:id="@+id/SpellTome_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -177,7 +181,7 @@
 
             <Spinner
                 android:id="@+id/Wand_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -189,7 +193,7 @@
                 tools:ignore="SpeakableTextPresentCheck" />
             <Spinner
                 android:id="@+id/YoYo_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -201,7 +205,7 @@
                 tools:ignore="SpeakableTextPresentCheck" />
             <Spinner
                 android:id="@+id/Spear_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -213,7 +217,7 @@
                 tools:ignore="SpeakableTextPresentCheck" />
             <Spinner
                 android:id="@+id/Boomerang_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -225,7 +229,31 @@
                 tools:ignore="SpeakableTextPresentCheck" />
             <Spinner
                 android:id="@+id/Flail_Spinner"
-                android:layout_width="409dp"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/Bow_Spinner"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Axe_Spinner"
+                app:layout_constraintVertical_bias="0.156"
+                tools:ignore="SpeakableTextPresentCheck" />
+            <Spinner
+                android:id="@+id/Repeater_Spinner"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
                 app:layout_constraintBottom_toBottomOf="parent"
